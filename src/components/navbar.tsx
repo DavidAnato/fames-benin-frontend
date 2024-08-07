@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import famesLogo from '../assets/images/logos/fames-logo.png';
 import { useEffect } from 'react';
-
+import useUserProfile from '../utils/user';
+import useAuthStore from '../store/authStore';
 
 const NavBar = () => {
-    useEffect(() => {
+  const { user } = useUserProfile();
+  const { clearAuth } = useAuthStore();
+
+  useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector('.navbar-scroll-anime');
       if (navbar) {
@@ -23,9 +27,14 @@ const NavBar = () => {
     };
   }, []);
 
+  const handleLogout = () => {
+    clearAuth();
+    window.location.href = '/login'; // Redirect to login page after logout
+  };
+
   return (
     <div className="w-auto flex sticky top-0 z-50 nav-enter-anime">
-      <div className="navbar navbar-scroll-anime m-5 bg-gray-100 rounded-full shadow-2xl w-full">
+      <div className="navbar navbar-scroll-anime m-5 bg-gray-100 rounded-full shadow-2xl w-full px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,29 +79,43 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img
-                  alt="User Avatar"
-                  src="https://connect-me-app.com//media/profile_pictures/davidanato_profile_ku5DOm2.jpg"
-                />
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="User Avatar"
+                    src={user.profilePicture || user.pictureUrl}
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <NavLink to="/profile" className={({ isActive }) => isActive ? 'active-link' : ''}>
+                    Profile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/settings" className={({ isActive }) => isActive ? 'active-link' : ''}>
+                    Settings
+                  </NavLink>
+                </li>
+                <li>
+                  <button onClick={handleLogout} className="w-full text-left">
+                    Logout
+                  </button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <NavLink to="/profile" className={({ isActive }) => isActive ? 'active-link' : ''}>
-                  Profile
-                  <span className="badge">New</span>
-                </NavLink>
-              </li>
-              <li><NavLink to="/settings" className={({ isActive }) => isActive ? 'active-link' : ''}>Settings</NavLink></li>
-              <li><NavLink to="/logout" className={({ isActive }) => isActive ? 'active-link' : ''}>Logout</NavLink></li>
-            </ul>
-          </div>
+          ) : (
+            <div className="flex space-x-2">
+              <NavLink to="/login" className="btn btn-ghost font-bold shadow rounded-full">Login</NavLink>
+              <NavLink to="/signup" className="btn btn-accent font-bold shadow shadow-emerald-500/50 rounded-full">Signup</NavLink>
+            </div>
+          )}
         </div>
       </div>
     </div>

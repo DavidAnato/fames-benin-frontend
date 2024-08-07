@@ -1,42 +1,36 @@
 import { NavLink } from 'react-router-dom';
 import famesLogo from '../assets/images/logos/fames-logo.png';
-import { Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
-
+import { Instagram, Facebook, Linkedin, Youtube, MapPin, Building, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
       <div className="container lg:px-12 mx-auto px-4">
         <div className="flex flex-wrap justify-between gap-4">
-          <div className='w-'>
-            <h6 className="font-bold text-lg mb-3">Services</h6>
+          <div >
+            <h6 className="font-bold text-lg mb-3">Useful links</h6>
             <ul>
-              <li><NavLink to="/jobs" className="link hover:text-gray-300">Job Opportunities</NavLink></li>
-              <li><NavLink to="/partners" className="link hover:text-gray-300">Partnership Opportunities</NavLink></li>
+              <li><NavLink to="/members" className="link hover:text-gray-300">BEF members</NavLink></li>
+              <li><NavLink to="/opportunities" className="link hover:text-gray-300">Opportunities</NavLink></li>
+              <li><NavLink to="/success-story" className="link hover:text-gray-300">Success story</NavLink></li>
+              <li><NavLink to="/library" className="link hover:text-gray-300">Resources</NavLink></li>
             </ul>
           </div>
-          <div className='w-'>
-            <h6 className="font-bold text-lg mb-3">Links</h6>
+          <div >
+            <h6 className="font-bold text-lg mb-3">Contacts</h6>
             <ul>
-              <li><NavLink to="/home" className="link hover:text-gray-300">Home</NavLink></li>
-              <li><NavLink to="/news" className="link hover:text-gray-300">News</NavLink></li>
-              <li><NavLink to="/gallery" className="link hover:text-gray-300">Gallery</NavLink></li>
+              <li><MapPin size={20} className="inline-block mr-2" /><span className="link hover:text-gray-300 ">Chongqing - CHINA</span></li>
+              <li><Building size={20} className="inline-block mr-2" /><span className="link hover:text-gray-300 ">FAMES BENIN China</span></li>
+              <li><Mail size={20} className="inline-block mr-2" /><a href="mailto:contact@famesbenin.com" className="link hover:text-gray-300">contact@famesbenin.com</a></li>
+              <li><Phone size={20} className="inline-block mr-2" /><a href="tel:+8613841480424" className="link hover:text-gray-300">+86 1384 1480 424</a></li>
             </ul>
           </div>
-          <div className='w-'>
-            <h6 className="font-bold text-lg mb-3">Legal</h6>
+          <div >
+            <h6 className="font-bold text-lg mb-3">FAQs / Library</h6>
             <ul>
-              <li><NavLink to="/terms" className="link hover:text-gray-300">Terms of Use</NavLink></li>
-              <li><NavLink to="/privacy" className="link hover:text-gray-300">Privacy Policy</NavLink></li>
-              <li><NavLink to="/cookies" className="link hover:text-gray-300">Cookie Policy</NavLink></li>
-            </ul>
-          </div>
-          <div className='w-'>
-            <h6 className="font-bold text-lg mb-3">Contact</h6>
-            <ul>
-              <li><NavLink to="/contact" className="link hover:text-gray-300">Contact Us</NavLink></li>
-              <li><NavLink to="/about-us" className="link hover:text-gray-300">About Us</NavLink></li>
-              <li><NavLink to="/press-kit" className="link hover:text-gray-300">Press Kit</NavLink></li>
+              <li><NavLink to="/consular-card" className="link hover:text-gray-300">Documents required to obtain a consular card</NavLink></li>
+              <li><NavLink to="/passport-renewal" className="link hover:text-gray-300">Documents required for passport renewal</NavLink></li>
+              <li><NavLink to="/scientific-articles" className="link hover:text-gray-300">Scientific article published by students in China</NavLink></li>
             </ul>
           </div>
         </div>
@@ -46,8 +40,7 @@ const Footer = () => {
             <img src={famesLogo} alt="FAMES Logo" className="h-20" />
           </div>
           <div className="text-sm">
-            <p>FAMES BENIN</p>
-            <p>Providing reliable tech since 1992</p>
+            <p>FAMES BENIN Copyright 2024</p>
           </div>
           <div>
             <ul className="flex space-x-4">

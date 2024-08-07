@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <div style={{ marginTop: '-108px' }}>
+      <div style={{ marginTop: '-115px' }}>
         {children}
       </div>
 

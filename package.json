@@ -12,14 +12,16 @@
     "deploy": "gh-pages -d dist",
     "postdeploy": "echo 'Deployed to GitHub Pages'"
   },
-    "dependencies": {
+  "dependencies": {
     "@lucide/lab": "^0.1.2",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^11.3.4",
     "lucide-react": "^0.408.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.1"
+    "react-router-dom": "^6.24.1",
+    "redaxios": "^0.5.1",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -36,6 +38,6 @@
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.3"
   }
 }

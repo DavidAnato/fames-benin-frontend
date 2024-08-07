@@ -56,7 +56,7 @@
     }
 
 .navbar-scroll-anime {
-    transition: margin 0.3s ease, border-radius 0.3s ease, background-color 0.3s;
+    transition: margin 1s ease, border-radius 1s ease, background-color 1s;
     }
     
 .navbar-scroll-anime.scrolled {

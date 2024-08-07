@@ -1,6 +1,7 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import UnderDevelopment from './pages/UnderDevelopment';
 // import News from './pages/News';
 // import Opportunities from './pages/Opportunities';
 // import Gallery from './pages/Gallery';
@@ -12,15 +13,17 @@ import Layout from './HightOrderFunction/Layout';
 import { useEffect } from 'react';
 
 function App() {
-  useEffect(()=>{
-    document.title = `FAMES BENIN`
-    // document.
-  })
+  useEffect(() => {
+      document.title = `FAMES BENIN`;
+  }, []);
+
   return (
-    <Router>
+    <Router basename="/fames-benin-frontend">
       <Layout>
         <Routes>
           <Route path="/" Component={Home} />
+          <Route path="*" Component={UnderDevelopment} />
+
           {/* <Route path="/news" Component={News} />
           <Route path="/opportunities" Component={Opportunities} />
           <Route path="/gallery" Component={Gallery} />
