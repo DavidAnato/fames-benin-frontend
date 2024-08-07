@@ -75,7 +75,7 @@ const NavBar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="User Avatar"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src="https://connect-me-app.com//media/profile_pictures/davidanato_profile_ku5DOm2.jpg"
                 />
               </div>
             </div>
