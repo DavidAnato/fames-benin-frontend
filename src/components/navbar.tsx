@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import famesLogo from '../assets/images/logos/fames-logo.png';
 import { useEffect } from 'react';
-import useUserProfile from '../utils/user';
+import useUserProfile from '../hooks/user';
 import useAuthStore from '../store/authStore';
 
 const NavBar = () => {

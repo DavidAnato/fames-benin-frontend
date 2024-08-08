@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../../fetch/authFetch';
-import useUserProfile from '../../utils/user';
+import useUserProfile from '../../hooks/user';
 import GoogleConnection from './googleConnection';
 
 const Login = () => {
@@ -53,6 +53,9 @@ const Login = () => {
           {error && <div className="text-red-500 mb-4">{error}</div>}
           <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Login</button>
         </form>
+        <div className="mt-4 text-center">
+          <Link to="/password-reset-request" className="text-blue-500">Forgot Password?</Link>
+        </div>
         <GoogleConnection text='Se connecter avec Google'></GoogleConnection>
       </div>
     </div>

@@ -30,50 +30,53 @@ const SetPassword = () => {
     };
 
     return (
-        <div className="card w-full max-w-md shadow-2xl bg-base-100">
-            <div className="card-body">
-                <h2 className="card-title text-center">Set Password</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="form-control">
-                        <label htmlFor="password" className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input
-                            id="password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="input input-bordered w-full pl-10"
-                            placeholder="Enter your password"
-                            required
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="confirmPassword" className="label">
-                            <span className="label-text">Confirm Password</span>
-                        </label>
-                        <input
-                            id="confirmPassword"
-                            type="password"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="input input-bordered w-full pl-10"
-                            placeholder="Confirm your password"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary" disabled={loading}>
-                        {loading ? 'Submitting...' : 'Submit'}
-                    </button>
-                    {message && (
-                        <div className="alert alert-error shadow-lg mt-4">
-                            <div>
-                                <i className="fas fa-exclamation-circle"></i>
-                                <span>{message}</span>
-                            </div>
+        <div className="flex flex-col items-center justify-center h-screen">
+
+            <div className="card w-full max-w-md shadow-2xl bg-base-100">
+                <div className="card-body">
+                    <h2 className="card-title text-center">Set Password</h2>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="form-control">
+                            <label htmlFor="password" className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input
+                                id="password"
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="input input-bordered w-full pl-10"
+                                placeholder="Enter your password"
+                                required
+                            />
                         </div>
-                    )}
-                </form>
+                        <div className="form-control">
+                            <label htmlFor="confirmPassword" className="label">
+                                <span className="label-text">Confirm Password</span>
+                            </label>
+                            <input
+                                id="confirmPassword"
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                className="input input-bordered w-full pl-10"
+                                placeholder="Confirm your password"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary" disabled={loading}>
+                            {loading ? 'Submitting...' : 'Submit'}
+                        </button>
+                        {message && (
+                            <div className="alert alert-error shadow-lg mt-4">
+                                <div>
+                                    <i className="fas fa-exclamation-circle"></i>
+                                    <span>{message}</span>
+                                </div>
+                            </div>
+                        )}
+                    </form>
+                </div>
             </div>
         </div>
     );

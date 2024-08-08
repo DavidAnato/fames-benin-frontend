@@ -25,62 +25,65 @@ const ChangePassword = () => {
     };
 
     return (
-        <div className="card w-full max-w-md shadow-2xl bg-base-100">
-            <div className="card-body">
-                <h2 className="card-title text-center">Change Password</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="form-control">
-                        <label htmlFor="oldPassword" className="label">
-                            <span className="label-text">Old Password</span>
-                        </label>
-                        <input
-                            id="oldPassword"
-                            type="password"
-                            value={oldPassword}
-                            onChange={(e) => setOldPassword(e.target.value)}
-                            className="input input-bordered w-full pl-10"
-                            placeholder="Enter old password"
-                            required
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="newPassword" className="label">
-                            <span className="label-text">New Password</span>
-                        </label>
-                        <input
-                            id="newPassword"
-                            type="password"
-                            value={newPassword}
-                            onChange={(e) => setNewPassword(e.target.value)}
-                            className="input input-bordered w-full pl-10"
-                            placeholder="Enter new password"
-                            required
-                        />
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="confirmPassword" className="label">
-                            <span className="label-text">Confirm New Password</span>
-                        </label>
-                        <input
-                            id="confirmPassword"
-                            type="password"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="input input-bordered w-full pl-10"
-                            placeholder="Confirm new password"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">
-                        Submit
-                    </button>
-                </form>
-                {message && <div className="alert alert-error shadow-lg">
-                    <div>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <span>{message}</span>
-                    </div>
-                </div>}
+        <div className="flex flex-col items-center justify-center h-screen">
+
+            <div className="card w-full max-w-md shadow-2xl bg-base-100">
+                <div className="card-body">
+                    <h2 className="card-title text-center">Change Password</h2>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="form-control">
+                            <label htmlFor="oldPassword" className="label">
+                                <span className="label-text">Old Password</span>
+                            </label>
+                            <input
+                                id="oldPassword"
+                                type="password"
+                                value={oldPassword}
+                                onChange={(e) => setOldPassword(e.target.value)}
+                                className="input input-bordered w-full pl-10"
+                                placeholder="Enter old password"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="newPassword" className="label">
+                                <span className="label-text">New Password</span>
+                            </label>
+                            <input
+                                id="newPassword"
+                                type="password"
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
+                                className="input input-bordered w-full pl-10"
+                                placeholder="Enter new password"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label htmlFor="confirmPassword" className="label">
+                                <span className="label-text">Confirm New Password</span>
+                            </label>
+                            <input
+                                id="confirmPassword"
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                className="input input-bordered w-full pl-10"
+                                placeholder="Confirm new password"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary">
+                            Submit
+                        </button>
+                    </form>
+                    {message && <div className="alert alert-error shadow-lg">
+                        <div>
+                            <i className="fas fa-exclamation-circle"></i>
+                            <span>{message}</span>
+                        </div>
+                    </div>}
+                </div>
             </div>
         </div>
     );

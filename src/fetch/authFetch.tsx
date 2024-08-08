@@ -143,7 +143,7 @@ export const passwordResetRequest = async (email: string): Promise<string> => {
 
 export const passwordResetConfirm = async (otp: string, newPassword: string): Promise<string> => {
   try {
-    const response = await api.post('authentication/password-reset-confirm/', { otp, new_password: newPassword });
+    const response = await api.post('authentication/password-reset-confirm/', { otp_code: otp, new_password: newPassword });
     const data = response.data as PasswordResetConfirmResponse;
     return data.message;
   } catch (error: any) {
@@ -157,43 +157,13 @@ export const setPassword = async (password: string, confirmPassword: string): Pr
     throw new Error('Password and confirm password do not match.');
   }
 
-  const accessToken = useAuthStore.getState().accessToken;
-  const refreshToken = useAuthStore.getState().refreshToken;
-
-  const config = {
-    headers: {
-      'Authorization': `Bearer ${accessToken}`
-    },
-    data: { password }
-  };
-
   try {
-    const response = await api.post('authentication/set-password/', config);
+    const response = await api.put('authentication/set-password/', { password });
     const data = response.data as SetPasswordResponse;
     return data.message;
   } catch (error: any) {
-    if (error.response?.data?.code === 'token_not_valid') {
-      try {
-        const refreshResponse = await api.post('authentication/refresh/', { refresh: refreshToken });
-        const newAccessToken = (refreshResponse.data as { access: string }).access;
-        useAuthStore.getState().setAccessToken(newAccessToken);
-
-        const retryConfig = {
-          headers: {
-            'Authorization': `Bearer ${newAccessToken}`
-          },
-          data: { password }
-        };
-
-        const retryResponse = await api.post('authentication/set-password/', retryConfig);
-        const retryData = retryResponse.data as SetPasswordResponse;
-        return retryData.message;
-      } catch (refreshError) {
-        throw new Error('Failed to refresh token. Please login again.');
-      }
-    } else {
-      throw new Error('An error occurred. Please try again later.');
-    }
+    const errorMessage = error.response?.data?.error || 'An error occurred. Please try again.';
+    throw new Error(errorMessage);
   }
 };
 
@@ -203,7 +173,7 @@ export const changePassword = async (oldPassword: string, newPassword: string, c
   }
 
   try {
-    const response = await api.post('authentication/change-password/', { old_password: oldPassword, new_password: newPassword });
+    const response = await api.put('authentication/change-password/', { old_password: oldPassword, new_password: newPassword });
     const data = response.data as ChangePasswordResponse;
     return data.message;
   } catch (error: any) {
