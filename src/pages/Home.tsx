@@ -7,10 +7,12 @@ import Galleries from '../components/home/galeries';
 import News from '../components/home/news';
 import Partners from '../components/home/partners';
 import AnimatedElement from '../function/AnimatedElement';
+import GoogleConnectionToApi from '../utils/googleConnectionToApi';
 
 const Home: React.FC = () => {
   return (
     <div>
+      <GoogleConnectionToApi/>
         <section id="hero">
           <Hero/>
         </section>

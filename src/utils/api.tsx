@@ -2,7 +2,7 @@
 import redaxios from 'redaxios';
 import useAuthStore from '../store/authStore';
 
-const API_URL = 'http://localhost:8000/';
+const API_URL = process.env.API_URL;
 
 const api = redaxios.create({
   baseURL: API_URL,

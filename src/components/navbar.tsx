@@ -80,36 +80,44 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="User Avatar"
-                    src={user.profilePicture || user.pictureUrl}
-                  />
+            <>
+              {user.first_name}
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="btn btn-circle bg-gray-200">
+                  <div className="w-10 rounded-full flex items-center justify-center ">
+                    {user.profile_picture || user.picture_url ? (
+                      <img
+                        className="w-10 h-10 rounded-full"
+                        alt="User Avatar"
+                        src={user.profile_picture || user.picture_url}
+                      />
+                    ) : (
+                      <i className="fa fa-user text-2xl" aria-hidden="true"></i>
+                    )}
+                  </div>
                 </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <NavLink to="/profile" className={({ isActive }) => isActive ? 'active-link' : ''}>
+                      Profile
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/settings" className={({ isActive }) => isActive ? 'active-link' : ''}>
+                      Settings
+                    </NavLink>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout} className="w-full text-left">
+                      Logout
+                    </button>
+                  </li>
+                </ul>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-              >
-                <li>
-                  <NavLink to="/profile" className={({ isActive }) => isActive ? 'active-link' : ''}>
-                    Profile
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/settings" className={({ isActive }) => isActive ? 'active-link' : ''}>
-                    Settings
-                  </NavLink>
-                </li>
-                <li>
-                  <button onClick={handleLogout} className="w-full text-left">
-                    Logout
-                  </button>
-                </li>
-              </ul>
-            </div>
+            </>
           ) : (
             <div className="flex space-x-2">
               <NavLink to="/login" className="btn btn-ghost font-bold shadow rounded-full">Login</NavLink>

@@ -7,51 +7,28 @@ interface LoginResponse {
   refresh: string;
 }
 
-interface UserProfile {
+export interface UserProfile {
   email: string;
-  firstName: string;
-  lastName: string;
-  isActive: boolean;
-  isStaff: boolean;
-  dateJoined: Date;
-  lastLogin: Date;
-  googleId: string;
-  pictureUrl: string;
-  picture: string;
-  verifiedEmail: boolean;
-  otpCode: string;
-  otpGeneratedAt: Date;
-  username: string;
-  dateOfBirth: Date;
-  phoneNumber: string;
-  profilePicture: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  profile_picture: string;
+  profile_cover: string;
   bio: string;
-  gender: string;
+  date_of_birth: Date;
   city: string;
   country: string;
-  profession: string;
-  education: string;
-  relationshipStatus: string;
-  onlineStatus: boolean;
-  facebookName: string;
-  facebookUrls: string;
-  instagramName: string;
-  instagramUrls: string;
-  twitterName: string;
-  twitterUrls: string;
-  linkedinName: string;
-  linkedinUrls: string;
-  otherName: string;
-  otherUrls: string;
-  hasBadge: boolean;
-  themeMode: string;
-  subscriptionType: string;
-  subscriptionStartDate: Date;
-  addCount: number;
-  pubCount: number;
-  latitude: number;
-  longitude: number;
-  isSubscriptionManager: boolean;
+  gender: string;
+  language_preference: string;
+  is_active: boolean;
+  is_staff: boolean;
+  date_joined: Date;
+  last_login: Date;
+  google_id: string;
+  picture_url: string;
+  verified_email: boolean;
+  otp_code: string;
+  otp_generated_at: Date;
 }
 
 interface RegisterResponse {
@@ -246,7 +223,7 @@ export const googleLoginRequest = () => {
   window.location.href = authURL;
 };
 
-export const googleLogin = async (code: string): Promise<boolean> => {
+export const googleLogin = async (code: string): Promise<{ success: boolean; data?: GoogleLoginResponse; error?: string }> => {
   try {
     const response = await api.post('authentication/google-login/', { code });
     const data = response.data as GoogleLoginResponse;
@@ -254,10 +231,10 @@ export const googleLogin = async (code: string): Promise<boolean> => {
     const refresh = data.refresh;
     useAuthStore.getState().setAccessToken(access);
     useAuthStore.getState().setRefreshToken(refresh);
-    return true;
-  } catch (error) {
+    return { success: true, data };
+  } catch (error: any) {
     console.error('Google login failed:', error);
-    return false;
+    return { success: false, error: error.response?.data?.error || 'Failed to obtain access token.' };
   }
 };
 
