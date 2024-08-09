@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Google from '../../assets/images/logos/chercher.png'; // Assure-toi que ce chemin est correct
+
 
 interface GoogleConnectionProps {
   text: string;
@@ -23,10 +25,14 @@ const GoogleConnection = ({ text }: GoogleConnectionProps) => {
 
 
   return (
-    <button className="btn btn-warning" type="button" onClick={handleGoogleLogin} disabled={loading}>
-      {loading ? <i className="fas fa-spinner fa-spin mr-2"></i> : <i className="fab fa-google mr-2"></i>}
-      {text}
-    </button>
+    <button className="btn border border-black w-full rounded-full flex items-center justify-center py-2 px-4" type="button" onClick={handleGoogleLogin} disabled={loading}>
+    {loading ? (
+      <i className="fas fa-spinner fa-spin mr-2"></i> // Icône de chargement
+    ) : (
+      <img src={Google} alt="Google Logo" className="w-6 h-6 mr-2" /> // Image Google
+    )}
+    {text}
+  </button>
   );
 };
 

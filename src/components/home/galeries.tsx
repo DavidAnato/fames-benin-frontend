@@ -25,7 +25,8 @@ const Galleries = () => {
             Discover moments captured during various activities and events involving our members. Browse through our galleries.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 hidden md:grid">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 md:grid">
+          {/* hidden */}
           <div className="flex flex-col gap-4">
             {photos.filter((_, index) => index % 3 === 0).map((photo, index) => (
               <AnimatedElement>

@@ -34,99 +34,99 @@ const NavBar = () => {
 
   return (
     <div className="w-auto flex sticky top-0 z-50 nav-enter-anime">
-      <div className="navbar navbar-scroll-anime m-5 bg-gray-100 rounded-full shadow-2xl w-full px-5">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+  <div className="navbar navbar-scroll-anime m-5 bg-gray-100 rounded-full shadow-2xl w-full px-5">
+    <div className="navbar-start flex items-center">
+      <div className="dropdown lg:hidden">
+        <div tabIndex={0} role="button" className="btn btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </div>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+        >
+          <li><NavLink to="/" className={({ isActive }) => isActive ? 'active-link' : ''}>Home</NavLink></li>
+          <li><NavLink to="/news" className={({ isActive }) => isActive ? 'active-link' : ''}>News</NavLink></li>
+          <li><NavLink to="/opportunities" className={({ isActive }) => isActive ? 'active-link' : ''}>Opportunities</NavLink></li>
+          <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'active-link' : ''}>Gallery</NavLink></li>
+          <li><NavLink to="/about-us" className={({ isActive }) => isActive ? 'active-link' : ''}>About Us</NavLink></li>
+        </ul>
+      </div>
+      <NavLink to="/" className="text-xl font-extrabold items-center text-red-700 ml-2 hidden lg:flex">
+        <img src={famesLogo} alt="FAMES Logo" className="h-10 mr-2" />
+        FAMES BENIN
+      </NavLink>
+    </div>
+    <div className="navbar-center hidden lg:flex">
+      <ul className="menu menu-horizontal px-1">
+        <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink></li>
+        <li><NavLink to="/news" className={({ isActive }) => isActive ? 'active' : ''}>News</NavLink></li>
+        <li><NavLink to="/opportunities" className={({ isActive }) => isActive ? 'active' : ''}>Opportunities</NavLink></li>
+        <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'active' : ''}>Gallery</NavLink></li>
+        <li><NavLink to="/about-us" className={({ isActive }) => isActive ? 'active' : ''}>About Us</NavLink></li>
+      </ul>
+    </div>
+    <div className="navbar-end flex items-center">
+      {user ? (
+        <>
+          {user.first_name}
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-circle bg-gray-200">
+              <div className="w-10 rounded-full flex items-center justify-center">
+                {user.profile_picture || user.picture_url ? (
+                  <img
+                    className="w-10 h-10 rounded-full"
+                    alt="User Avatar"
+                    src={user.profile_picture || user.picture_url}
+                  />
+                ) : (
+                  <i className="fa fa-user text-2xl" aria-hidden="true"></i>
+                )}
+              </div>
             </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li><NavLink to="/" className={({ isActive }) => isActive ? 'active-link' : ''}>Home</NavLink></li>
-              <li><NavLink to="/news" className={({ isActive }) => isActive ? 'active-link' : ''}>News</NavLink></li>
-              <li><NavLink to="/opportunities" className={({ isActive }) => isActive ? 'active-link' : ''}>Opportunities</NavLink></li>
-              <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'active-link' : ''}>Gallery</NavLink></li>
-              <li><NavLink to="/about-us" className={({ isActive }) => isActive ? 'active-link' : ''}>About Us</NavLink></li>
+              <li>
+                <NavLink to="/profile" className={({ isActive }) => isActive ? 'active-link' : ''}>
+                  Profile
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/settings" className={({ isActive }) => isActive ? 'active-link' : ''}>
+                  Settings
+                </NavLink>
+              </li>
+              <li>
+                <button onClick={handleLogout} className="w-full text-left">
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
-          <NavLink to="/" className="text-xl font-extrabold flex items-center text-red-700 ml-2">
-            <img src={famesLogo} alt="FAMES Logo" className="h-10 mr-2" />
-            FAMES BENIN
-          </NavLink>
+        </>
+      ) : (
+        <div className="flex space-x-2">
+          <NavLink to="/login" className="btn btn-ghost font-bold shadow rounded-full">Login</NavLink>
+          <NavLink to="/register" className="btn btn-accent font-bold shadow shadow-emerald-500/50 rounded-full">Signup</NavLink>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink></li>
-            <li><NavLink to="/news" className={({ isActive }) => isActive ? 'active' : ''}>News</NavLink></li>
-            <li><NavLink to="/opportunities" className={({ isActive }) => isActive ? 'active' : ''}>Opportunities</NavLink></li>
-            <li><NavLink to="/gallery" className={({ isActive }) => isActive ? 'active' : ''}>Gallery</NavLink></li>
-            <li><NavLink to="/about-us" className={({ isActive }) => isActive ? 'active' : ''}>About Us</NavLink></li>
-          </ul>
-        </div>
-        <div className="navbar-end">
-          {user ? (
-            <>
-              {user.first_name}
-              <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="btn btn-circle bg-gray-200">
-                  <div className="w-10 rounded-full flex items-center justify-center ">
-                    {user.profile_picture || user.picture_url ? (
-                      <img
-                        className="w-10 h-10 rounded-full"
-                        alt="User Avatar"
-                        src={user.profile_picture || user.picture_url}
-                      />
-                    ) : (
-                      <i className="fa fa-user text-2xl" aria-hidden="true"></i>
-                    )}
-                  </div>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                >
-                  <li>
-                    <NavLink to="/profile" className={({ isActive }) => isActive ? 'active-link' : ''}>
-                      Profile
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/settings" className={({ isActive }) => isActive ? 'active-link' : ''}>
-                      Settings
-                    </NavLink>
-                  </li>
-                  <li>
-                    <button onClick={handleLogout} className="w-full text-left">
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </>
-          ) : (
-            <div className="flex space-x-2">
-              <NavLink to="/login" className="btn btn-ghost font-bold shadow rounded-full">Login</NavLink>
-              <NavLink to="/signup" className="btn btn-accent font-bold shadow shadow-emerald-500/50 rounded-full">Signup</NavLink>
-            </div>
-          )}
-        </div>
-      </div>
+      )}
     </div>
+  </div>
+</div>
   );
 }
 

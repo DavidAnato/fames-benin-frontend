@@ -3,6 +3,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../../fetch/authFetch';
 import useUserProfile from '../../hooks/user';
 import GoogleConnection from './googleConnection';
+import famesLogo from '../../assets/images/logos/fames-logo.png';
+
+import './login.css'
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,37 +29,46 @@ const Login = () => {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center h-screen mt-5">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+      <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
+        <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
+        <h2 className="text-2xl font-bold mb-6 text-center md:text-left">Login</h2>
+      </div>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700">Email:</label>
+          <div className="floating-label mb-4 relative">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded placeholder-transparent"
+              placeholder="Email"
             />
+            <label className='text-black'><i className="fa fa-envelope text-gray-500 pe-2"></i> Email</label>
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Password:</label>
+          <div className="floating-label mb-4 relative">
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border rounded placeholder-transparent"
+              placeholder="Password"
             />
+            <label><i className="fa fa-lock text-gray-500 pe-2"></i>Password</label>
           </div>
           {error && <div className="text-red-500 mb-4">{error}</div>}
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+          <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">Login</button>
         </form>
-        <div className="mt-4 text-center">
-          <Link to="/password-reset-request" className="text-blue-500">Forgot Password?</Link>
+        <div className='my-3 flex items-center'>
+          <div className='flex-grow border-t border-gray-300'></div>
+          <Link to="/password-reset-request" className="text-blue-300 mx-4 hover:text-blue-500 duration-100">Forgot Password?</Link>
+          <div className='flex-grow border-t border-gray-300'></div>
+        </div>          
+        <div>
+          <GoogleConnection text='log in with google'></GoogleConnection>
         </div>
-        <GoogleConnection text='Se connecter avec Google'></GoogleConnection>
       </div>
     </div>
   );
