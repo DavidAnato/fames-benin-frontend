@@ -1,0 +1,10 @@
+{
+  "name": "Fames Benin",
+  "short_name": "Fames",
+  "description": "Le site officiel de Fames Benin",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
+

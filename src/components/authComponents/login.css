@@ -1,0 +1,23 @@
+/* styles.css */
+.floating-label {
+    position: relative;
+    margin-top: 1.5rem; /* Adjust as needed */
+  }
+  
+  .floating-label label {
+    position: absolute;
+    top: 0.75rem; /* Adjust based on padding-top of input */
+    left: 0.75rem; /* Adjust to match the padding of the input */
+    font-size: 0.875rem; /* Adjust font size as needed */
+    color: #6b7280; /* Tailwind text-gray-500 */
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+  }
+  
+  .floating-label input:focus + label,
+  .floating-label input:not(:placeholder-shown) + label {
+    top: -1.2rem; /* Moves label above input */
+    left: 0.75rem; /* Keeps label aligned */
+    font-size: 0.75rem; /* Adjust font size when label is floating */
+  }
+  

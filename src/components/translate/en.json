@@ -1,0 +1,125 @@
+{
+    "welcome": "Welcome to FAMES BENIN",
+    "mission": "Our mission is to act as a center dedicated to the ongoing quest for development solutions within the framework of Sino-Beninese cooperation.",
+    "join": "Join our community to uncover incredible opportunities.",
+    "getStarted": "Get Started",
+    "about_us": "About Us",
+    "about_us_description": "FAMES BENIN, officially known as the Federation of Beninese Students and Interns in China, is a nonprofit, non-political, and secular organization. It operates throughout the entirety of Chinese territory and is dedicated to fostering continuous development solutions within the framework of Sino-Beninese cooperation.",
+    "learn_more": "Learn More",
+        "statistics": {
+          "title": "Our Statistics",
+          "since": "Since",
+          "activeMembers": "Active Members",
+          "activeCities": "Active Cities",
+          "graduates": "Graduates"
+        },
+        "opportunities": {
+            "title": "Opportunities",
+            "description": "At FAMES BENIN, we are committed to providing our members with an array of opportunities designed to enhance both their professional and personal lives. Our strong network and partnerships open doors to numerous avenues that help you grow and succeed.",
+            "jobOpportunities": "Job Opportunities",
+            "jobOpportunitiesDescription": "FAMES BENIN offers a plethora of job opportunities across various industries. By joining our community, you get connected with top-tier companies looking for talented individuals like you. Whether you're a recent graduate or an experienced professional, we have positions that can match your skills and ambitions.",
+            "partnerOpportunities": "Opportunities from Our Partners",
+            "partnerOpportunitiesDescription": "Through our extensive network of partners, FAMES BENIN provides exclusive opportunities for internships, collaborations, and special projects. These partnerships allow you to gain valuable experience, build your professional network, and develop skills that are crucial for your future success.",
+            "show": "Show Opportunities"
+          },
+          "galleries": {
+            "title": "Photo Galleries",
+            "description": "Discover moments captured during various activities and events involving our members. Browse through our galleries.",
+            "showGallery": "Show Gallery"
+          },
+          "news": {
+            "title": "Latest News",
+            "description": "Stay updated with the latest news and announcements from FAMES BENIN. Here you will find the most recent updates and important information.",
+            "title1": "News Title 1",
+            "description1": "Brief description of the news content. This section provides a summary of the news article.",
+            "altText1": "News 1",
+            "title2": "News Title 2",
+            "description2": "Brief description of the news content. This section provides a summary of the news article.",
+            "altText2": "News 2",
+            "title3": "News Title 3",
+            "description3": "Brief description of the news content. This section provides a summary of the news article.",
+            "altText3": "News 3",
+            "readMore": "Read More"
+          },
+          "navbar": {
+            "home": "Home",
+            "news": "News",
+            "opportunities": "Opportunities",
+            "gallery": "Galleries",
+            "aboutUs": "About Us",
+            "logo": "FAMES BENIN",
+            "profile": "Profile",
+            "settings": "Settings",
+            "logout": "Logout",
+            "login": "Login",
+            "signup": "Signup",
+            "userAvatarAlt": "User Avatar"
+          },
+          "footer": {
+            "usefulLinks": "Useful links",
+            "befMembers": "BEF members",
+            "opportunities": "Opportunities",
+            "successStory": "Success story",
+            "resources": "Resources",
+            "contacts": "Contacts",
+            "faqsLibrary": "FAQs / Library",
+            "consularCard": "Documents required to obtain a consular card",
+            "passportRenewal": "Documents required for passport renewal",
+            "scientificArticles": "Scientific article published by students in China"
+          },
+          "bureau": "Federal Executive Office 2023/2024",
+            "partenaire": {
+              "premierPartenaire": "Partner 1",
+              "deuxiemePartenaire": "partner 2",
+              "troisièmePartenaire": "partner 3",
+              "qutrièmePartenaire": "partner 4",
+              "cinquièmePartenaire": "partner 5"
+            },
+            "about": {
+              "title": "About Us",
+              "members": [
+                {
+                  "title": "President",
+                  "name": "Miss KOUDENOUKPO Dossi Isbath",
+                  "description": "Final year master student in Pharmacy at Southwest University",
+                  "photo": "src/assets/images/membres/membre1.png"
+                },
+                {
+                  "title": "Secretary General",
+                  "name": "Mr SEGBO Silas Fidèle Gbèwèdo",
+                  "description": "Student in Plant Molecular Biology at Nanjing Agricultural University",
+                  "photo": "src/assets/images/membres/membre2.png"
+                },
+                {
+                  "title": "Deputy Secretary General",
+                  "name": "Miss AVOGNON Sènan Emma Mirabelle",
+                  "description": "Civil engineering student at Jiangsu University of Science and Technology",
+                  "photo": "src/assets/images/membres/membre1.png"
+                },
+                {
+                  "title": "Treasurer General",
+                  "name": "Mr ONZO Bernard-Marie",
+                  "description": "Student in Information Safety at Nanjing University of Information Science and Technology",
+                  "photo": "src/assets/images/membres/membre4.png"
+                },
+                {
+                  "title": "Deputy Treasurer General",
+                  "name": "Mr AHOUISSOU Létondé Fernand Eusèbe",
+                  "description": "Student in Sports Science at Shanghai University of Sport",
+                  "photo": "src/assets/images/membres/membre5.png"
+                }
+              ]
+            },
+            "damienProfile": {
+              "title": "The Fames Benin team with 'Iron man'",
+              "description": "The Fames Benin team was with 'the iron man', not for a COVID rescue mission this time but for an interview.",
+              "content": "'Iron man', whose real name is Damien S. TIANDO, is a Beninese student living in China, specifically in Wuhan, where he showed immense and invaluable courage at the start of the COVID-19 pandemic. We are honored and pleased to take you into the world of this great hero. A native of Natitingou, Mr. Damien TIANDO completed part of his university studies at Up Parakou before moving to China for a Master's degree in natural resource protection. Passionate about dramatic arts, a comedian actor, and involved in pedagogical and artistic activities at his university, he quickly received a Chinese cooperation scholarship.",
+              "additional_info": "According to him, his first days in China were not easy. He had to solve the double challenge of learning Chinese and English at the same time as most French speakers. He had to fight hard but managed to succeed. Currently a Ph.D. student in land use planning and policy management at the University of Geosciences in Wuhan, Mr. Damien, captain of the international volunteer club 'Iron Team', had the honor and pleasure of telling us how the name 'Iron man' came about and why his name is in the chronicles across Wuhan and around the world.",
+              "additional_info2": "Like most foreign students, we were all anxious and panicked, it was our first time hearing about this virus and its ease of spreading was sickening. Following Western newspapers and d other African countries, many of us were really scared. We were on the verge of the Chinese New Year, this celebration so important for the Chinese people was torpedoed by this pandemic and really there was fear and despair. on everyone's faces. The administration at my university was invested and doing everything to protect us. I said to myself one day that we can't just sit around moping and feeling sorry for ourselves, and that we can. be useful for a few things in view of the work that the administration of my university was doing, I then set up a volunteer club made up of twenty-three (23) international students (Beninese, Pakistanis, Tanzanians, Nigerians, etc.) to help them. We chose a name; I mean the name “Iron man” to say that we were afraid of nothing to help others survive. We worked with our hearts alongside the Chinese authorities and our teachers, and in return we earned everyone's respect. It was not easy, I remember that sometimes we received allocations of vegetables and foodstuffs which we had to distribute equally to more than 400 students and it could take a whole day; It was really exhausting, but at least a great experience and a feeling of pride at having accomplished something useful.",
+              "additional_info3": "This union that the international club 'Iron Man' has succeeded. I therefore concluded that seriousness and union can do anything and as I have just said in the local Chinese press, Africans are serious and we are still doing good works, so let’s continue in this momentum.",
+              "additional_info4": "Today China is no longer recording new cases, and here in Wuhan the covid pandemic is a thing of the past. It is therefore urgent that we learn from others. I will end by sharing some tips with newbies. To my brothers who have just joined China, I advise you to learn a little about Chinese culture to really quickly assimilate and master the Chinese language, it is a technique that I have experienced personally and it worked. Long live Cheers and long live the Beninese student community, thank you.",
+              "additional_info5": "If there is anything else I would like to address in this covid story, it is the prompt response and financial support from the embassy to every Beninese student. Our authorities, just like the Chinese authorities, have been with us. This is the very moment to congratulate all the authorities at various levels for their effective management of the pandemic, because they all understood that it was a problem of order and not a regional or racial thing. I will end by correcting this mistake that people make;",
+              "additional_info6": "we are not foreigners in China but rather we are international students and also Wuhan is like a second home for us. If I have to do it again I will do it with pleasure because helping human beings like us is a noble mission and one to be encouraged. Diseases have no borders, there is strength in unity, they say. It is through this union that China succeeded, it is also through..."
+            }
+  }
+  

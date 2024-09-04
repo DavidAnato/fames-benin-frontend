@@ -1,0 +1,125 @@
+{
+    "welcome": "Bienvenue à FAMES BENIN",
+    "mission": "Notre mission est d'agir comme un centre dédié à la recherche continue de solutions de développement dans le cadre de la coopération sino-béninoise.",
+    "join": "Rejoignez notre communauté pour découvrir des opportunités incroyables.",
+    "getStarted": "Commencez",
+    "about_us": "À propos de nous",
+    "about_us_description": "FAMES BENIN, officiellement connu sous le nom de Fédération des Étudiants et Stagiaires Béninois en Chine, est une organisation à but non lucratif, non politique et laïque. Elle opère sur l'ensemble du territoire chinois et se consacre à la promotion de solutions de développement continu dans le cadre de la coopération sino-béninoise.",
+    "learn_more": "En savoir plus",
+        "statistics": {
+          "title": "Nos Statistiques",
+          "since": "Depuis",
+          "activeMembers": "Membres Actifs",
+          "activeCities": "Villes Actives",
+          "graduates": "Diplômés"
+        },
+        "opportunities": {
+            "title": "Opportunités",
+            "description": "Chez FAMES BENIN, nous nous engageons à offrir à nos membres une gamme d'opportunités conçues pour améliorer à la fois leur vie professionnelle et personnelle. Notre réseau solide et nos partenariats ouvrent des portes à de nombreuses avenues qui vous aident à grandir et à réussir.",
+            "jobOpportunities": "Opportunités d'Emploi",
+            "jobOpportunitiesDescription": "FAMES BENIN offre une pléthore d'opportunités d'emploi dans divers secteurs. En rejoignant notre communauté, vous vous connectez avec des entreprises de premier plan à la recherche de personnes talentueuses comme vous. Que vous soyez un jeune diplômé ou un professionnel expérimenté, nous avons des postes qui peuvent correspondre à vos compétences et à vos ambitions.",
+            "partnerOpportunities": "Opportunités de Nos Partenaires",
+            "partnerOpportunitiesDescription": "Grâce à notre vaste réseau de partenaires, FAMES BENIN fournit des opportunités exclusives pour des stages, des collaborations et des projets spéciaux. Ces partenariats vous permettent d'acquérir une expérience précieuse, de construire votre réseau professionnel et de développer des compétences cruciales pour votre succès futur.",
+            "show": "Voir les opportunités"
+          },
+          "galleries": {
+            "title": "Galeries de Photos",
+            "description": "Découvrez les moments capturés lors de diverses activités et événements impliquant nos membres. Parcourez nos galeries.",
+            "showGallery": "Afficher la Galerie"
+          },
+          "news": {
+            "title": "Dernières Nouvelles",
+            "description": "Restez informé des dernières nouvelles et annonces de FAMES BENIN. Ici, vous trouverez les mises à jour les plus récentes et les informations importantes.",
+            "title1": "Titre de l'Actualité 1",
+            "description1": "Brève description du contenu de l'actualité. Cette section fournit un résumé de l'article de presse.",
+            "altText1": "Actualité 1",
+            "title2": "Titre de l'Actualité 2",
+            "description2": "Brève description du contenu de l'actualité. Cette section fournit un résumé de l'article de presse.",
+            "altText2": "Actualité 2",
+            "title3": "Titre de l'Actualité 3",
+            "description3": "Brève description du contenu de l'actualité. Cette section fournit un résumé de l'article de presse.",
+            "altText3": "Actualité 3",
+            "readMore": "Lire la Suite"
+          },
+          "navbar": {
+            "home": "Accueil",
+            "news": "Actualités",
+            "opportunities": "Opportunités",
+            "gallery": "Galeries",
+            "aboutUs": "À Propos",
+            "logo": "FAMES BENIN",
+            "profile": "Profil",
+            "settings": "Paramètres",
+            "logout": "Déconnexion",
+            "login": "Connexion",
+            "signup": "Inscription",
+            "userAvatarAlt": "Avatar Utilisateur"
+          },
+          "footer": {
+            "usefulLinks": "Liens utiles",
+            "befMembers": "Membres BEF",
+            "opportunities": "Opportunités",
+            "successStory": "Histoire à succès",
+            "resources": "Ressources",
+            "contacts": "Contacts",
+            "faqsLibrary": "FAQs / Bibliothèque",
+            "consularCard": "Documents requis pour obtenir une carte consulaire",
+            "passportRenewal": "Documents requis pour le renouvellement du passeport",
+            "scientificArticles": "Article scientifique publié par des étudiants en Chine"
+          },
+          "bureau": "Bureau exécutif fédéral 2023/2024",
+          "partenaire": {
+            "premierPartenaire": "Partenaire 1",
+            "deuxiemePartenaire": "partenaire 2",
+            "troisièmePartenaire": "partenaire 3",
+            "qutrièmePartenaire": "partenaire 4",
+            "cinquièmePartenaire": "partenaire 5"
+          },
+          "about": {
+            "title": "À Propos",
+            "members": [
+              {
+                "title": "Présidente",
+                "name": "Mlle KOUDENOUKPO Dossi Isbath",
+                "description": "Étudiante en dernière année de master en Pharmacie à Southwest University",
+                "photo": "src/assets/images/membres/membre1.png"
+              },
+              {
+                "title": "Secrétaire Général",
+                "name": "Mr SEGBO Silas Fidèle Gbèwèdo",
+                "description": "Étudiant en Biologie Moléculaire de la plante à Nanjing Agricultural University",
+                "photo": "src/assets/images/membres/membre2.png"
+              },
+              {
+                "title": "Secrétaire Générale Adjointe",
+                "name": "Mlle AVOGNON Sènan Emma Mirabelle",
+                "description": "Étudiante en génie civil à Jiangsu University of Science and Technology",
+                "photo": "src/assets/images/membres/membre3.png"
+              },
+              {
+                "title": "Trésorier Général",
+                "name": "Mr ONZO Bernard-Marie",
+                "description": "Étudiant en Information Safety à Nanjing University of Information Science and Technology",
+                "photo": "src/assets/images/membres/membre4.png"
+              },
+              {
+                "title": "Trésorier Général Adjoint",
+                "name": "Mr AHOUISSOU Létondé Fernand Eusèbe",
+                "description": "Étudiant en Science du sport à Shanghai University of Sport",
+                "photo": "src/assets/images/membres/membre5.png"
+              }
+            ]
+          },
+          "damienProfile": {
+            "title": "Le bureau Fames Bénin avec 'Iron man'",
+            "description": "Le bureau Fames Bénin était avec “l’homme de fer”, pour ne pas dire “Iron man”, cette fois-ci pas pour une mission de sauvetage du covid mais pour une interview.",
+            "content": "“Iron man” de son vrai nom Damien S. TIANDO, est un étudiant béninois vivant en Chine plus précisément à Wuhan où il a fait preuve d’une grandeur incommensurable et inestimable lors du début de la pandémie covid-19. Nous avons l’honneur et le plaisir de vous amener dans l’univers de ce grand héros. Natif de Natitingou, M. Damien TIANDO a fait une partie de ses études universitaires à l’Up Parakou avant de rejoindre la Chine pour un Master 2 en protection des ressources naturelles. Passionné de l’art dramatique, acteur de comédien, et impliqué dans les activités pédagogiques et artistiques de son université, il bénéficia aussitôt de la bourse de coopération chinoise.",
+            "additional_info": "À ses dires, ses premiers jours en Chine n’ont pas été faciles. Il fallait résoudre la double équation qui consiste à apprendre le chinois et l’anglais au même moment comme la plupart des francophones. Il a dû batailler dur mais il a su tirer son épingle du jeu. Actuellement doctorant en aménagement du territoire et gestion des politiques à l’université des géosciences de Wuhan, M. Damien, capitaine du club international de bénévoles 'Iron Team' nous a fait l’honneur et plaisir en nous racontant comment le nom 'Iron man' est né et pourquoi son nom défile sur les chroniques de l’autre côté de Wuhan et partout dans le monde.",
+            "additional_info2": "Comme la plupart des étudiants étrangers, nous étions tous anxieux et paniqués, c’est notre première fois d’entendre parler de ce virus et de plus sa facilité à se propager était écœurante. En suivant les journaux occidentaux et d’autres pays de l’Afrique, beaucoup d’entre nous étaient vraiment effrayés.Nous étions à l’orée du nouvel an chinois, cette fête si importante pour le peuple chinois était torpillée par cette pandémie et vraiment la peur et le désespoir se lisaient sur tous les visages. L’administration de mon université s’était investie et faisait tout pour nous protéger.Je me suis dit un jour que nous ne pouvons pas rester à nous morfondre et à s’apitoyer sur notre sort, et que nous pouvons être utiles à quelques choses. Au vu du travail qu’abattait l’administration de mon université, j’ai alors mis en place un club de bénévolat composé de vingt-trois (23) étudiants internationaux (Béninois, Pakistanais, Tanzaniens, Nigérians, etc.) pour leur venir en aide. On s’est choisi un nom ; je veux dire le nom « Iron man » pour dire qu’on avait peur de rien pour aider les autres à survivre. Nous avons besogné avec le cœur aux côtés des autorités chinoises et de nos professeurs, et en retour nous avons gagné le respect de tous. Ce n’était pas facile, je me souviens que parfois nous recevons des dotations en légumes et denrées alimentaires que nous devions distribuer à part égale à plus de 400 étudiants et cela peut prendre toute une journée ; C’était vraiment épuisant, mais tout au moins une belle expérience et un sentiment de fierté d’avoir accompli quelque chose d’utile.",
+            "additional_info3": "Cette union que le club international « Iron Man » a réussi. J’ai donc conclu que le sérieux et l’union peuvent tout et comme je viens de le dire dans la presse locale chinoise, les africains sont sérieux et nous sommes toujours dans les bonnes œuvres, alors continuons dans cet élan.",
+            "additional_info4": "Aujourd’hui la Chine n’enregistre plus de nouveaux cas, et ici à Wuhan la pandémie covid fait partie du passé. Il urge donc que nous apprenions des autres. Je terminerai en partageant quelques astuces avec les nouveaux. À mes frères qui viennent de rejoindre la Chine, je vous conseille d’apprendre un peu sur la culture chinoise pour vraiment vite assimiler et maîtriser la langue chinoise, c’est une technique que j’ai expérimentée personnellement et ça a marché.Vive la fames et vive la communauté estudiantine béninoise, je vous remercie.",
+            "additional_info5": "S’il y a autre chose que je souhaiterais aborder dans cette histoire de covid, c’est la prompte réaction et le soutien financier de l’ambassade à chaque étudiant béninois. Nos autorités, tout comme les autorités chinoises ont été avec nous. C’est le moment même de féliciter toutes les autorités à divers niveaux pour leur gestion efficace de la pandémie, car ils ont tous compris que c’était un problème d’ordre et non un truc de région ou de race. Je vais finir en rectifiant cette erreur que les gens commettent ;",
+            "additional_info6": "nous ne sommes pas des étrangers en Chine mais plutôt nous sommes des étudiants internationaux et aussi Wuhan est comme une deuxième maison pour nous. Si c’est à refaire je le referai avec plaisir car venir en aide aux êtres humains comme nous est une mission noble et à encourager. Les maladies n’ont pas une affaire de frontière, l’union fait la force dit-on. C’est à travers cette union que la Chine a réussi, c’est aussi à travers..."
+          }
+  }
+  

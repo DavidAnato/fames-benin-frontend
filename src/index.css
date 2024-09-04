@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Initial styles for the link or text */
+.link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 7px;
+    }
+
+    /* ::after pseudo-element to create the underline effect */
+.link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -3px; /* Adding space between the link and the underline */
+    left: 0;
+    background-color: green; /* Red underline */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+    }
+
+    /* Hover state to animate the underline */
+.link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    }
+
+.element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    
+.element-visible {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+.nav-enter-anime {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: slideDown 0.5s ease-out forwards;
+        animation-delay: 0.5s; 
+    }
+
+@keyframes slideDown {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+.navbar-scroll-anime {
+    transition: margin 1s ease, border-radius 1s ease, background-color 1s;
+    }
+    
+.navbar-scroll-anime.scrolled {
+    margin: 0;
+    border-radius: 0;
+    /* background-color: aliceblue; */
+    }
+
+.message-anime {
+    opacity: 0; /* Commence invisible */
+    animation: scaleInThreeSteps 500ms forwards ease-out; /* Applique l'animation d'entrée */
+}
+
+@keyframes scaleInThreeSteps {
+    0% {
+        opacity: 0;
+        transform: scale(1); /* Commence légèrement réduit */
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1); /* Agrandi à 120% */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Retour à la taille normale */
+    }
+}
