@@ -50,7 +50,7 @@ const OpportunityPage: React.FC = () => {
     const loadOpportunities = async (page: number) => {
       setLoading(true);
       try {
-        const response = await fetchOpportunities(`opportunities/?page=${page}`);
+        const response = await fetchOpportunities(`opportunities/opportunities/?page=${page}`);
         setOpportunities(response.results.map(opportunity => ({
           ...opportunity,
           location: 'Unknown' // Default location as the fetched data does not have location
@@ -80,11 +80,13 @@ const OpportunityPage: React.FC = () => {
   // Fonction pour ouvrir le popup avec les détails de l'opportunité
   const openPopup = (opportunity: Opportunity) => {
     setSelectedOpportunity(opportunity);
+    (document.getElementById('opportunity_modal') as HTMLDialogElement)?.showModal();
   };
 
   // Fonction pour fermer le popup
   const closePopup = () => {
     setSelectedOpportunity(null);
+    (document.getElementById('opportunity_modal') as HTMLDialogElement)?.close();
   };
 
   return (
@@ -95,6 +97,7 @@ const OpportunityPage: React.FC = () => {
       <div className="md:flex px-5">
         <div className='lg:w-3/4 w-full mx-auto md:mr-5'>
           {/* Barre de recherche */}
+        <AnimatedElement>
           <div className="flex justify-center mb-6">
             <form className="w-full relative lg:mr-3 lg:pr-2">
               <input
@@ -108,6 +111,7 @@ const OpportunityPage: React.FC = () => {
               </button>
             </form>
           </div>
+        </AnimatedElement>
 
           {/* Contenu principal */}
           <div className="flex flex-col lg:flex-row lg:pr-5 mb-10 justify-center">
@@ -148,12 +152,15 @@ const OpportunityPage: React.FC = () => {
                     </AnimatedElement>
                   ))
                 ) : (
-                  <p className="text-center text-gray-500">Aucune opportunité disponible pour le moment.</p>
+                  <AnimatedElement>
+                    <p className="text-center text-gray-500">Aucune opportunité disponible pour le moment.</p>
+                  </AnimatedElement>
                 )}
             </div>
               )}
           </div>
-          {!loading && opportunities.length > 0 && (
+        {!loading && opportunities.length > 0 && (
+          <AnimatedElement>
             <div className="flex justify-center mt-4">
               <div className="join shadow">
                 {Array.from({ length: totalPages }, (_, index) => (
@@ -167,11 +174,13 @@ const OpportunityPage: React.FC = () => {
                 ))}
               </div>
             </div>
+          </AnimatedElement>
           )}
         </div>
         {/* Informations sur les partenaires */}
-        <aside className="w-full lg:w-1/4 bg-white shadow-2xl rounded-lg p-6 flex flex-col justify-between">
-          <div>
+        <aside className="w-full lg:w-1/4 ">
+        <AnimatedElement>
+          <div className='bg-white shadow-2xl rounded-lg p-6 flex flex-col justify-between'>
             <h2 className="text-xl sm:text-2xl font-bold mb-4">Nos Partenaires</h2>
             <p className="text-gray-700 mb-4">
               Découvrez les informations sur nos partenaires et comment ils contribuent à nos projets.
@@ -200,13 +209,14 @@ const OpportunityPage: React.FC = () => {
               </a>
             </div>
           </div>
+        </AnimatedElement>
         </aside>
       </div>
 
       {/* Popup avec les détails de l'opportunité */}
       {selectedOpportunity && (
-        <div className="modal modal-open" onClick={closePopup}>
-          <div className="modal-box lg:w-[70vw] max-w-4xl max-h-screen overflow-y-auto mx-5" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '90vw' }}>
+        <dialog id="opportunity_modal" className="modal">
+          <div className="modal-box lg:w-[70vw] max-w-4xl max-h-screen overflow-y-auto mx-5" style={{ maxWidth: '90vw' }}>
             <button 
               onClick={closePopup} 
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -221,7 +231,10 @@ const OpportunityPage: React.FC = () => {
             <p className="text-gray-700 mb-4 text-justify" dangerouslySetInnerHTML={{ __html: selectedOpportunity.description }}></p>
             <p className="text-gray-500 mb-4">{selectedOpportunity.location}</p>
           </div>
-        </div>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
       )}
     </div>
   );

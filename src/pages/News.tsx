@@ -173,7 +173,8 @@ const News: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row">
           <aside className="w-full lg:w-1/4 mb-8 lg:mb-0 lg:mr-8 sticky top-[8em] lg:self-start z-10 rounded-2xl backdrop-blur-sm">
-            <form onSubmit={handleSearchSubmit} className="w-full max-w-3xl relative mb-4">
+          <AnimatedElement>
+            <form onSubmit={handleSearchSubmit} className="w-full relative mb-4">
               <input
                 type="text"
                 className="w-full p-3 px-5 rounded-2xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
@@ -310,6 +311,7 @@ const News: React.FC = () => {
                 </div>
                 </div>
             </div>
+          </AnimatedElement>
 
           </aside>
           <div className="w-full lg:w-3/4">

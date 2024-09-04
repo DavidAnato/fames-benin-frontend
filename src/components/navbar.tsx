@@ -61,11 +61,11 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li><NavLink to="/" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.home')}</NavLink></li>
-              <li><NavLink to="/news" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.news')}</NavLink></li>
-              <li><NavLink to="/opportunities" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.opportunities')}</NavLink></li>
-              <li><NavLink to="/gallery" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.gallery')}</NavLink></li>
-              <li><NavLink to="/about-us" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.aboutUs')}</NavLink></li>
+              <li><NavLink to="/" className={({ isActive }) => `text-xl mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.home')}</NavLink></li>
+              <li><NavLink to="/news" className={({ isActive }) => `text-xl mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.news')}</NavLink></li>
+              <li><NavLink to="/opportunities" className={({ isActive }) => `text-xl mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.opportunities')}</NavLink></li>
+              <li><NavLink to="/gallery" className={({ isActive }) => `text-xl mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.gallery')}</NavLink></li>
+              <li><NavLink to="/about-us" className={({ isActive }) => `text-xl mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.aboutUs')}</NavLink></li>
             </ul>
           </div>
           <NavLink to="/" className="text-xl font-extrabold items-center text-red-700 ml-2 hidden lg:flex">
@@ -75,11 +75,11 @@ const NavBar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><NavLink to="/" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.home')}</NavLink></li>
-            <li><NavLink to="/news" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.news')}</NavLink></li>
-            <li><NavLink to="/opportunities" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.opportunities')}</NavLink></li>
-            <li><NavLink to="/gallery" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.gallery')}</NavLink></li>
-            <li><NavLink to="/about-us" className={({ isActive }) => `mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.aboutUs')}</NavLink></li>
+            <li><NavLink to="/" className={({ isActive }) => `text-[17px] mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.home')}</NavLink></li>
+            <li><NavLink to="/news" className={({ isActive }) => `text-[17px] mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.news')}</NavLink></li>
+            <li><NavLink to="/opportunities" className={({ isActive }) => `text-[17px] mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.opportunities')}</NavLink></li>
+            <li><NavLink to="/gallery" className={({ isActive }) => `text-[17px] mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.gallery')}</NavLink></li>
+            <li><NavLink to="/about-us" className={({ isActive }) => `text-[17px] mx-1 rounded-xl hover:bg-gray-300 hover:rounded-full transition-all duration-500 ${isActive ? 'active' : ''}`}>{t('navbar.aboutUs')}</NavLink></li>
           </ul>
         </div>
         <div className="navbar-end flex items-center justify-end">
