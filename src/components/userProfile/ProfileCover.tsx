@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { editUserProfile } from '../../fetch/authFetch';
+import AnimatedElement from '../../function/AnimatedElement';
+import { generateRandomIcons } from '../miniHero';
 
 interface ProfileCoverProps {
     currentCoverUrl: string | null;
@@ -71,7 +73,14 @@ const ProfileCover: React.FC<ProfileCoverProps> = ({ currentCoverUrl, onCoverCha
         };
     }, []);
 
+    const [iconElements, setIconElements] = useState<JSX.Element[]>([]);
+
+    useEffect(() => {
+      setIconElements(generateRandomIcons());
+    }, []);
+  
     return (
+        <AnimatedElement>
         <div className="relative h-[60vh] flex flex-col items-center justify-center p-4">
             {preview ? (
                 <div
@@ -84,7 +93,11 @@ const ProfileCover: React.FC<ProfileCoverProps> = ({ currentCoverUrl, onCoverCha
                     style={{ backgroundImage: `url(${currentCoverUrl})`, backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: 'center center' }}
                 />
             ) : (
-                <div className="absolute inset-0 bg-accent"></div>
+                <div className="absolute inset-0 bg-accent">
+                          <div className="absolute inset-0 flex justify-center items-center">
+                            {iconElements}
+                        </div>
+                </div>
             )}
             <input
                 type="file"
@@ -113,6 +126,7 @@ const ProfileCover: React.FC<ProfileCoverProps> = ({ currentCoverUrl, onCoverCha
                 </label>
             )}
         </div>
+        </AnimatedElement>
     );
 };
 

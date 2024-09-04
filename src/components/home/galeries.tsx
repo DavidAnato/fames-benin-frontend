@@ -69,7 +69,7 @@ const Galleries = () => {
         </AnimatedElement>
         <div className="text-center mt-8">
           <Link to="/gallery" className="btn btn-accent rounded-2xl">
-            {t('galleries.showGallery')}
+            <i className="fas fa-images mr-2"></i>{t('galleries.showGallery')}
           </Link>
         </div>
       </div>

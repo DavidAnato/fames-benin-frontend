@@ -3,6 +3,7 @@ import { fetchNewsPosts, fetchNewsCategories, fetchNewsTags, fetchNewsPostsByCat
 import { useTranslation } from 'react-i18next';
 import AnimatedElement from '../function/AnimatedElement';
 import { Link } from 'react-router-dom';
+import MiniHero from '../components/miniHero';
 
 // const BASE_URL = process.env.API_URL;
 const News: React.FC = () => {
@@ -168,10 +169,7 @@ const News: React.FC = () => {
   
   return (
     <section className="py-10 min-h-screen pt-[7.5rem]">
-      <div className="flex justify-center mb-5 bg-accent rounded-xl mx-5 py-20">
-        <h1 className="text-5xl font-bold">News</h1>
-      </div>
-
+      <MiniHero content="News" />
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row">
           <aside className="w-full lg:w-1/4 mb-8 lg:mb-0 lg:mr-8 sticky top-[8em] lg:self-start z-10 rounded-2xl backdrop-blur-sm">

@@ -5,6 +5,8 @@ import Membres from '../components/about/membres.tsx'; // Importation du composa
 import Def from '../components/about/def.tsx';
 import Statistics from '../components/home/statistics.tsx';
 import Partners from '../components/about/partners.tsx';
+import MiniHero from '../components/miniHero.tsx';
+import AnimatedElement from '../function/AnimatedElement.tsx';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -24,17 +26,23 @@ const AboutPage = () => {
 
   return (
     <section className="min-h-screen pt-[7.5rem]">
-      <div className="flex justify-center mb-5 bg-accent rounded-xl mx-5 py-20">
-        <h1 className="text-5xl font-bold">About</h1>
-      </div>
-      <Def />     
+      <AnimatedElement>
+        <MiniHero content="About" />
+      </AnimatedElement>
+      <AnimatedElement>
+        <Def />     
+      </AnimatedElement>
+      <AnimatedElement>
       <div id='members'>
         <Membres />
       </div>
+      </AnimatedElement>
+      <AnimatedElement>
       <Statistics />
-      {/* <hr /> */}
+      </AnimatedElement>
+      <AnimatedElement>
       <Partners />
-      {/* <DamienProfile /> */}
+      </AnimatedElement>
     </section>
   );
 };

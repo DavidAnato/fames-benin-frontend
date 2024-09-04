@@ -7,7 +7,7 @@ import PasswordResetRequest from '../components/authComponents/passwordResetRequ
 import PasswordResetConfirm from '../components/authComponents/passwordResetConfirm';
 import SetPassword from '../components/authComponents/setPassword';
 import ChangePassword from '../components/authComponents/changePassword';
-import ConsularCardRequest from '../components/authComponents/consularCard';
+import ConsularCardRequest from '../pages/consularCard';
 
 const AuthRoutes = [
   <Route key="login" path="/login" element={<Login />} />,

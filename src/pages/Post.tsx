@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { fetchNewsPostDetail, fetchNewsPosts, fetchCommentsByPostId, createCommentForPost, deleteComment, likePost, userLikedPost, NewsPost, Comment } from '../fetch/newsFetch';
 import useAuthStore from '../store/authStore';
 import WebPushMessage from '../components/authComponents/message';
+import AnimatedElement from '../function/AnimatedElement';
 
 const BASE_URL = process.env.API_URL;
 const Post: React.FC = () => {
@@ -151,13 +152,16 @@ const Post: React.FC = () => {
   if (!post) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <span className="text-center py-4 text-red-500">Post not found</span>
+        <AnimatedElement>
+          <span className="text-center py-4 text-red-500">Post not found</span>
+        </AnimatedElement>
       </div>
     );
   }
 
   return (
     <div className="px-8 py-10 pt-[9rem] lg:flex grid gap-32">
+      <AnimatedElement>
       <aside className="hidden lg:block w-1/4 pr-10 sticky self-start top-[8em]">
         <h2 className="text-xl font-semibold text-gray-900 mb-2">Articles Récents</h2>
         <div className="space-y-4 overflow-y-auto h-[70vh]">
@@ -177,6 +181,8 @@ const Post: React.FC = () => {
           ))}
         </div>
       </aside>
+      </AnimatedElement>
+      <AnimatedElement>
       <div className="w-full lg:w-2/4">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-2">{post.title}</h1>
         <span className="inline-block bg-success text-white text-sm font-medium px-3 py-1 rounded-full items-center gap-1">
@@ -247,7 +253,8 @@ const Post: React.FC = () => {
           </div>
         </div>
       </div>
-      
+      </AnimatedElement>
+      <AnimatedElement>
       <aside className="lg:w-1/4 w-full pl-4 lg:sticky self-start top-[8em] ">
         <h2 className="text-xl font-semibold text-gray-900 mb-2">Commentaires</h2>
         <form onSubmit={handleCommentSubmit} className="my-4 text-end">
@@ -304,6 +311,7 @@ const Post: React.FC = () => {
           {commentsError && <div className="text-center py-4 text-red-500">{commentsError}</div>}
         </div>
       </aside>
+      </AnimatedElement>
     </div>
   );
 };

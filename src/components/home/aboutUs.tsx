@@ -17,7 +17,10 @@ const AboutUs = () => {
             {t('about_us_description')}
           </p>
           <div className="mt-8 text-center md:text-left">
-            <Link to='/about-us' className="btn btn-warning rounded-2xl">{t('learn_more')}</Link>
+            <Link to='/about-us' className="btn btn-warning rounded-2xl">
+              <i className="fas fa-info-circle mr-2"></i>
+              {t('learn_more')}
+            </Link>
           </div>
         </div>
       </div>

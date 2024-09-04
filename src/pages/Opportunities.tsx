@@ -6,6 +6,7 @@ import ministryOfForeignAffairsOfBenin from '../assets/images/partner/embleme-be
 import uneb from '../assets/images/partner/partner3.png';
 import fneb from '../assets/images/partner/partner4.png';
 import confuciusInstitute from '../assets/images/partner/partenaire5.png';
+import MiniHero from '../components/miniHero';
 
 // Définir l'interface pour une opportunité
 interface Opportunity {
@@ -87,13 +88,9 @@ const OpportunityPage: React.FC = () => {
   };
 
   return (
-    <div className='bg-gray-100 pb-20'>
+    <div className='pb-20 min-h-screen pt-[7.5rem]'>
       {/* En-tête de la page */}
-      <div className="flex justify-center bg-gray-100 pt-32 mb-5 w-full">
-        <div className="w-full mx-5 bg-accent text-white py-20 rounded-xl text-center -mt-2">
-          <h1 className="text-4xl sm:text-5xl text-black font-bold mb-4">Opportunités</h1>
-        </div>
-      </div>
+      <MiniHero content="Opportunities" />
       
       <div className="md:flex px-5">
         <div className='lg:w-3/4 w-full mx-auto md:mr-5'>

@@ -1,17 +1,33 @@
-import React from 'react';
-import famesLogo from '../../assets/images/logos/fames-logo.png';
-import ambassade from '../../assets/images/logos/ambassade .png';
+import React, { useEffect } from 'react';
+import famesLogo from '../assets/images/logos/fames-logo.png';
+import ambassade from '../assets/images/logos/ambassade .png';
+import MiniHero from '../components/miniHero';
+import AnimatedElement from '../function/AnimatedElement';
 
 const ConsularCardRequest: React.FC = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        const yOffset = -70;
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen pt-[7.5rem]">
       {/* Header Section */}
-      <div className="flex justify-center mb-5 bg-accent rounded-xl mx-5 py-20">
-        <h1 className="text-3xl font-bold text-center">Demande d’établissement de la carte consulaire</h1>
-      </div>
+      <MiniHero content="Demande d’établissement de la carte consulaire" />
 
       {/* Explanation Section */}
-      <div className="container mx-auto mt-16">
+      <AnimatedElement>
+      <div className="container mx-auto mt-16 px-5">
         <h2 className="text-xl font-bold mb-4">Qu'est-ce que la carte consulaire ?</h2>
         <p className="mb-4 text-justify">
           La carte consulaire est un document officiel délivré par l'Ambassade. Ce document joue un rôle crucial en permettant d'identifier et de recenser les ressortissants d'un pays qui résident à l'étranger. En possédant cette carte, les citoyens peuvent plus facilement accéder aux divers services consulaires offerts par l'Ambassade. De plus, en cas de besoin, ils peuvent bénéficier de l'assistance et du soutien de l'Ambassade, ce qui peut s'avérer extrêmement précieux dans des situations d'urgence ou de nécessité.
@@ -20,9 +36,10 @@ const ConsularCardRequest: React.FC = () => {
           En outre, la carte consulaire est souvent utilisée pour diverses démarches administratives. Elle peut être exigée pour accomplir certaines formalités locales, telles que l'inscription à des services ou la réalisation de transactions spécifiques. Par conséquent, la carte consulaire est un document essentiel et indispensable pour tous les citoyens vivant à l'étranger, car elle leur permet de prouver leur identité et leur statut auprès des autorités locales et de l'Ambassade.
         </p>
       </div>
-
+      </AnimatedElement>
       {/* Requirements List and Image Section */}
-      <div className="container mx-auto">
+      <AnimatedElement>
+      <div className="container mx-auto px-5">
         <div className="flex flex-col md:flex-row md:space-x-6 items-center">
           <div className="w-full md:w-3/5">
             <h2 className="text-xl font-bold mb-4">Liste des documents requis :</h2>
@@ -65,8 +82,9 @@ const ConsularCardRequest: React.FC = () => {
         </div>
         <hr className='mt-20'/>
       </div>
-
+      </AnimatedElement>
       {/* Information Form Section */}
+      <AnimatedElement>
       <h1 className='text-center text-2xl md:text-3xl font-extrabold my-8'>
         Exemplaire de fiche de renseignements 
       </h1>
@@ -108,8 +126,10 @@ const ConsularCardRequest: React.FC = () => {
           <p className="mt-4">Signature, Nom et Prénoms</p>
         </div>
       </div>
+      </AnimatedElement>
     </div>
   );
 }
 
 export default ConsularCardRequest;
+

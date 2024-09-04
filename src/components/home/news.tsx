@@ -52,7 +52,10 @@ const News = () => {
                   </h2>
                   <p>{article.content}</p>
                   <div className="card-actions justify-end">
-                    <Link to={`/news/${article.slug}`} className="btn btn-success">{t('news.readMore')}</Link>
+                    <Link to={`/news/${article.slug}`} className="btn btn-success">
+                      <i className="fas fa-book-open mr-2"></i>
+                      {t('news.readMore')}
+                    </Link>
                   </div>
                 </div>
               </div>

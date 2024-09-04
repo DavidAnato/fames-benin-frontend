@@ -88,7 +88,7 @@ const UserProfile: React.FC = () => {
     }
     
     return (
-        <>
+        <div className="general-element">
         <ProfileCover currentCoverUrl={profile?.profile_cover || null} onCoverChange={reloadUserProfile} />
         <div className="bg-white rounded-2xl shadow-lg w-full max-w-6xl p-6 relative -mt-32 mx-auto mb-10">
                 {profile ? (
@@ -282,7 +282,8 @@ const UserProfile: React.FC = () => {
                         </div>
                     </>
                 )}
-            </div></>
+            </div>
+        </div>
     );
 };
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAlbumList, Album } from '../fetch/galleryFetch';
 import Images from '../components/gallery/images';
+import MiniHero from '../components/miniHero';
+import AnimatedElement from '../function/AnimatedElement';
 
 const Gallery: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -37,9 +39,9 @@ const Gallery: React.FC = () => {
 
   return (
     <section className="py-5 min-h-screen pt-[7.5rem]">
-      <div className="flex justify-center mb-5 bg-accent rounded-xl mx-5 py-20">
-        <h1 className="text-5xl font-bold">Gallery</h1>
-      </div>
+
+      <MiniHero content="Gallery" />
+      <AnimatedElement>
       <div className="flex justify-center items-center space-x-3 mb-5 px-5">
         <button
           className="flex btn btn-accent h-10 w-10 btn-sm rounded-full px-3"
@@ -92,6 +94,7 @@ const Gallery: React.FC = () => {
           <i className="fas fa-chevron-right text-xl"></i>
         </button>
       </div>
+      </AnimatedElement>
       <Images albumId={selectedAlbumId} />
     </section>
   );

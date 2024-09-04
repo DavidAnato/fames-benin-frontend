@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { editUserProfile } from '../../fetch/authFetch';
+import AnimatedElement from '../../function/AnimatedElement';
 
 interface ProfilePictureProps {
     currentPictureUrl: string | null;
@@ -47,6 +48,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ currentPictureUrl, onPr
     };
 
     return (
+        <AnimatedElement>
         <div className="flex justify-center">
             {preview && (
                 <button onClick={handleCancelProfilePictureChange} className="border-3 z-10 btn btn-error bg-white btn-outline btn-circle -mr-12" disabled={isLoading}>
@@ -86,6 +88,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ currentPictureUrl, onPr
             
             )}
         </div>
+        </AnimatedElement>
     );
 };
 
