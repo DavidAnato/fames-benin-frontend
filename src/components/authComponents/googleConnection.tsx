@@ -26,7 +26,7 @@ const GoogleConnection = ({ text }: GoogleConnectionProps) => {
   return (
     <button className="btn border border-black w-full rounded-full flex items-center justify-center py-2 px-4" type="button" onClick={handleGoogleLogin} disabled={loading}>
     {loading ? (
-      <i className="fas fa-spinner fa-spin mr-2"></i> 
+      <span className="loading loading-spinner"></span>
     ) : (
       <img src={Google} alt="Google Logo" className="w-6 h-6 mr-2" />
     )}

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { changePassword } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importer les icônes d'œil
+import WebPushMessage from './message';
 import './changePassword.css'
 
 const ChangePassword = () => {
@@ -13,20 +14,46 @@ const ChangePassword = () => {
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState<'success' | 'error' | 'info'>('info');
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          const elementId = hash.substring(1);
+          const element = document.getElementById(elementId);
+          if (element) {
+            const yOffset = -70;
+            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }, []);
+    
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (newPassword !== confirmPassword) {
             setMessage('New password and confirm password do not match.');
+            setMessageType('error');
             return;
         }
+        setIsLoading(true);
         try {
             const responseMessage = await changePassword(oldPassword, newPassword, confirmPassword);
             setMessage(responseMessage);
+            setMessageType('success');
             navigate('/profile'); // Redirect to profile after successful password change
         } catch (error: any) {
-            setMessage(error.message || 'An error occurred. Please try again.');
+            setMessage(error.detail || 'An error occurred. Please try again.');
+            setMessageType('error');
+            setTimeout(() => {
+                setMessage('');
+            }, 10000);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -103,15 +130,10 @@ const ChangePassword = () => {
                             </button>
                         </div>
                         <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">
-                            Submit
+                            {isLoading ? <span className="loading loading-spinner"></span> : 'Submit'}
                         </button>
                     </form>
-                    {message && <div className="alert alert-error shadow-lg">
-                        <div>
-                            <i className="fas fa-exclamation-circle"></i>
-                            <span>{message}</span>
-                        </div>
-                    </div>}
+                    {message && <WebPushMessage msg={message} type={messageType} />}
                 </div>
             </div>
         </div>

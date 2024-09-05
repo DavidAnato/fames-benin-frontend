@@ -43,16 +43,18 @@ const Footer: React.FC = () => {
               </ul>
             </div>
             <div className="flex justify-center">
-              <TranslationDropdown bgColor="bg-gray-500 bg-opacity-20" />
+              <TranslationDropdown isDrop={false} bgColor="bg-gray-500 bg-opacity-20" />
             </div>
           </div>
           <hr className="border-gray-700 mt-6" />
           <div className="flex justify-between items-center mt-6">
             <div>
-              <img src={famesLogo} alt="FAMES Logo" className="h-20" />
+              <NavLink to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <img src={famesLogo} alt="FAMES Logo" className="h-20" />
+              </NavLink>
             </div>
             <div className="text-sm">
-              <p>FAMES BENIN Copyright 2024</p>
+              <p>FAMES BENIN <span className="text-lg">©</span>  Copyright 2024</p>
             </div>
             <div>
               <ul className="flex space-x-4">

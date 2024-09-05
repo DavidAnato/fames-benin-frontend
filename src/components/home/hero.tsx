@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 
 const Hero: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const user = useUserProfile();
+  const { user } = useUserProfile();
 
   const texts = [t('welcome1'), t('welcome2')];
   const [displayedText, setDisplayedText] = useState('');
@@ -94,37 +94,38 @@ const Hero: React.FC = () => {
 
   const handleScroll = () => {
     window.scrollTo({
-      top: window.innerHeight - 80,
+      top: window.innerHeight - 60,
       behavior: 'smooth'
     });
   };
 
   return (
     <div
-      className="hero"
+      className="hero "
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        height: "102vh"
+        height: "101vh"
       }}
     >
       <div className="hero-overlay bg-opacity-70"></div>
       <div className="hero-content text-neutral-content text-center">
         <div>
-          <h1 className="mb-5 text-5xl font-bold">
+          <h1 className="mb-5 text-3xl md:text-4xl lg:text-5xl font-bold">
             <span>{displayedText}</span>
             
             {!hasFinishedTypingSecondText && <span className="cursor">|</span>}
           </h1>
-          <p className="mb-5 text-lg">
+          <p className="mb-5 text-base md:text-lg lg:text-xl">
             {t('mission')}
             <br />
             {t('join')}
           </p>
           
           {user ? (
+            // If user is logged in, show the button with handleScroll
             <button 
               className="btn md:btn-md lg:btn-lg btn-accent font-bold shadow-lg shadow-emerald-500/50 rounded-2xl"
               onClick={handleScroll}
@@ -132,6 +133,7 @@ const Hero: React.FC = () => {
               <ArrowDown /> {t('getStarted')}
             </button>
           ) : (
+            // If user is not logged in, show the login link
             <Link 
               to="/login" 
               className="btn md:btn-md lg:btn-lg btn-accent font-bold shadow-lg shadow-emerald-500/50 rounded-2xl"

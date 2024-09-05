@@ -3,8 +3,9 @@ import React, { ReactNode } from 'react';
 import NavBar from '../components/navbar';
 import AnimatedElement from '../function/AnimatedElement';
 import Footer from '../components/footer';
+import ScrollToTop from '../components/scrollToTop';
 
-interface LayoutProps {
+ interface LayoutProps {
   children: ReactNode;
 }
 
@@ -21,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <Footer/>
         </footer>
       </AnimatedElement>
-
+      <ScrollToTop />
     </>
   );
 }

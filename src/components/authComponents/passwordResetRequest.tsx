@@ -7,8 +7,24 @@ import WebPushMessage from './message';
 const PasswordResetRequest: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error' | 'info'>('info');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        const yOffset = -70;
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   useEffect(() => {
     if (message) {
@@ -27,9 +43,14 @@ const PasswordResetRequest: React.FC = () => {
     try {
       const responseMessage = await passwordResetRequest(email);
       setMessage(responseMessage);
+      setMessageType('success');
       navigate('/password-reset-confirm'); // Redirect to email activation page
     } catch (error: any) {
       setMessage(error.message || 'An error occurred. Please try again later.');
+      setMessageType('error');
+      setTimeout(() => {
+        setMessage('');
+      }, 10000); // Reset error message after 10 seconds
     } finally {
       setLoading(false);
     }
@@ -37,6 +58,7 @@ const PasswordResetRequest: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      {message && <WebPushMessage msg={message} type={messageType} />}
       <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
           <img src={famesLogo} alt="FAMES Logo" className="w-24 md:w-44 mb-4" />
@@ -67,11 +89,10 @@ const PasswordResetRequest: React.FC = () => {
               className="btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 w-full rounded-full"
               disabled={loading}
             >
-              {loading ? 'Sending...' : 'Send OTP'}
+              {loading ? <span className="loading loading-spinner"></span> : 'Send OTP'}
             </button>
           </div>
         </form>
-        {message && <WebPushMessage msg={message} type='error'></WebPushMessage>}
       </div>
     </div>
   );

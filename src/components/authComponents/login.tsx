@@ -4,27 +4,45 @@ import { login } from '../../fetch/authFetch';
 import useUserProfile from '../../hooks/user';
 import GoogleConnection from './googleConnection';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importer les icônes d'œil
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './login.css'
 import WebPushMessage from './message';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // État pour la visibilité du mot de passe
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const { user } = useUserProfile();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = await login(email, password);
-    if (success) {
+    setLoading(true);
+    const result = await login(email, password);
+    setLoading(false);
+    if (result.success) {
       navigate('/');
     } else {
-      setError('Login failed. Please check your credentials and try again.');
+      setError(result.error || 'Login failed. Please check your credentials and try again.');
     }
   };
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        const yOffset = -70;
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   useEffect(() => {
     if (error) {
@@ -42,6 +60,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center h-screen mt-5">
+      {error && <WebPushMessage msg={error} type='error' />}
       <div className="bg-white p-8 rounded shadow-2xl w-full max-w-md">
         <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
           <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
@@ -79,8 +98,9 @@ const Login = () => {
                 {showPassword ? <FaEye className="text-gray-500" size={20} /> : <FaEyeSlash className="text-gray-500" size={20} />}
               </button>
           </div>
-          {error && <WebPushMessage msg={error} type='error'></WebPushMessage>}
-          <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">Login</button>
+          <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full" disabled={loading}>
+            {loading ? <span className="loading loading-spinner"></span> : <i className="fas fa-sign-in-alt mr-2"></i>} Login
+          </button>
         </form>
         <div className='my-3 flex items-center'>
           <div className='flex-grow border-t border-gray-300'></div>

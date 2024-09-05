@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
   plugins: [react()],
   server: {
     port: 3000,
@@ -13,8 +12,8 @@ export default defineConfig({
       API_URL: 'https://fames-backend.connect-me-app.com/',
       // API_URL: 'http://localhost:8000/',
       GOOGLE_CLIENT_ID: '435871596858-5tvfi6mhvdr1i60ktgsjl67d6brclkl4.apps.googleusercontent.com',
-      // redirectURI: 'https://davidanato.github.io/fames-benin-frontend/',
-      redirectURI: 'http://localhost:3000/'
+      // redirectURI: 'http://localhost:3000/'
+      redirectURI: 'https://fames-frontend.connect-me-app.com/',
     }
   }
 })

@@ -1,23 +1,53 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { emailValidateRequest } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
+import WebPushMessage from './message';
+import useUserProfile from '../../hooks/user';
+
 
 const EmailValidateRequest = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState<'success' | 'error' | 'info'>('info');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { user } = useUserProfile();
 
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          const elementId = hash.substring(1);
+          const element = document.getElementById(elementId);
+          if (element) {
+            const yOffset = -70;
+            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }, []);
+    
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setMessage(''); // Clear message before attempting to send email
+        setLoading(true);
         try {
             const responseMessage = await emailValidateRequest(email);
             setMessage(responseMessage);
+            setMessageType('success');
             localStorage.setItem('email', email);
             navigate('/active-email'); // Redirect to email activation page
         } catch (error: any) {
             setMessage(error.message);
+            setMessageType('error');
+            setTimeout(() => {
+                navigate(user ? '/' : '/login');
+                setMessage('');
+            }, 10000); // Reset error message after 5 seconds
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -45,16 +75,11 @@ const EmailValidateRequest = () => {
                             </label>
                         </div>
                         <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">
-                            Submit
+                            {loading ? <span className="loading loading-spinner"></span> : 'Submit'}
                         </button>
                     </form>
                     {message && (
-                        <div className="alert alert-error shadow-lg mt-4">
-                            <div>
-                                <i className="fas fa-exclamation-circle"></i>
-                                <span>{message}</span>
-                            </div>
-                        </div>
+                        <WebPushMessage msg={message} type={messageType} />
                     )}
                 </div>
             </div>
