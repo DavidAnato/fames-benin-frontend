@@ -4,6 +4,7 @@ import { passwordResetConfirm } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importer les icônes d'œil
 import './login.css'; // Assurez-vous que ce fichier contient les styles nécessaires
+import { useTranslation } from 'react-i18next';
 
 const PasswordResetConfirm: React.FC = () => {
   const [otp, setOtp] = useState('');
@@ -34,13 +35,13 @@ const PasswordResetConfirm: React.FC = () => {
       setLoading(false);
     }
   };
-
+  const { t } = useTranslation(); // Hook pour gérer la traduction
   return (
     <div className="flex items-center justify-center h-screen mt-5">
       <div className="bg-white p-8 rounded shadow-2xl w-full max-w-md">
         <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center mb-8">
           <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44" />
-          <h2 className="text-2xl font-bold text-center md:text-left">Password Reset Confirmation</h2>
+          <h2 className="text-2xl font-bold text-center md:text-left">{t("PasswordResetConfirmation")}</h2>
         </div>
         <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6">
           <div className="relative form-control">
@@ -68,7 +69,7 @@ const PasswordResetConfirm: React.FC = () => {
               required
             />
             <label htmlFor="newPassword" className="absolute top-0 left-0 px-3 pt-2 text-gray-500 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
-              New Password
+              {t("NewPassword")}
             </label>
             <button
               type="button"
@@ -89,7 +90,7 @@ const PasswordResetConfirm: React.FC = () => {
               required
             />
             <label htmlFor="confirmPassword" className="absolute top-0 left-0 px-3 pt-2 text-gray-500 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
-              Confirm New Password
+            {t("ConfirmNewPassword")}
             </label>
             <button
               type="button"

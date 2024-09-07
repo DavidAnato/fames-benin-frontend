@@ -22,7 +22,6 @@ const GoogleConnection = ({ text }: GoogleConnectionProps) => {
     window.location.href = authURL;
   };
 
-
   return (
     <button className="btn border border-black w-full rounded-full flex items-center justify-center py-2 px-4" type="button" onClick={handleGoogleLogin} disabled={loading}>
     {loading ? (

@@ -121,6 +121,134 @@
               "additional_info4": "Today China is no longer recording new cases, and here in Wuhan the covid pandemic is a thing of the past. It is therefore urgent that we learn from others. I will end by sharing some tips with newbies. To my brothers who have just joined China, I advise you to learn a little about Chinese culture to really quickly assimilate and master the Chinese language, it is a technique that I have experienced personally and it worked. Long live Cheers and long live the Beninese student community, thank you.",
               "additional_info5": "If there is anything else I would like to address in this covid story, it is the prompt response and financial support from the embassy to every Beninese student. Our authorities, just like the Chinese authorities, have been with us. This is the very moment to congratulate all the authorities at various levels for their effective management of the pandemic, because they all understood that it was a problem of order and not a regional or racial thing. I will end by correcting this mistake that people make;",
               "additional_info6": "we are not foreigners in China but rather we are international students and also Wuhan is like a second home for us. If I have to do it again I will do it with pleasure because helping human beings like us is a noble mission and one to be encouraged. Diseases have no borders, there is strength in unity, they say. It is through this union that China succeeded, it is also through..."
-            }
+            },
+            "news_actualités": "News",
+            "news_search_Placeholder": "Search for news",
+            "news_filters": "News filters",
+            "news_all": "All news",
+            "news.noNews": "No news available",
+            "AllNews": "All News",
+            "news_filterByCategory": "Filter by category",
+            "news_filterByTag": "Filter by tag",
+          
+            "Opportunitiés": "Opportunities",
+            "Opportunitiés.placeholder": "Search for opportunities...",
+            "Opportunitiés.disponible": "No opportunities available at the moment.",
+            "Opportunitiés.Partenaires": "Our Partners",
+            "Opportunitiés.PartenairesText": "Discover information about our partners and how they contribute to our projects.",
+            
+            "partners": [
+              {
+                "Opportunitiés": {
+                  "Partenaires": "Our Partners",
+                  "PartenairesText": "We collaborate with the following organizations to offer more opportunities.",
+                  "partenaire1": {
+                    "name": "Ministry of Foreign Affairs of Benin",
+                    "description": "The Ministry of Foreign Affairs of Benin is responsible for managing Benin's international relations and diplomacy."
+                  },
+                  "partenaire2": {
+                    "name": "DBAU: Directorate of Scholarships and University Aid",
+                    "description": "The Directorate of Scholarships and University Aid (DBAU) is responsible for managing and awarding scholarships and financial aid to Beninese students."
+                  },
+                  "partenaire3": {
+                    "name": "Embassy of Benin in China",
+                    "description": "The Embassy of Benin in China represents the interests of Benin and provides consular services to Beninese citizens residing in China."
+                  },
+                  "partenaire4": {
+                    "name": "Confucius Institute BENIN (UAC)",
+                    "description": "The Confucius Institute BENIN (UAC) is dedicated to promoting Chinese language and culture in Benin."
+                  },
+                  "partenaire5": {
+                    "name": "China University of Geosciences",
+                    "description": "The China University of Geosciences is a leading institution in China, specializing in earth sciences and natural resources."
+                  },
+                  "partenaire6": {
+                    "name": "UNEB: National Union of Students of Benin",
+                    "description": "The National Union of Students of Benin (UNEB) is an association that promotes solidarity and mutual aid among Beninese students."
+                  },
+                  "partenaire7": {
+                    "name": "FNEB: National Federation of Students of Benin",
+                    "description": "The National Federation of Students of Benin (FNEB) is an organization that defends the rights and interests of Beninese students."
+                  }
+                }
+              }
+            ],
+            "Gallery": "Gallery",
+            "All": "ALL",
+            "About": "About",
+            "contact2": "Join our community and explore incredible opportunities for growth and collaboration.",
+            "contact": "Contact Us",
+            "famesDefAbout": "<strong>FAMES BENIN</strong>, officially known as <strong><em>Federation of Beninese Students and Interns in China</em></strong>, is a non-profit, non-political, and secular organization founded in <strong>2010</strong>. Since its inception, it operates throughout China, providing invaluable support to Beninese students and interns residing in China. Its main mission is to promote sustainable development solutions within the framework of Sino-Beninese cooperation. <div className='mb-2'/> <br/> Under the leadership of <strong>Miss Koudenoukpo Dossi Isbath</strong>, who serves as the president, and with the support of <strong>Mr. Segbo Silas Fidèle Gbèwèdo</strong>, the general secretary, FAMES BENIN is committed to creating a conducive environment for the personal and academic development of its members. The organization encourages solidarity, facilitates cultural integration, and promotes cooperation initiatives between Benin and China. As a platform for dialogue and collaboration, FAMES BENIN plays a vital role in strengthening the ties between the two nations while supporting the academic and professional ambitions of Beninese in China.",
+            "consularCard": "Consular Card Application",
+            "consulat1": "What is the consular card?",
+            "consulat2": "The consular card is an official document issued by the Embassy. This document plays a crucial role in identifying and registering nationals of a country residing abroad. By having this card, citizens can more easily access the various consular services offered by the Embassy. Additionally, in case of need, they can benefit from the assistance and support of the Embassy, which can be extremely valuable in emergency or necessity situations.",
+            "consulat3": "Moreover, the consular card is often used for various administrative procedures. It may be required to complete certain local formalities, such as registering for services or conducting specific transactions. Therefore, the consular card is an essential and indispensable document for all citizens living abroad, as it allows them to prove their identity and status to local authorities and the Embassy.",
+            "consulatList": "List of required documents:",
+            "consulatList1": "One (01) passport photo with a white background (1 inch).",
+            "consulatList2": "A consular card application addressed to the Ambassador.",
+            "consulatList3": "One (01) photocopy of the passport.",
+            "consulatList4": "A copy of the birth certificate.",
+            "consulatList5": "A copy of the proof of employment.",
+            "consulatList6": "The original receipt and copy of payment of 100 RMB.",
+            "consulatList7": "A digital photo in JPG format with a white background to be sent to <a href='mailto:beninembassy.cn@yahoo.com' className='text-blue-500'> beninembassy.cn@yahoo.com</a> after submitting the documents. Mention your name under the photo.",
+            "consulatList8": "Submit a complete file in person at the Embassy or authorize a designated person to handle the formalities at the Embassy.",
+          
+            "consulatNB1": "The Embassy does not accept ATM payment receipts and phone transactions. Payments must be made only at local bank counters.",
+            "consulatNB2": "The Embassy observes the public holidays of the People's Republic of China and the Republic of Benin.",
+            "consulatNB3": "Service hours: Monday to Friday <br /> Morning: 9:00-13:00 <br />Afternoon: 15:00-17:00",
+            "consulatNB4": "File processing time: 72 hours",
+            "consulatInfo": "Information form sample",
+          
+            "ActivateEmail": "Activate Email",
+            "Submit": "Submit",
+          
+            "ChangePassword": "Change Password",
+            "EnterOldPassword": "Old Password",
+            "NewPassword": "New Password",
+            "ConfirmNewPassword": "Confirm New Password",
+          
+            "EmailValidateRequest": "Email Validation Request",
+          
+            "Login": "Login",
+            "Password": "Password",
+            "ForgotPassword": "Forgot Password",
+            "LoginWithGoogle": "Login with Google",
+          
+            "PasswordResetConfirmation": "Password Reset Confirmation",
+          
+            "PasswordResetRequest": "Password Reset Request",
+          
+            "Register": "Register",
+            "Prénom": "First Name",
+            "Nom": "Last Name",
+            "PhoneNumber": "Phone Number",
+            "OU": "OR",
+            "RegisterWithGoogle": "Register with Google",
+            "account": "Already have an account?",
+          
+            "YourPassword": "Your password",
+            "YourPhoneNumber": "Your phone number",
+            "YourEmailAddress": "Your email address",
+            "YourName": "Your name",
+            "YourFirstName": "Your first name",
+          
+            "SetPassword": "Set Password",
+            "ConfirmPassword": "Confirm Password",
+          
+            "BasicInformation": "Basic Information",
+            "DateOfBirth": "Date of Birth:",
+            "Gender": "Gender",
+          
+            "LocationInformation": "Location Information",
+            "City": "City:",
+            "Country": "Country:",
+          
+            "Status": "Status",
+            "Active": "Active:",
+            "Staff": "Staff:",
+            "DateJoined": "Date Joined:",
+            "LastLogin": "Last Login:",
+            "Bio": "Biography",
+            "Logout": "Logout"
   }
   

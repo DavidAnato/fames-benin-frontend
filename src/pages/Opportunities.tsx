@@ -7,6 +7,7 @@ import uneb from '../assets/images/partner/partner3.png';
 import fneb from '../assets/images/partner/partner4.png';
 import confuciusInstitute from '../assets/images/partner/partenaire5.png';
 import MiniHero from '../components/miniHero';
+import { useTranslation } from 'react-i18next';
 
 // Définir l'interface pour une opportunité
 interface Opportunity {
@@ -20,16 +21,24 @@ interface Opportunity {
 // Définir l'interface pour un partenaire
 interface Partner {
   src: string;
-  name: string;
-  description: string;
+  nameFr: string;
+  nameEn: string;
+  nameCh: string;
 }
 
 const OpportunityPage: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [lang , setLang] = useState(i18n.language);
+
+  useEffect(() => {
+    setLang(i18n.language);
+    console.log(i18n.language)
+  }, [i18n.language]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -68,13 +77,13 @@ const OpportunityPage: React.FC = () => {
 
   // Exemple de données de partenaires
   const partners: Partner[] = [
-    { src: ministryOfForeignAffairsOfBenin, name: "Ministère des Affaires Etrangères du Bénin", description: "Le Ministère des Affaires Etrangères du Bénin est chargé de la gestion des relations internationales et de la diplomatie du Bénin." },
-    { src: ministryOfForeignAffairsOfBenin, name: "DBAU: Direction des Bourses et Aides Universitaires", description: "La Direction des Bourses et Aides Universitaires (DBAU) est responsable de la gestion et de l'attribution des bourses et aides financières aux étudiants béninois." },
-    { src: ministryOfForeignAffairsOfBenin, name: "Ambassade du Bénin près la Chine", description: "L'Ambassade du Bénin en Chine représente les intérêts du Bénin et offre des services consulaires aux citoyens béninois résidant en Chine." },
-    { src: confuciusInstitute, name: "Institut Confucius BENIN (UAC)", description: "L'Institut Confucius BENIN (UAC) est dédié à la promotion de la langue et de la culture chinoises au Bénin." },
-    { src: chineseUniversityOfGeosciences, name: "Université chinoise de Géosciences", description: "L'Université chinoise de Géosciences est une institution de premier plan en Chine, spécialisée dans les sciences de la terre et les ressources naturelles." },
-    { src: uneb, name: "UNEB: Union Nationale des Étudiants du Bénin", description: "L'Union Nationale des Étudiants du Bénin (UNEB) est une association qui promeut la solidarité et l'entraide entre les étudiants béninois." },
-    { src: fneb, name: "FNEB: Fédération Nationale des Étudiants du Bénin", description: "La Fédération Nationale des Étudiants du Bénin (FNEB) est une organisation qui défend les droits et intérêts des étudiants béninois." },
+    { src: ministryOfForeignAffairsOfBenin, nameFr: "Ministère des Affaires Etrangères du Bénin", nameEn:"Ministry of Foreign Affairs of Benin", nameCh:"贝宁外交部" },
+    { src: ministryOfForeignAffairsOfBenin, nameFr: "DBAU: Direction des Bourses et Aides Universitaires", nameEn:"DBAU: Directorate of Scholarships and University Aid", nameCh:"大学奖学金和助学金管理处"},
+    { src: ministryOfForeignAffairsOfBenin, nameFr: "Ambassade du Bénin près la Chine", nameEn:"Embassy of Benin near China", nameCh:"贝宁驻华大使馆" },
+    { src: confuciusInstitute, nameFr: "Institut Confucius BENIN (UAC)", nameEn:"Confucius Institute BENIN (UAC)", nameCh:"贝宁孔子学院 (阿波美卡拉维大学)" },
+    { src: chineseUniversityOfGeosciences, nameFr: "Université chinoise de Géosciences", nameEn:"China University of Geosciences", nameCh:"中国地质大学" },
+    { src: uneb, nameFr: "UNEB: Union Nationale des Étudiants du Bénin", nameEn:"UNEB: National Union of Students of Benin", nameCh:"贝宁全国学生联盟" },
+    { src: fneb, nameFr: "FNEB: Fédération Nationale des Étudiants du Bénin", nameEn:"FNEB: National Federation of Students of Benin", nameCh:"贝宁全国学生联合会" },
   ];
 
   // Fonction pour ouvrir le popup avec les détails de l'opportunité
@@ -92,7 +101,7 @@ const OpportunityPage: React.FC = () => {
   return (
     <div className='pb-20 min-h-screen pt-[7.5rem]'>
       {/* En-tête de la page */}
-      <MiniHero content="Opportunities" />
+      <MiniHero content={t('Opportunitiés')} />
       
       <div className="md:flex px-5">
         <div className='lg:w-3/4 w-full mx-auto md:mr-5'>
@@ -102,7 +111,7 @@ const OpportunityPage: React.FC = () => {
             <form className="w-full relative lg:mr-3 lg:pr-2">
               <input
                 type="text"
-                placeholder="Rechercher des opportunités..."
+                placeholder={t('Opportunitiés.placeholder')}
                 className="w-full p-3 px-5 rounded-2xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
               />
               {/* Icône de recherche */}
@@ -153,7 +162,7 @@ const OpportunityPage: React.FC = () => {
                   ))
                 ) : (
                   <AnimatedElement>
-                    <p className="text-center text-gray-500">Aucune opportunité disponible pour le moment.</p>
+                    <p className="text-center text-gray-500"> {t('Opportunitiés.disponible')}</p>
                   </AnimatedElement>
                 )}
             </div>
@@ -181,17 +190,31 @@ const OpportunityPage: React.FC = () => {
         <aside className="w-full lg:w-1/4 ">
         <AnimatedElement>
           <div className='bg-white shadow-2xl rounded-lg p-6 flex flex-col justify-between'>
-            <h2 className="text-xl sm:text-2xl font-bold mb-4">Nos Partenaires</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-4">{t('Opportunitiés.Partenaires')}</h2>
             <p className="text-gray-700 mb-4">
-              Découvrez les informations sur nos partenaires et comment ils contribuent à nos projets.
+            {t('Opportunitiés.PartenairesText')}
             </p>
             <ul className="list-style-none">
               {partners.map(partner => (
                 <>
-                  <li key={partner.name} className="-2 items-center flex">
-                    <img src={partner.src} alt={partner.name} className="w-10 h-10 block mr-2" />
-                    <p>{partner.name}</p>
+                 {lang=="en" && 
+                  <li key={partner.nameEn} className="-2 items-center flex">
+                    <img src={partner.src} alt={partner.nameEn} className="w-10 h-10 block mr-2" />
+                    <p>{partner.nameEn}</p>
                   </li>
+                  }
+                 {lang=="fr" && 
+                  <li key={partner.nameFr} className="-2 items-center flex">
+                    <img src={partner.src} alt={partner.nameFr} className="w-10 h-10 block mr-2" />
+                    <p>{partner.nameFr}</p>
+                  </li>
+                  }
+                  {lang=="ch" && 
+                  <li key={partner.nameCh} className="-2 items-center flex">
+                    <img src={partner.src} alt={partner.nameCh} className="w-10 h-10 block mr-2" />
+                    <p>{partner.nameCh}</p>
+                  </li>
+                  }
                   <hr className='my-5' />
                 </>
               ))}

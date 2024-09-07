@@ -3,10 +3,12 @@ import { fetchAlbumList, Album } from '../fetch/galleryFetch';
 import Images from '../components/gallery/images';
 import MiniHero from '../components/miniHero';
 import AnimatedElement from '../function/AnimatedElement';
+import { useTranslation } from 'react-i18next'; // Ajout de l'import manquant
 
 const Gallery: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
   const [selectedAlbumId, setSelectedAlbumId] = useState<string | undefined>(undefined);
+  const { t } = useTranslation(); // Utilisation de `useTranslation` pour la traduction
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -40,7 +42,7 @@ const Gallery: React.FC = () => {
   return (
     <section className="py-5 min-h-screen pt-[7.5rem]">
 
-      <MiniHero content="Gallery" />
+      <MiniHero content={t('Gallery')} />
       <AnimatedElement>
       <div className="flex justify-center items-center space-x-3 mb-5 px-5">
         <button
@@ -63,7 +65,7 @@ const Gallery: React.FC = () => {
             onClick={() => setSelectedAlbumId(undefined)}
           >
             <span className="px-2">
-              <i className="fas fa-th-large text-xl mr-2"></i>All
+              <i className="fas fa-th-large text-xl mr-2"></i>{t("All")}
             </span>
           </button>
           {albums.map((album) => (

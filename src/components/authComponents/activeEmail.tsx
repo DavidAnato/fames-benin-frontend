@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { activateEmail } from '../../fetch/authFetch';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import des icônes
 import famesLogo from '../../assets/images/logos/fames-logo.png';
+import { useTranslation } from 'react-i18next';
+
 
 const ActiveEmail = () => {
   const [otp, setOtp] = useState('');
@@ -24,13 +26,15 @@ const ActiveEmail = () => {
       setMessage(error.message || 'An error occurred. Please try again.');
     }
   };
+  const { t } = useTranslation(); // Hook pour gérer la traduction
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
       <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
         <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-        <h2 className="text-2xl font-bold mb-6 text-center md:text-left">Activate Email</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center md:text-left">{t("ActivateEmail")}</h2>
       </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative mb-4">
@@ -60,7 +64,7 @@ const ActiveEmail = () => {
           </div>
           <div>
             <button type="submit" className="btn btn-accent w-full rounded-full shadow shadow-emerald-500/50">
-              Submit
+              {t("Submit")}
             </button>
           </div>
         </form>

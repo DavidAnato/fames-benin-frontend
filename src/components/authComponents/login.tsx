@@ -7,6 +7,7 @@ import famesLogo from '../../assets/images/logos/fames-logo.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importer les icônes d'œil
 import './login.css'
 import WebPushMessage from './message';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -25,6 +26,7 @@ const Login = () => {
       setError('Login failed. Please check your credentials and try again.');
     }
   };
+  const { t } = useTranslation(); // Hook pour gérer la traduction
 
   useEffect(() => {
     if (error) {
@@ -45,7 +47,7 @@ const Login = () => {
       <div className="bg-white p-8 rounded shadow-2xl w-full max-w-md">
         <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
           <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-          <h2 className="text-2xl font-bold mb-6 text-center md:text-left">Login</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center md:text-left">{t("Login")}</h2>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="floating-label mb-4 relative">
@@ -57,7 +59,7 @@ const Login = () => {
               className="w-full px-3 py-3 border rounded placeholder-transparent"
               placeholder="Email"
             />
-            <label className='text-black'><i className="fa fa-envelope text-gray-500 pe-2"></i> Email</label>
+            <label className='text-black'><i className="fa fa-envelope text-gray-500 pe-2"></i> E-mail</label>
           </div>
           <div className="floating-label mb-4 relative">
             <input
@@ -69,7 +71,7 @@ const Login = () => {
               placeholder="Password"
             />
             <label className="flex items-center">
-              <i className="fa fa-lock text-gray-500 pe-2"></i>Password
+              <i className="fa fa-lock text-gray-500 pe-2"></i>{t("Password")}
             </label>
             <button
                 type="button"
@@ -80,15 +82,15 @@ const Login = () => {
               </button>
           </div>
           {error && <WebPushMessage msg={error} type='error'></WebPushMessage>}
-          <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">Login</button>
+          <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">{t("Login")}</button>
         </form>
         <div className='my-3 flex items-center'>
           <div className='flex-grow border-t border-gray-300'></div>
-          <Link to="/password-reset-request" className="text-blue-300 mx-4 hover:text-blue-500 duration-100">Forgot Password?</Link>
+          <Link to="/password-reset-request" className="text-blue-300 mx-4 hover:text-blue-500 duration-100">{t("ForgotPassword")}?</Link>
           <div className='flex-grow border-t border-gray-300'></div>
         </div>          
         <div>
-          <GoogleConnection text='Login with google'></GoogleConnection>
+          <GoogleConnection text={t('LoginWithGoogle')}></GoogleConnection>
         </div>
       </div>
     </div>

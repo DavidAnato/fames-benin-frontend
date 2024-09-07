@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { register } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
 import GoogleConnection from './googleConnection';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -54,6 +55,7 @@ const Register = () => {
       setLoading(false);
     }
   };
+  const { t } = useTranslation(); // Hook pour gérer la traduction
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mt-24 md:mt-10">
@@ -66,13 +68,13 @@ const Register = () => {
               alt="FAMES Logo"
               className="w-24 md:w-32 md:mb-0 md:mr-4 mr-0 mx-auto"
             />
-            <h2 className="card-title text-center md:text-left text-2xl font-bold">Register</h2></div>
+            <h2 className="card-title text-center md:text-left text-2xl font-bold">{t("Register")}</h2></div>
             {message && <div className="alert alert-info">{message}</div>}
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="form-control flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <div className="w-full md:w-1/2">
                   <label htmlFor="firstName" className="label">
-                    <span className="label-text">Prénom</span>
+                    <span className="label-text">{t("Prénom")}</span>
                   </label>
                   <div className="relative">
                     <input
@@ -82,7 +84,7 @@ const Register = () => {
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       className="input input-bordered w-full pl-10"
-                      placeholder="Votre prénom"
+                      placeholder={t("YourFirstName")}
                       required
                     />
                     <i className="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2"></i>
@@ -90,7 +92,7 @@ const Register = () => {
                 </div>
                 <div className="w-full md:w-1/2">
                   <label htmlFor="lastName" className="label">
-                    <span className="label-text">Nom</span>
+                    <span className="label-text">{t("Nom")}</span>
                   </label>
                   <div className="relative">
                     <input
@@ -100,7 +102,7 @@ const Register = () => {
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       className="input input-bordered w-full pl-10"
-                      placeholder="Votre nom"
+                      placeholder={t("YourName")}
                       required
                     />
                     <i className="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2"></i>
@@ -120,14 +122,14 @@ const Register = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="input input-bordered w-full pl-10"
-                      placeholder="Votre adresse email"
+                      placeholder={t("YourEmailAddress")}
                     />
                     <i className="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2"></i>
                   </div>
                 </div>
                 <div className="w-full md:w-1/2">
                   <label htmlFor="phoneNumber" className="label">
-                    <span className="label-text">Numéro de téléphone</span>
+                    <span className="label-text">{t("PhoneNumber")}</span>
                   </label>
                   <div className="grid grid-cols-10 gap-2 input input-bordered items-center px-0">
                     <div className="relative col-span-3">
@@ -166,7 +168,7 @@ const Register = () => {
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
                         className="w-full focus:border-none"
-                        placeholder="Votre numéro de téléphone"
+                        placeholder={t("YourPhoneNumber ")}
                         required
                       />
                     </div>
@@ -176,7 +178,7 @@ const Register = () => {
               <div className="form-control flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <div className="w-full md:w-1/2">
                   <label htmlFor="password" className="label">
-                    <span className="label-text">Mot de passe</span>
+                    <span className="label-text">{t("Password")}</span>
                   </label>
                   <div className="relative">
                     <input
@@ -186,7 +188,7 @@ const Register = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="input input-bordered w-full pl-10"
-                      placeholder="Votre mot de passe"
+                      placeholder={t("YourPassword")}
                       required
                     />
                     <i className="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2"></i>
@@ -194,7 +196,7 @@ const Register = () => {
                 </div>
                 <div className="w-full md:w-1/2">
                   <label htmlFor="confirmPassword" className="label">
-                    <span className="label-text">Confirmez le mot de passe</span>
+                    <span className="label-text">{t("ConfirmNewPassword")}</span>
                   </label>
                   <div className="relative">
                     <input
@@ -204,7 +206,7 @@ const Register = () => {
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       className="input input-bordered w-full pl-10"
-                      placeholder="Confirmez votre mot de passe"
+                      placeholder={t("ConfirmNewPassword")}
                       required
                     />
                     <i className="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2"></i>
@@ -220,20 +222,20 @@ const Register = () => {
                   {loading ? (
                     <span className="loading loading-spinner"></span>
                   ) : (
-                    <><i className="fas fa-user-plus mr-2"></i> Register</>
+                    <><i className="fas fa-user-plus mr-2"></i> {t("Register")}</>
                   )}
                 </button>
               </div>
-              <div className="divider">OU</div>
+              <div className="divider">{t("OU")}</div>
               <div className="form-control">
-              <GoogleConnection text='Register with google'></GoogleConnection>
+              <GoogleConnection text={t("RegisterWithGoogle")}></GoogleConnection>
               </div>
             </form>
             <p className="mt-4 text-center">
-              Vous avez déjà un compte ?{" "}
+              {t("account")}{" "}
               <Link to="/login" className="link link-primary hover:text-blue-500 text-blue-300">
                 <i className="fas fa-sign-in-alt mr-1"></i>
-                Se connecter
+                {t("Login")}
               </Link>
             </p>
           </div>

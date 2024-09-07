@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { changePassword } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importer les icônes d'œil
+import { useTranslation } from 'react-i18next';
 import './changePassword.css'
 
 const ChangePassword = () => {
@@ -29,6 +30,7 @@ const ChangePassword = () => {
             setMessage(error.message || 'An error occurred. Please try again.');
         }
     };
+    const { t } = useTranslation(); // Hook pour gérer la traduction
 
     return (
         <div className="flex flex-col items-center justify-center h-screen mt-5">
@@ -36,7 +38,9 @@ const ChangePassword = () => {
                 <div className="card-body">
                     <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
                         <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-                        <h2 className="text-2xl font-bold mb-6 text-center md:text-left">Change Password</h2>
+                        <div>
+                            <h2 className="text-2xl font-bold mb-6 text-center md:text-left">{t("ChangePassword")}</h2>
+                        </div>
                     </div>
                     <form onSubmit={handleSubmit} className="space-y-7">
                         <div className="form-control relative">
@@ -50,7 +54,7 @@ const ChangePassword = () => {
                                 required
                             />
                             <label htmlFor="oldPassword" className="absolute top-0 left-0 px-3 pt-2 text-gray-500 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
-                                Old Password
+                                {t("EnterOldPassword")}
                             </label>
                             <button
                                 type="button"
@@ -71,7 +75,7 @@ const ChangePassword = () => {
                                 required
                             />
                             <label htmlFor="newPassword" className="absolute top-0 left-0 px-3 pt-2 text-gray-500 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
-                                New Password
+                            {t("NewPassword")}
                             </label>
                             <button
                                 type="button"
@@ -92,7 +96,7 @@ const ChangePassword = () => {
                                 required
                             />
                             <label htmlFor="confirmPassword" className="absolute top-0 left-0 px-3 pt-2 text-gray-500 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
-                                Confirm New Password
+                            {t("ConfirmNewPassword")}
                             </label>
                             <button
                                 type="button"
@@ -103,7 +107,7 @@ const ChangePassword = () => {
                             </button>
                         </div>
                         <button type="submit" className="w-full btn btn-accent font-bold shadow shadow-emerald-500/50 py-2 rounded-full">
-                            Submit
+                            {t("Submit")}
                         </button>
                     </form>
                     {message && <div className="alert alert-error shadow-lg">
