@@ -6,6 +6,7 @@ import useUserProfile from '../hooks/user';
 import SettingsForm from '../components/settingsComponents/settingsForm';
 import ProfilePicture from '../components/userProfile/ProfilePicture';
 import ProfileCover from '../components/userProfile/ProfileCover';
+import { useTranslation } from 'react-i18next';
 
 const UserProfile: React.FC = () => {
     const [profile, setProfile] = useState<UserProfileType | null>(null);
@@ -74,6 +75,7 @@ const UserProfile: React.FC = () => {
             setIsLoading(false);
         }
     };
+    const { t } = useTranslation(); // Hook pour gérer la traduction
 
     if (!user) {
         return null;
@@ -102,7 +104,7 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Basic Information</h2>
+                                            <h2 className="card-title">{t("BasicInformation")}</h2>
                                             <SettingsForm
                                                 title="Edit Basic Information"
                                                 fields={[
@@ -116,18 +118,18 @@ const UserProfile: React.FC = () => {
                                                 onFormSubmit={reloadUserProfile}
                                             />
                                         </div>
-                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">First Name:</strong> {profile.first_name || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">Last Name:</strong> {profile.last_name || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">Date of Birth:</strong> {profile.date_of_birth ? new Date(profile.date_of_birth).toLocaleDateString() : 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-venus-mars mr-2"></i><strong className="mr-1">Gender:</strong> {profile.gender || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-phone mr-2"></i><strong className="mr-1">Phone Number:</strong> {profile.phone_number || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-envelope mr-2"></i><strong className="mr-1">Email Address:</strong> {profile.email || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">{t("Prénom")} :</strong> {profile.first_name || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">{t("Nom")}</strong> {profile.last_name || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">{t("DateOfBirth")}</strong> {profile.date_of_birth ? new Date(profile.date_of_birth).toLocaleDateString() : 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-venus-mars mr-2"></i><strong className="mr-1">{t("Gender")} :</strong> {profile.gender || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-phone mr-2"></i><strong className="mr-1">{t("PhoneNumber")} :</strong> {profile.phone_number || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-envelope mr-2"></i><strong className="mr-1">E-mail :</strong> {profile.email || 'N/A'}</p>
                                     </div>
                                 </div>
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Location Information</h2>
+                                            <h2 className="card-title">{t("LocationInformation")}</h2>
                                             <SettingsForm
                                                 title="Edit Location Information"
                                                 fields={[
@@ -137,8 +139,8 @@ const UserProfile: React.FC = () => {
                                                 onFormSubmit={reloadUserProfile}
                                             />
                                         </div>
-                                        <p className="flex items-center"><i className="fas fa-city mr-2"></i><strong className="mr-1">City:</strong> {profile.city || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-flag mr-2"></i><strong className="mr-1">Country:</strong> {profile.country || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-city mr-2"></i><strong className="mr-1">{t("City")}</strong> {profile.city || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-flag mr-2"></i><strong className="mr-1">{t("Country")}</strong> {profile.country || 'N/A'}</p>
                                     </div>
                                 </div>
                             </div>
@@ -146,18 +148,18 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Status</h2>
+                                            <h2 className="card-title">{t("Status")}</h2>
                                         </div>
-                                        <p className="flex items-center"><i className="fas fa-user-check mr-2"></i><strong className="mr-1">Active:</strong> {profile.is_active ? 'Yes' : 'No'}</p>
-                                        <p className="flex items-center"><i className="fas fa-user-shield mr-2"></i><strong className="mr-1">Staff:</strong> {profile.is_staff ? 'Yes' : 'No'}</p>
-                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">Date Joined:</strong> {profile.date_joined ? new Date(profile.date_joined).toLocaleDateString() : 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">Last Login:</strong> {profile.last_login ? new Date(profile.last_login).toLocaleDateString() : 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user-check mr-2"></i><strong className="mr-1">{t("Active")}</strong> {profile.is_active ? 'Yes' : 'No'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user-shield mr-2"></i><strong className="mr-1">{t("Staff")}</strong> {profile.is_staff ? 'Yes' : 'No'}</p>
+                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">{t("DateJoined")}</strong> {profile.date_joined ? new Date(profile.date_joined).toLocaleDateString() : 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">{t("LastLogin")}</strong> {profile.last_login ? new Date(profile.last_login).toLocaleDateString() : 'N/A'}</p>
                                     </div>
                                 </div>
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Bio</h2>
+                                            <h2 className="card-title">{t("Bio")}</h2>
                                             <SettingsForm
                                                 title="Edit Bio"
                                                 fields={[
@@ -176,13 +178,13 @@ const UserProfile: React.FC = () => {
                                 to="/change-password"
                                 className="btn btn-info btn-outline btn-sm px-6 rounded-xl"
                             >
-                                <i className="fas fa-key mr-2"></i>Change Password
+                                <i className="fas fa-key mr-2"></i>{t("ChangePassword")}
                             </Link>
                             <button
                                 onClick={handleLogout}
                                 className="btn btn-error btn-outline btn-sm px-6 rounded-xl"
                             >
-                                <i className="fas fa-sign-out-alt mr-2"></i>Logout
+                                <i className="fas fa-sign-out-alt mr-2"></i>{t("Logout")}
                             </button>
                         </div>
                     </>
@@ -211,12 +213,12 @@ const UserProfile: React.FC = () => {
                                                 onFormSubmit={reloadUserProfile}
                                             />
                                         </div>
-                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">First Name:</strong> {staticUser?.first_name || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">Last Name:</strong> {staticUser?.last_name || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">Date of Birth:</strong> {staticUser?.date_of_birth ? new Date(staticUser.date_of_birth).toLocaleDateString() : 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-venus-mars mr-2"></i><strong className="mr-1">Gender:</strong> {staticUser?.gender || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-phone mr-2"></i><strong className="mr-1">Phone Number:</strong> {staticUser?.phone_number || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-envelope mr-2"></i><strong className="mr-1">Email Address:</strong> {staticUser?.email || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">{t("Prénom")} :</strong> {staticUser?.first_name || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user mr-2"></i><strong className="mr-1">{t("Nom")}</strong> {staticUser?.last_name || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">{t("DateOfBirth")}</strong> {staticUser?.date_of_birth ? new Date(staticUser.date_of_birth).toLocaleDateString() : 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-venus-mars mr-2"></i><strong className="mr-1">{t("Gender")} :</strong> {staticUser?.gender || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-phone mr-2"></i><strong className="mr-1">{t("PhoneNumber")} :</strong> {staticUser?.phone_number || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-envelope mr-2"></i><strong className="mr-1">E-mail :</strong> {staticUser?.email || 'N/A'}</p>
                                     </div>
                                 </div>
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
@@ -232,8 +234,8 @@ const UserProfile: React.FC = () => {
                                                 onFormSubmit={reloadUserProfile}
                                             />
                                         </div>
-                                        <p className="flex items-center"><i className="fas fa-city mr-2"></i><strong className="mr-1">City:</strong> {staticUser?.city || 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-flag mr-2"></i><strong className="mr-1">Country:</strong> {staticUser?.country || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-city mr-2"></i><strong className="mr-1">{t("City")}</strong> {staticUser?.city || 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-flag mr-2"></i><strong className="mr-1">{t("Country")}</strong> {staticUser?.country || 'N/A'}</p>
                                     </div>
                                 </div>
                             </div>
@@ -243,16 +245,16 @@ const UserProfile: React.FC = () => {
                                         <div className="flex justify-between items-center">
                                             <h2 className="card-title">Status</h2>
                                         </div>
-                                        <p className="flex items-center"><i className="fas fa-user-check mr-2"></i><strong className="mr-1">Active:</strong> {staticUser?.is_active ? 'Yes' : 'No'}</p>
-                                        <p className="flex items-center"><i className="fas fa-user-shield mr-2"></i><strong className="mr-1">Staff:</strong> {staticUser?.is_staff ? 'Yes' : 'No'}</p>
-                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">Date Joined:</strong> {staticUser?.date_joined ? new Date(staticUser.date_joined).toLocaleDateString() : 'N/A'}</p>
-                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">Last Login:</strong> {staticUser?.last_login ? new Date(staticUser.last_login).toLocaleDateString() : 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user-check mr-2"></i><strong className="mr-1">{t("Active")}</strong> {staticUser?.is_active ? 'Yes' : 'No'}</p>
+                                        <p className="flex items-center"><i className="fas fa-user-shield mr-2"></i><strong className="mr-1">{t("Staff")}</strong> {staticUser?.is_staff ? 'Yes' : 'No'}</p>
+                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">{t("DateJoined")}</strong> {staticUser?.date_joined ? new Date(staticUser.date_joined).toLocaleDateString() : 'N/A'}</p>
+                                        <p className="flex items-center"><i className="fas fa-calendar-alt mr-2"></i><strong className="mr-1">{t("LastLogin")}</strong> {staticUser?.last_login ? new Date(staticUser.last_login).toLocaleDateString() : 'N/A'}</p>
                                     </div>
                                 </div>
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Bio</h2>
+                                            <h2 className="card-title">{t("Bio")}</h2>
                                             <SettingsForm
                                                 title="Edit Bio"
                                                 fields={[
@@ -266,18 +268,18 @@ const UserProfile: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-center mt-6 space-x-4">
+                        <div className="flex flex-col sm:flex-row justify-center items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
                             <Link
                                 to="/change-password"
-                                className="btn btn-info btn-outline btn-sm px-6 rounded-xl"
+                                className="btn btn-info btn-outline btn-sm px-6 py-2 sm:rounded-xl rounded-lg w-full sm:w-auto"
                             >
-                                <i className="fas fa-key mr-2"></i>Change Password
+                                <i className="fas fa-key mr-2"></i>{t("ChangePassword")}
                             </Link>
                             <button
                                 onClick={handleLogout}
-                                className="btn btn-error btn-outline btn-sm px-6 rounded-xl"
+                                className="btn btn-error btn-outline btn-sm px-6 py-2 sm:rounded-xl rounded-lg w-full sm:w-auto"
                             >
-                                <i className="fas fa-sign-out-alt mr-2"></i>Logout
+                                <i className="fas fa-sign-out-alt mr-2"></i>{t("Logout")}
                             </button>
                         </div>
                     </>

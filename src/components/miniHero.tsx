@@ -13,21 +13,16 @@ const icons = [
   'fas fa-moon',
   'fas fa-sun',
   'fas fa-cloud',
+//   'fas fa-bell',
+//   'fas fa-flag',
   'fas fa-smile',
   'fas fa-star-of-life'
 ];
 
 const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const getNumIcons = () => {
-  const width = window.innerWidth;
-  if (width > 1200) return getRandomInt(8, 12); // Large screens
-  if (width > 768) return getRandomInt(5, 8); // Medium screens
-  return getRandomInt(3, 5); // Small screens
-};
-
 export const generateRandomIcons = () => {
-  const numIcons = getNumIcons();
+  const numIcons = getRandomInt(8, 12);
   const positions: { top: number, left: number }[] = [];
   const iconElements = [];
   for (let i = 0; i < numIcons; i++) {
@@ -68,16 +63,8 @@ export const generateRandomIcons = () => {
 const MiniHero: React.FC<MiniHeroProps> = ({ content }) => {
   const [iconElements, setIconElements] = useState<JSX.Element[]>([]);
 
-  const updateIcons = () => {
-    setIconElements(generateRandomIcons());
-  };
-
   useEffect(() => {
-    updateIcons();
-    window.addEventListener('resize', updateIcons);
-    return () => {
-      window.removeEventListener('resize', updateIcons);
-    };
+    setIconElements(generateRandomIcons());
   }, []);
 
   return (

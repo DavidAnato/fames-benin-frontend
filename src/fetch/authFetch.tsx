@@ -65,7 +65,7 @@ interface GoogleLoginResponse {
   refresh: string;
 }
 
-export const login = async (email: string, password: string): Promise<{ success: boolean; error?: string }> => {
+export const login = async (email: string, password: string): Promise<boolean> => {
   try {
     const response = await apiRequest({
       method: 'post',
@@ -80,13 +80,10 @@ export const login = async (email: string, password: string): Promise<{ success:
     const refresh = data.refresh;
     useAuthStore.getState().setAccessToken(access);
     useAuthStore.getState().setRefreshToken(refresh);
-    return { success: true };
-  } catch (error: any) {
-    let errorMessage = 'Login failed. Please check your credentials and try again.';
-    if (error.response && error.response.data && error.response.data.non_field_errors) {
-      errorMessage = error.response.data.non_field_errors[0];
-    }
-    return { success: false, error: errorMessage };
+    return true;
+  } catch (error) {
+    console.error('Login failed:', error);
+    return false;
   }
 };
 

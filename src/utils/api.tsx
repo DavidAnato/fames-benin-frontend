@@ -1,20 +1,19 @@
 // src/utils/api.ts
 import axios from 'axios';
 import useAuthStore from '../store/authStore';
-
+import { useNavigate } from 'react-router-dom';
 const API_URL = process.env.API_URL;
 
 const api = axios.create({
   baseURL: API_URL,
-  headers: { 'Content-Type': 'application/json', accept: 'application/json' },
+  headers: { 'Content-Type': 'application/json', 'accept': 'application/json' },
 });
 
 const apiFormData = axios.create({
   baseURL: API_URL,
-  headers: { 'Content-Type': 'multipart/form-data', accept: 'application/json' },
+  headers: { 'Content-Type': 'multipart/form-data', 'accept': 'application/json' },
 });
 
-// Intercepteur pour ajouter le token dans les headers
 api.interceptors.request.use((config) => {
   const { accessToken } = useAuthStore.getState();
   if (accessToken) {
@@ -31,24 +30,17 @@ apiFormData.interceptors.request.use((config) => {
   return config;
 });
 
-// Fonction pour gérer les erreurs de réponse
-const handleResponseError = async (error: any, navigate: any) => {
+const handleResponseError = async (error: any) => {
+  const navigate = useNavigate();
   if (error.response?.status === 401) {
     const { refreshToken } = useAuthStore.getState();
-
-    if (!refreshToken) {
-      useAuthStore.getState().clearAuth();
-      navigate('/login');
-      throw error;
-    }
-
     try {
       const refreshResponse = await api.post('authentication/token/refresh/', { refresh: refreshToken });
       const { access, refresh } = refreshResponse.data;
       useAuthStore.getState().setAccessToken(access);
       useAuthStore.getState().setRefreshToken(refresh);
 
-      // Retry the original request avec le nouveau token
+      // Retry the original request with the new token
       error.config.headers.Authorization = `Bearer ${access}`;
       return api.request(error.config);
     } catch (refreshError) {
@@ -60,24 +52,15 @@ const handleResponseError = async (error: any, navigate: any) => {
   throw error;
 };
 
-// Utilisation des intercepteurs pour gérer les erreurs de réponse
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
-    // navigate doit être passé en paramètre
-    return Promise.reject(error);
-  }
+  (error) => handleResponseError(error)
 );
 
 apiFormData.interceptors.response.use(
   (response) => response,
-  (error) => {
-    // navigate doit être passé en paramètre
-    return Promise.reject(error);
-  }
+  (error) => handleResponseError(error)
 );
 
-// Export des fonctions pour les appels API
 export const apiRequest = (config: any) => api(config);
 export const apiFormDataRequest = (config: any) => apiFormData(config);
-export const handleResponseErrorWithNavigate = handleResponseError;

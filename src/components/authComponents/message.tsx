@@ -10,9 +10,11 @@ const WebPushMessage: React.FC<WebPushMessageProps> = ({ msg, type }) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 10000); // 10 seconds
 
-    return () => {
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   let bgColor;
@@ -33,15 +35,11 @@ const WebPushMessage: React.FC<WebPushMessageProps> = ({ msg, type }) => {
   if (!visible) return null;
 
   return (
-    <div className=''>
-      <div className={`message-anime fixed bottom-4 left-4 p-4 rounded-full shadow-lg text-white ${bgColor} flex items-center z-[1000]`}>
-        <span className="flex-grow">{msg}</span>
-        <button onClick={() => {
-          setVisible(false);
-        }} className="ml-4">
-          <FaTimes />
-        </button>
-      </div>
+    <div className={`message-anime fixed bottom-4 left-4 p-4 rounded-full shadow-lg text-white ${bgColor} flex items-center z-[1000]`}>
+      <span className="flex-grow">{msg}</span>
+      <button onClick={() => setVisible(false)} className="ml-4">
+        <FaTimes />
+      </button>
     </div>
   );
 };

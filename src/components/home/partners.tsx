@@ -21,11 +21,11 @@ const Partners = () => {
 
   return (
 <section className="py-5 bg-gradient-to-r from-gray-100 via-slate-200 to-gray-100 text-white animate-bg">
-  <div className="container mx-auto px-4 flex flex-wrap justify-center lg:justify-between items-center">
+  <div className="container mx-auto px-4 flex flex-wrap justify-center sm:justify-between items-center">
     {partners.map((partner, index) => (
       <AnimatedElement key={index}>
-        <div className="flex flex-col items-center justify-center m-5">
-          <img src={partner.src} alt={partner.name} className="w-auto h-28 object-contain" />
+        <div className="flex flex-col items-center m-2 sm:m-4 w-1/2 sm:w-auto">
+          <img src={partner.src} alt={partner.name} className="w-auto h-16 sm:h-24 object-contain" />
         </div>
       </AnimatedElement>
     ))}

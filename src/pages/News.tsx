@@ -169,7 +169,7 @@ const News: React.FC = () => {
   
   return (
     <section className="py-10 min-h-screen pt-[7.5rem]">
-      <MiniHero content="News" />
+      <MiniHero content={t('news_actualités')} />
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row">
           <aside className="w-full lg:w-1/4 mb-8 lg:mb-0 lg:mr-8 sticky top-[8em] lg:self-start z-10 rounded-2xl backdrop-blur-sm">
@@ -178,7 +178,7 @@ const News: React.FC = () => {
               <input
                 type="text"
                 className="w-full p-3 px-5 rounded-2xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
-                placeholder={t('news.searchPlaceholder')}
+                placeholder={t('news_search_Placeholder')}
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
@@ -189,7 +189,7 @@ const News: React.FC = () => {
             
             <details className="collapse bg-base-100 collapse-arrow border-base-300 border lg:hidden">
                 <summary className="collapse-title text-xl font-medium">
-                    {t('news.filters')}
+                    {t('news_filters')}
                     <i className="fas fa-filter ml-2"></i>
                 </summary>
                 <div className="collapse-content">
@@ -203,12 +203,12 @@ const News: React.FC = () => {
                     }}
                     >
                     <i className="fas fa-newspaper mr-2"></i>
-                    <span className={allOption ? 'font-bold' : ''}>All News</span>
+                    <span className={allOption ? 'font-bold' : ''}>{t('AllNews')}</span>
                     </Link>
                     <div className="form-control w-full max-w-xs mb-4">
                     <label className="label">
                         <span className="label-text">
-                        {t('news.filterByCategory')}
+                        {t('news_filterByTag')}
                         <i className="fas fa-tags ml-2"></i>
                         </span>
                     </label>
@@ -230,7 +230,7 @@ const News: React.FC = () => {
                     <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">
-                        {t('news.filterByTag')}
+                        {t('news_filterByTag')}
                         <i className="fas fa-hashtag ml-2"></i>
                         </span>
                     </label>
@@ -252,7 +252,7 @@ const News: React.FC = () => {
             </details>
             <div className="hidden lg:block bg-base-100 border-base-300 border p-4 rounded-lg">
                 <h2 className="text-xl font-medium mb-4">
-                    {t('news.filters')}
+                    {t('news_filters')}
                     <i className="fas fa-filter ml-2"></i>
                 </h2>
                 <Link 
@@ -265,19 +265,19 @@ const News: React.FC = () => {
                 }}
                 >
                 <i className="fas fa-newspaper mr-2"></i>
-                <span className={allOption ? 'font-bold' : ''}>All News</span>
+                <span className={allOption ? 'font-bold' : ''}>{t('AllNews')}</span>
                 </Link>
                 <div className="form-control w-full max-w-xs mb-4">
                 <label className="label">
                     <span className="label-text">
-                    {t('news.filterByCategory')}
+                    {t('news_filterByCategory')}
                     <i className="fas fa-tags ml-2"></i>
                     </span>
                 </label>
                 <div className="bg-white p-4 rounded-lg shadow">
                     {categories.map((category) => (
                     <label key={category.id} className="cursor-pointer flex items-center mb-2">
-                                               <input
+                        <input
                         type="radio"
                         name="category"
                         className="radio mr-2"
@@ -292,7 +292,7 @@ const News: React.FC = () => {
                 <div className="form-control w-full max-w-xs">
                 <label className="label">
                     <span className="label-text">
-                    {t('news.filterByTag')}
+                    {t('news_filterByTag')}
                     <i className="fas fa-hashtag ml-2"></i>
                     </span>
                 </label>

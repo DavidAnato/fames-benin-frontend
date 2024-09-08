@@ -150,7 +150,7 @@ const NavBar = () => {
               <NavLink to="/register" className="btn btn-accent font-bold shadow shadow-emerald-500/50 rounded-full btn-sm">{t('navbar.signup')}</NavLink>
             </div>
           )}
-          <TranslationDropdown isDrop={true} bgColor="bg-gray-100" />
+          <TranslationDropdown isDrop bgColor="bg-gray-100" />
         </div>
       </div>
     </div>

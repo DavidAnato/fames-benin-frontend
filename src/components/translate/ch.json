@@ -1,0 +1,251 @@
+{
+    "welcome1": "欢迎来到FAMES BENIN",
+    "welcome2": "中国贝南学生和实习生联合会",
+    "mission": "我们的使命是作为一个致力于持续研究和发展中贝合作解决方案的中心。",
+    "join": "加入我们的社区，发现令人惊叹的机会。",
+    "getStarted": "开始",
+    "about_us": "关于我们",
+    "about_us_description": "FAMES BENIN，正式名称为中国贝南学生和实习生联合会，是一个非营利、非政治和世俗的组织。它在中国境内运营，致力于促进中贝合作框架下的持续发展解决方案。",
+    "learn_more": "了解更多",
+    "statistics": {
+      "title": "我们的统计数据",
+      "since": "自",
+      "activeMembers": "活跃成员",
+      "activeCities": "活跃城市",
+      "graduates": "毕业生"
+    },
+    "opportunities": {
+      "title": "机会",
+      "description": "在FAMES BENIN，我们致力于为我们的成员提供一系列机会，以提升他们的职业和个人生活。我们的强大网络和合作伙伴关系为许多成长和成功的机会打开了大门。",
+      "jobOpportunities": "就业机会",
+      "jobOpportunitiesDescription": "FAMES BENIN提供各个领域的丰富就业机会。加入我们的社区，您将与顶尖公司建立联系，这些公司正在寻找像您这样的优秀人才。无论您是刚毕业的学生还是有经验的专业人士，我们都有适合您技能和雄心的职位。",
+      "partnerOpportunities": "合作伙伴机会",
+      "partnerOpportunitiesDescription": "通过我们广泛的合作伙伴网络，FAMES BENIN提供独家实习、合作和特别项目机会。这些合作伙伴关系使您能够获得宝贵的经验，建立您的职业网络，并发展对您未来成功至关重要的技能。",
+      "show": "查看机会"
+    },
+    "galleries": {
+      "title": "照片画廊",
+      "description": "查看在各种活动和事件中捕捉的时刻，这些活动和事件涉及我们的成员。浏览我们的画廊。",
+      "showGallery": "查看画廊"
+    },
+    "news": {
+      "title": "最新消息",
+      "description": "获取FAMES BENIN的最新消息和公告。在这里，您将找到最新的更新和重要信息。",
+      "title1": "新闻标题1",
+      "description1": "新闻内容的简要描述。本节提供新闻文章的摘要。",
+      "altText1": "新闻1",
+      "title2": "新闻标题2",
+      "description2": "新闻内容的简要描述。本节提供新闻文章的摘要。",
+      "altText2": "新闻2",
+      "title3": "新闻标题3",
+      "description3": "新闻内容的简要描述。本节提供新闻文章的摘要。",
+      "altText3": "新闻3",
+      "readMore": "阅读更多"
+    },
+    "navbar": {
+      "home": "首页",
+      "news": "新闻",
+      "opportunities": "机会",
+      "gallery": "画廊",
+      "aboutUs": "关于我们",
+      "logo": "FAMES BENIN",
+      "profile": "个人资料",
+      "settings": "设置",
+      "logout": "退出",
+      "login": "登录",
+      "signup": "注册",
+      "userAvatarAlt": "用户头像"
+    },
+    "footer": {
+      "usefulLinks": "有用链接",
+      "befMembers": "BEF成员",
+      "opportunities": "机会",
+      "about": "关于",
+      "new": "新闻",
+      "contacts": "联系人",
+      "faqsLibrary": "常见问题 / 图书馆",
+      "consularCard": "申请领事卡所需文件",
+      "passportRenewal": "护照续签所需文件",
+      "scientificArticles": "中国学生发表的科学文章"
+    },
+    "bureau": "2023/2024 联邦执行委员会",
+    "partenaire": {
+      "premierPartenaire": "合作伙伴 1",
+      "deuxiemePartenaire": "合作伙伴 2",
+      "troisièmePartenaire": "合作伙伴 3",
+      "qutrièmePartenaire": "合作伙伴 4",
+      "cinquièmePartenaire": "合作伙伴 5"
+    },
+    "about": {
+      "title": "关于我们",
+      "members": [
+        {
+          "title": "主席",
+          "name": "Mlle KOUDENOUKPO Dossi Isbath",
+          "description": "西南大学药学硕士年级学生",
+          "photo": "src/assets/images/membres/membre1.png"
+        },
+        {
+          "title": "秘书长",
+          "name": "Mr SEGBO Silas Fidèle Gbèwèdo",
+          "description": "南京农业大学植物分子生物学学生",
+          "photo": "src/assets/images/membres/membre2.png"
+        },
+        {
+          "title": "副秘书长",
+          "name": "Mlle AVOGNON Sènan Emma Mirabelle",
+          "description": "江苏科技大学土木工程学生",
+          "photo": "src/assets/images/membres/membre3.png"
+        },
+        {
+          "title": "总财务",
+          "name": "Mr ONZO Bernard-Marie",
+          "description": "南京信息工程大学信息安全学生",
+          "photo": "src/assets/images/membres/membre4.png"
+        },
+        {
+          "title": "副总财务",
+          "name": "Mr AHOUISSOU Létondé Fernand Eusèbe",
+          "description": "上海体育大学体育科学学生",
+          "photo": "src/assets/images/membres/membre5.png"
+        }
+      ]
+    },
+    "damienProfile": {
+      "title": "Fames Bénin 与 '铁人'",
+      "description": "Fames Bénin 的团队与“铁人”一起，这次不是为了抗击疫情，而是为了采访。",
+      "content": "“铁人”本名 Damien S. TIANDO，是一位生活在中国武汉的贝南学生，在新冠疫情初期表现出了无与伦比的伟大。我们很荣幸带您走进这位伟大英雄的世界。Damien TIANDO 出生在纳蒂廷戈，曾在帕拉库大学学习，然后前往中国攻读自然资源保护硕士学位。热爱戏剧，演员兼喜剧演员，并参与大学的教育和艺术活动，他很快获得了中国合作奖学金。",
+      "additional_info": "他说，刚到中国的前几天并不容易。大多数法语国家的学生都需要同时学习中文和英语，他不得不拼尽全力，但他成功地脱颖而出。目前他在武汉地球科学大学攻读国土规划和政策管理博士学位，‘铁人’俱乐部的主席向我们讲述了‘铁人’名字的由来以及他为什么在武汉和世界各地的新闻中出现。",
+      "additional_info2": "像大多数外国学生一样，我们都感到焦虑和恐慌，这还是我们第一次听说这种病毒，而且它传播的速度令人厌恶。通过西方新闻和其他非洲国家的报道，我们中的许多人真的很害怕。中国的新年即将来临，这对中国人来说是非常重要的节日，但被疫情扰乱了，恐惧和绝望显现在每个人的脸上。我的大学行政部门投入了大量精力，尽一切可能保护我们。我意识到我们不能继续自怨自艾，我们可以为一些事情做出贡献。鉴于大学行政部门的努力，我决定成立一个由二十三名国际学生（包括贝南、巴基斯坦、坦桑尼亚、尼日利亚等）组成的志愿者俱乐部，来帮助他们。我们给俱乐部取了一个名字；‘铁人’，意味着我们不怕任何困难去帮助别人生存。我们与中国当局和教授们并肩作战，赢得了大家的尊重。虽然这并不容易，我记得有时候我们收到的食材和食品需要分发给超过400名学生，这可能需要整整一天；这确实很累，但至少这是一次美好的经历，让我们感到自豪。",
+      "additional_info3": "国际‘铁人’俱乐部的团结。正如我在中国地方新闻中所说，非洲人是认真的，我们总是在做好事上，因此继续这样做。",
+      "additional_info4": "今天，中国已没有新病例，武汉的疫情已经成为过去。我们需要向其他国家学习。我将分享一些给新来者的建议。给那些刚来到中国的兄弟们，我建议你们学习一些中国文化，以便快速掌握和理解中文，这是我亲身体验过的有效方法。愿 FAMES 和贝南学生社区长久发展，谢谢大家。",
+      "additional_info5": "如果我还有其他想要谈论的内容，那就是中国大使馆对每位贝南学生的迅速反应和财政支持。我们的当局和中国当局都与我们在一起。现在是时候感谢所有不同级别的当局，他们有效地管理了疫情，因为他们都明白这是一项秩序问题，而不是地域或种族问题。我将结束这一点，纠正人们犯的错误：",
+      "additional_info6": "我们在中国不是外国人，而是国际学生，武汉也像我们的第二故乡。如果重新来过，我愿意再做一次，因为帮助像我们一样的人是一项高尚的使命，值得鼓励。疾病不分国界，团结就是力量。正是通过这种团结，中国才能成功，这也是我们通过..."
+    },
+    "news_actualités": "新闻",
+    "news_search_Placeholder": "搜索新闻",
+    "news_filters": "新闻过滤",
+    "news_all": "所有新闻",
+    "news.noNews": "没有新闻",
+    "AllNews": "所有新闻",
+    "news_filterByCategory": "按类别过滤",
+    "news_filterByTag": "按标签过滤",
+    
+    "Opportunitiés": "机会",
+    "Opportunitiés.placeholder": "搜索机会...",
+    "Opportunitiés.disponible": "目前没有可用机会。",
+    "Opportunitiés.Partenaires": "我们的合作伙伴",
+    "Opportunitiés.PartenairesText": "了解我们的合作伙伴及其如何为我们的项目做出贡献。",
+    "partners": [
+        {
+          "Opportunitiés": {
+            "Partenaires": "我们的合作伙伴",
+            "PartenairesText": "我们与以下组织合作，以提供更多的机会。",
+            "partenaire1": {
+              "name": "贝南外交部",
+              "description": "贝南外交部负责管理贝南的国际关系和外交事务。"
+            },
+            "partenaire2": {
+              "name": "DBAU: 大学奖学金与资助管理处",
+              "description": "大学奖学金与资助管理处（DBAU）负责管理和分配贝南学生的奖学金和财政资助。"
+            },
+            "partenaire3": {
+              "name": "贝南驻华大使馆",
+              "description": "贝南驻华大使馆代表贝南的利益，并为在中国的贝南公民提供领事服务。"
+            },
+            "partenaire4": {
+              "name": "贝南孔子学院（UAC）",
+              "description": "贝南孔子学院（UAC）致力于推广中文和中国文化。"
+            },
+            "partenaire5": {
+              "name": "中国地质大学",
+              "description": "中国地质大学是中国领先的地球科学和自然资源学科的机构。"
+            },
+            "partenaire6": {
+              "name": "UNEB: 贝南全国学生联合会",
+              "description": "贝南全国学生联合会（UNEB）是一个促进贝南学生之间团结和互助的协会。"
+            },
+            "partenaire7": {
+              "name": "FNEB: 贝南全国学生联合会",
+              "description": "贝南全国学生联合会（FNEB）是一个捍卫贝南学生权益和利益的组织。"
+            }
+          }
+        }
+      ],
+      "Gallery": "画廊",
+      "All": "所有",
+      "About": "关于",
+      "contact2": "加入我们的社区，探索令人惊叹的成长和合作机会。",
+      "contact": "联系我们",
+      "famesDefAbout": "<strong>FAMES BENIN</strong>，正式名称为<strong><em>贝南在华学生与实习生联合会</em></strong>，是一个非营利、非政治性和世俗的组织，成立于<strong>2010</strong>年。自成立以来，它在整个中国境内运作，为在中国的贝南学生和实习生提供了宝贵的支持。其主要任务是推动持续发展的解决方案，并致力于中贝合作框架下的任务。<div className='mb-2'/> <br/> 在<strong>Mlle Koudenoukpo Dossi Isbath</strong>的领导下，担任会长职务，并在<strong>Mr Segbo Silas Fidèle Gbèwèdo</strong>的支持下，担任秘书长，FAMES BENIN致力于为其成员创造一个有利于个人和学术发展的环境。该组织鼓励团结，促进文化融入，并推动中贝之间的合作倡议。作为对话与合作的平台，FAMES BENIN在加强两国之间的联系方面发挥了重要作用，同时支持在中国的贝南人的学术和职业抱负。",
+      "consularCard": "申请领事卡",
+      "consulat1": "什么是领事卡？",
+      "consulat2": "领事卡是由大使馆颁发的官方文件。此文件在识别和登记居住在海外的本国公民方面发挥了重要作用。持有此卡的公民可以更方便地访问大使馆提供的各种领事服务。此外，在需要时，他们可以获得大使馆的协助和支持，这在紧急情况或必要时非常宝贵。",
+      "consulat3": "此外，领事卡通常用于各种行政事务。它可能会被要求用于完成一些本地手续，如注册服务或进行特定交易。因此，领事卡对所有生活在海外的公民来说是一个基本和必要的文件，因为它允许他们向当地当局和大使馆证明他们的身份和状态。",
+      "consulatList": "所需文件清单：",
+      "consulatList1": "一张白底身份证照片（1寸）。",
+      "consulatList2": "一份致大使的领事卡申请书。",
+      "consulatList3": "护照复印件。",
+      "consulatList4": "出生证明复印件。",
+      "consulatList5": "职业证明复印件。",
+      "consulatList6": "100人民币的付款凭证（原件和复印件）。",
+      "consulatList7": "一张白底JPG格式的数字照片，发送至<a href='mailto:beninembassy.cn@yahoo.com' className='text-blue-500'> beninembassy.cn@yahoo.com</a>，并在照片下方注明姓名。",
+      "consulatList8": "准备文件并亲自递交至大使馆或委托指定人员办理大使馆事务。",
+      "consulatNB1": "大使馆不接受自动取款机和电话交易的付款凭证。付款必须通过当地银行柜台完成。",
+      "consulatNB2": "大使馆遵守中华人民共和国和贝南共和国的公共假期。",
+      "consulatNB3": "服务时间：周一至周五 <br /> 上午: 9:00-13:00 <br /> 下午: 15:00-17:00",
+      "consulatNB4": "处理时间：72小时",
+      "consulatInfo": "信息表样本",
+
+      "ActivateEmail": "激活电子邮件",
+      "Submit": "提交",
+    
+      "ChangePassword": "更改密码",
+      "EnterOldPassword": "旧密码",
+      "NewPassword": "新密码",
+      "ConfirmNewPassword": "确认新密码",
+    
+      "EmailValidateRequest": "电子邮件验证请求",
+    
+      "Login": "登录",
+      "Password": "密码",
+      "ForgotPassword": "忘记密码",
+      "LoginWithGoogle": "使用 Google 登录",
+    
+      "PasswordResetConfirmation": "密码重置确认",
+    
+      "PasswordResetRequest": "密码重置请求",
+    
+      "Register": "注册",
+      "Prénom": "名",
+      "Nom": "姓",
+      "PhoneNumber": "电话号码",
+      "OU": "或",
+      "RegisterWithGoogle": "使用 Google 注册",
+      "account": "您已经有一个账户了吗？",
+    
+      "YourPassword": "您的密码",
+      "YourPhoneNumber": "您的电话号码",
+      "YourEmailAddress": "您的电子邮件地址",
+      "YourName": "您的姓名",
+      "YourFirstName": "您的名字",
+    
+      "SetPassword": "设置密码",
+      "ConfirmPassword": "确认密码",
+    
+      "BasicInformation": "基本信息",
+      "DateOfBirth": "出生日期",
+      "Gender": "性别",
+    
+      "LocationInformation": "位置信息",
+      "City": "城市",
+      "Country": "国家",
+    
+      "Status": "状态",
+      "Active": "活跃",
+      "Staff": "工作人员",
+      "DateJoined": "加入日期",
+      "LastLogin": "最后登录",
+      "Bio": "简介",
+      "Logout": "登出"
+}

@@ -121,6 +121,133 @@
             "additional_info4": "Aujourd’hui la Chine n’enregistre plus de nouveaux cas, et ici à Wuhan la pandémie covid fait partie du passé. Il urge donc que nous apprenions des autres. Je terminerai en partageant quelques astuces avec les nouveaux. À mes frères qui viennent de rejoindre la Chine, je vous conseille d’apprendre un peu sur la culture chinoise pour vraiment vite assimiler et maîtriser la langue chinoise, c’est une technique que j’ai expérimentée personnellement et ça a marché.Vive la fames et vive la communauté estudiantine béninoise, je vous remercie.",
             "additional_info5": "S’il y a autre chose que je souhaiterais aborder dans cette histoire de covid, c’est la prompte réaction et le soutien financier de l’ambassade à chaque étudiant béninois. Nos autorités, tout comme les autorités chinoises ont été avec nous. C’est le moment même de féliciter toutes les autorités à divers niveaux pour leur gestion efficace de la pandémie, car ils ont tous compris que c’était un problème d’ordre et non un truc de région ou de race. Je vais finir en rectifiant cette erreur que les gens commettent ;",
             "additional_info6": "nous ne sommes pas des étrangers en Chine mais plutôt nous sommes des étudiants internationaux et aussi Wuhan est comme une deuxième maison pour nous. Si c’est à refaire je le referai avec plaisir car venir en aide aux êtres humains comme nous est une mission noble et à encourager. Les maladies n’ont pas une affaire de frontière, l’union fait la force dit-on. C’est à travers cette union que la Chine a réussi, c’est aussi à travers..."
-          }
-  }
+          },
+            "news_actualités":"Actualités",
+            "news_search_Placeholder":"Recherche d'actualités",
+            "news_filters":"Filtres d'actualités",
+            "news_all":"Toutes les actualités",
+            "news.noNews":"Pas d'actualités",
+            "AllNews": "Toutes les actualités",
+            "news_filterByCategory":"Filtre par catégorie",
+            "news_filterByTag":"Filtrer par tag",
+            
+            "Opportunitiés":"Opportunitiés",
+            "Opportunitiés.placeholder":"Rechercher des opportunités...",
+            "Opportunitiés.disponible":"Aucune opportunité disponible pour le moment.",
+            "Opportunitiés.Partenaires":"Nos Partenaires",
+            "Opportunitiés.PartenairesText":"Découvrez les informations sur nos partenaires et comment ils contribuent à nos projets.",
+              "partners": [
+                {
+                  "Opportunitiés": {
+                    "Partenaires": "Nos Partenaires",
+                    "PartenairesText": "Nous collaborons avec les organisations suivantes pour offrir plus d'opportunités.",
+                    "partenaire1": {
+                      "name": "Ministère des Affaires Etrangères du Bénin",
+                      "description": "Le Ministère des Affaires Etrangères du Bénin est chargé de la gestion des relations internationales et de la diplomatie du Bénin."
+                    },
+                    "partenaire2": {
+                      "name": "DBAU: Direction des Bourses et Aides Universitaires",
+                      "description": "La Direction des Bourses et Aides Universitaires (DBAU) est responsable de la gestion et de l'attribution des bourses et aides financières aux étudiants béninois."
+                    },
+                    "partenaire3": {
+                      "name": "Ambassade du Bénin près la Chine",
+                      "description": "L'Ambassade du Bénin en Chine représente les intérêts du Bénin et offre des services consulaires aux citoyens béninois résidant en Chine."
+                    },
+                    "partenaire4": {
+                      "name": "Institut Confucius BENIN (UAC)",
+                      "description": "L'Institut Confucius BENIN (UAC) est dédié à la promotion de la langue et de la culture chinoises au Bénin."
+                    },
+                    "partenaire5": {
+                      "name": "Université chinoise de Géosciences",
+                      "description": "L'Université chinoise de Géosciences est une institution de premier plan en Chine, spécialisée dans les sciences de la terre et les ressources naturelles."
+                    },
+                    "partenaire6": {
+                      "name": "UNEB: Union Nationale des Étudiants du Bénin",
+                      "description": "L'Union Nationale des Étudiants du Bénin (UNEB) est une association qui promeut la solidarité et l'entraide entre les étudiants béninois."
+                    },
+                    "partenaire7": {
+                      "name": "FNEB: Fédération Nationale des Étudiants du Bénin",
+                      "description": "La Fédération Nationale des Étudiants du Bénin (FNEB) est une organisation qui défend les droits et intérêts des étudiants béninois."
+                    }
+                  }
+                }
+              ],
+              "Gallery":"Galerie",
+              "All":"TOUT",
+              "About":"À propos",
+              "contact2":"Rejoignez notre communauté et explorez d'incroyables opportunités de croissance et de collaboration.",
+              "contact": "Contactez-nous",
+              "famesDefAbout": "<strong>FAMES BENIN</strong>, officiellement connue sous le nom de <strong><em>Fédération des Étudiants et Stagiaires Béninois en Chine</em></strong>, est une organisation à but non lucratif, non politique et laïque, fondée en <strong>2010</strong>. Depuis sa création, elle opère sur l'ensemble du territoire chinois, offrant un soutien inestimable aux étudiants et stagiaires béninois résidant en Chine. Sa mission principale est de promouvoir des solutions de développement continu, en s'inscrivant dans le cadre de la coopération sino-béninoise. <div className='mb-2'/> <br/> Sous la direction de <strong>Mlle Koudenoukpo Dossi Isbath</strong>, qui occupe le poste de présidente, et avec l'appui de <strong>Mr Segbo Silas Fidèle Gbèwèdo</strong>, le secrétaire général, FAMES BENIN s'engage à créer un environnement propice à l'épanouissement personnel et académique de ses membres. L'organisation encourage la solidarité, facilite l'intégration culturelle, et promeut des initiatives de coopération entre le Bénin et la Chine. En tant que plateforme de dialogue et de collaboration, FAMES BENIN joue un rôle essentiel dans le renforcement des liens entre les deux nations, tout en soutenant les ambitions académiques et professionnelles des Béninois en Chine.",
+              "consularCard":"Demande d’établissement de la carte consulaire",
+              "consulat1":"Qu'est-ce que la carte consulaire ?",
+              "consulat2":"La carte consulaire est un document officiel délivré par l'Ambassade. Ce document joue un rôle crucial en permettant d'identifier et de recenser les ressortissants d'un pays qui résident à l'étranger. En possédant cette carte, les citoyens peuvent plus facilement accéder aux divers services consulaires offerts par l'Ambassade. De plus, en cas de besoin, ils peuvent bénéficier de l'assistance et du soutien de l'Ambassade, ce qui peut s'avérer extrêmement précieux dans des situations d'urgence ou de nécessité.",
+              "consulat3":"En outre, la carte consulaire est souvent utilisée pour diverses démarches administratives. Elle peut être exigée pour accomplir certaines formalités locales, telles que l'inscription à des services ou la réalisation de transactions spécifiques. Par conséquent, la carte consulaire est un document essentiel et indispensable pour tous les citoyens vivant à l'étranger, car elle leur permet de prouver leur identité et leur statut auprès des autorités locales et de l'Ambassade.",
+              "consulatList":"Liste des documents requis :",
+              "consulatList1":"Une (01) photo d’identité fond blanc (1 inch).",
+              "consulatList2":"Une demande d’établissement de la carte consulaire adressée à l’Ambassadeur.",
+              "consulatList3":"Une (01) photocopie du passeport.",
+              "consulatList4":"Une copie de l’acte de naissance.",
+              "consulatList5":"Une copie de la preuve de profession.",
+              "consulatList6":"La quittance (originale) et copie de paiement de la somme de 100 RMB.",
+              "consulatList7":"7 .Une photo numérique format JPG fonds blanc à envoyer à <a href='mailto:beninembassy.cn@yahoo.com' className='text-blue-500'> beninembassy.cn@yahoo.com</a> après avoir envoyé les dossiers. Mentionner son nom sous la photo.",
+              "consulatList8":"Constituer un dossier et le déposer à l’Ambassade en personne ou donner procuration à une personne désignée pour les formalités à l’Ambassade.",
+            
+              "consulatNB1":"L’Ambassade n’accepte pas les reçus de paiement des distributeurs automatiques et des transactions téléphoniques. Les versements doivent se faire uniquement au guichet des banques locales.",
+              "consulatNB2":"L’Ambassade observe les jours fériés de la République Populaire de Chine et celle de la République du Bénin.",
+              "consulatNB3" :" Heure de service : du Lundi au Vendredi <br /> Matin: 9h00-13h00 <br />Soir: 15h00-17h00",
+              "consulatNB4" :"Traitement de dossier : 72h",
+              "consulatI?nfo": "Exemplaire de fiche de renseignements",
+
+              "ActivateEmail": "Activer le courrier électronique",
+              "Submit":"Soumettre",
+
+              "ChangePassword":"Changer le mot de passe",
+              "EnterOldPassword":"Ancien mot de passe",
+              "NewPassword":"Nouveau mot de passe",
+              "ConfirmNewPassword":"Confirmer le nouveau mot de passe",
+
+              "EmailValidateRequest":"Demande de validation par e-mail",
+
+              "Login":"Se connecter",
+              "Password":"Mot de passe",
+              "ForgotPassword":"Mot de passe oublié",
+              "LoginWithGoogle":"Connectez-vous avec Google",
+
+              "PasswordResetConfirmation":"Confirmation de réinitialisation du mot de passe",
+
+              "PasswordResetRequest" : "Demande de réinitialisation du mot de passe",
+
+              "Register":"inscription",
+              "Prénom":"Prénom",
+              "Nom":"Nom :",
+              "PhoneNumber":"Numéro de téléphone",
+              "OU":"OU",
+              "RegisterWithGoogle":"Inscrivez-vous avec Google",
+              "account":"Vous avez déjà un compte ?",
+
+              "YourPassword":"Votre mot de passe",
+              "YourPhoneNumber":"Votre numéro de téléphone",
+              "YourEmailAddress":"Votre adresse email",
+              "YourName":"Votre nom",
+              "YourFirstName":"Votre prénom",
+
+              "SetPassword":"Définir le mot de passe",
+              "ConfirmPassword":"Confirmez le mot de passe ",
+
+              "BasicInformation":"Informations de base",
+              "DateOfBirth":"Date de naissance :",
+              "Gender":"Genre ",
+
+              "LocationInformation":"Informations de localisation",
+              "City":"Ville :",
+              "Country":"Pays :",
+
+              "Status":"Statut",
+              "Active":"Active :",
+              "Staff":"Personnelle :",
+              "DateJoined":"Date d'adhésion :",
+              "LastLogin":"Dernière connexion :",
+              "Bio":"Biographie",
+              "Logout":"Déconnexion"
+            }
   

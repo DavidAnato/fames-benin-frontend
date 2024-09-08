@@ -7,6 +7,7 @@ import Statistics from '../components/home/statistics.tsx';
 import Partners from '../components/about/partners.tsx';
 import MiniHero from '../components/miniHero.tsx';
 import AnimatedElement from '../function/AnimatedElement.tsx';
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -23,11 +24,12 @@ const AboutPage = () => {
       window.scrollTo(0, 0);
     }
   }, []);
+  const { t } = useTranslation(); // Hook pour gérer la traduction
 
   return (
     <section className="min-h-screen pt-[7.5rem]">
       <AnimatedElement>
-        <MiniHero content="About" />
+        <MiniHero content={t("About")} />
       </AnimatedElement>
       <AnimatedElement>
         <Def />     
