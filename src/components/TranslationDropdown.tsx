@@ -81,7 +81,7 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
             </button>
           </li>
           <li>
-            <button onClick={() => handleChangeLanguage('cn')} className="w-full text-left flex items-center">
+            <button onClick={() => handleChangeLanguage('ch')} className="w-full text-left flex items-center">
               CN
               <img src={chineseLogo} alt="Chinese" className="w-6 h-4 mr-2" />
             </button>
@@ -103,8 +103,8 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
           <img src={franceLogo} alt="French" className="w-6 h-4" />
         </span>
       </button>
-      <button onClick={() => handleChangeLanguage('cn')} className="btn btn-ghost flex items-center px-1">
-        <span className="hidden lg:inline">CN</span>
+      <button onClick={() => handleChangeLanguage('ch')} className="btn btn-ghost flex items-center px-1">
+        <span className="hidden lg:inline">ch</span>
         <span className="inline-block w-5">
           <img src={chineseLogo} alt="Chinese" className="w-6 h-4" />
         </span>
