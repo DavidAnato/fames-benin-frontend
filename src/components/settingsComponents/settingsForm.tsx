@@ -16,6 +16,8 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ title, fields, onFormSubmit
     return initialFormData;
   });
 
+  const uniqueId = `settings_modal_${Math.random().toString(36).substr(2, 9)}`;
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -30,17 +32,17 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ title, fields, onFormSubmit
     } catch (error) {
       console.error('Failed to update user profile:', error);
     }
-    (document.getElementById('settings_modal') as HTMLDialogElement)?.close();
+    (document.getElementById(uniqueId) as HTMLDialogElement)?.close();
   };
 
   return (
     <>
-      <button className="btn btn-ghost btn-sm text-xl rounded-xl" onClick={() => (document.getElementById('settings_modal') as HTMLDialogElement)?.showModal()}><i className="fas fa-edit"></i></button>
-      <dialog id="settings_modal" className="modal">
+      <button className="btn btn-ghost btn-sm text-xl rounded-xl" onClick={() => (document.getElementById(uniqueId) as HTMLDialogElement)?.showModal()}><i className="fas fa-edit"></i></button>
+      <dialog id={uniqueId} className="modal">
         
         <div className="modal-box">
           <button
-            onClick={() => (document.getElementById('settings_modal') as HTMLDialogElement)?.close()}
+            onClick={() => (document.getElementById(uniqueId) as HTMLDialogElement)?.close()}
             className="absolute text-4xl top-2 right-5 text-gray-500 hover:text-gray-700"
           >
             &times;
@@ -49,7 +51,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ title, fields, onFormSubmit
           <form onSubmit={handleSubmit}>
             {fields.map((field) => (
               <div key={field.name} className="mb-4">
-                <label className="block text-sm font-medium mb-2" htmlFor={field.name}>
+                <label className="block text-sm font-bold mb-2" htmlFor={field.name}>
                   {field.label}
                 </label>
                 {field.type === 'textarea' ? (
@@ -89,13 +91,13 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ title, fields, onFormSubmit
             <div className="flex justify-end">
               <button
                 type="button"
-                onClick={() => (document.getElementById('settings_modal') as HTMLDialogElement)?.close()}
+                onClick={() => (document.getElementById(uniqueId) as HTMLDialogElement)?.close()}
                 className="rounded-xl btn mr-2"
               >
-                <i className="fas fa-times mr-2"></i>Cancel
+                <i className="fas fa-times fa-xl"></i>
               </button>
               <button type="submit" className="rounded-xl btn btn-accent">
-                <i className="fas fa-check mr-2"></i>Submit
+                <i className="fas fa-check fa-xl"></i>
               </button>
             </div>
           </form>

@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Initial styles for the link or text */
 .link {
     position: relative;
@@ -47,9 +48,6 @@
         transform: translateY(0);
     }
 }
-
-
-
 
 .element {
     opacity: 0;

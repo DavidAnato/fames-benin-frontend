@@ -1,37 +1,60 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setPassword as setPasswordAPI } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
+import WebPushMessage from './message';
 import { useTranslation } from 'react-i18next';
 
 const SetPassword = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState<'success' | 'error' | 'info'>('info');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          const elementId = hash.substring(1);
+          const element = document.getElementById(elementId);
+          if (element) {
+            const yOffset = -70;
+            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (password !== confirmPassword) {
             setMessage('Password and confirm password do not match.');
+            setMessageType('error');
             return;
         }
         setLoading(true);
         setMessage('');
+        setMessageType('info');
 
         try {
             const responseMessage = await setPasswordAPI(password, confirmPassword);
             setMessage(responseMessage);
+            setMessageType('success');
             navigate('/profile'); // Redirect to login page after successful password set
         } catch (error: any) {
             setMessage(error.message || 'An error occurred. Please try again later.');
+            setMessageType('error');
+            setTimeout(() => {
+                setMessage('');
+            }, 10000);
         } finally {
             setLoading(false);
         }
     };
     const { t } = useTranslation(); // Hook pour gérer la traduction
-
 
     return (
         <div className="flex items-center justify-center h-screen mt-5">
@@ -72,15 +95,10 @@ const SetPassword = () => {
                             </label>
                         </div>
                         <button type="submit" className="w-full btn btn-accent font-bold py-2 rounded-full shadow-lg" disabled={loading}>
-                            {loading ? 'Submitting...' : 'Soumettre'}
+                            {loading ? <span className="loading loading-spinner"></span> : 'Submit'}
                         </button>
                         {message && (
-                            <div className="alert alert-error shadow-lg mt-4">
-                                <div>
-                                    <i className="fas fa-exclamation-circle"></i>
-                                    <span>{message}</span>
-                                </div>
-                            </div>
+                            <WebPushMessage msg={message} type={messageType} />
                         )}
                     </form>
                 </div>

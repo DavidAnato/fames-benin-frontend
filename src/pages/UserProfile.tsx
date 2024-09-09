@@ -104,16 +104,16 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">{t("BasicInformation")}</h2>
+                                            <h2 className="card-title font-bold">{t("BasicInformation")}</h2>
                                             <SettingsForm
-                                                title="Edit Basic Information"
+                                                title={t("BasicInformation")}
                                                 fields={[
-                                                    { name: 'first_name', type: 'text', label: 'First Name', value: profile.first_name || '' },
-                                                    { name: 'last_name', type: 'text', label: 'Last Name', value: profile.last_name || '' },
-                                                    { name: 'date_of_birth', type: 'date', label: 'Date of Birth', value: profile.date_of_birth || '' },
-                                                    { name: 'gender', type: 'select', label: 'Gender', value: profile.gender || '', options: ['', 'male', 'female', 'other'] },
-                                                    { name: 'phone_number', type: 'text', label: 'Phone Number', value: profile.phone_number || '' },
-                                                    { name: 'email', type: 'email', label: 'Email Address', value: profile.email || '' },
+                                                    { name: 'first_name', type: 'text', label: t('Prénom'), value: profile.first_name || '' },
+                                                    { name: 'last_name', type: 'text', label: t('Nom'), value: profile.last_name || '' },
+                                                    { name: 'date_of_birth', type: 'date', label: t('DateOfBirth'), value: profile.date_of_birth || '' },
+                                                    { name: 'gender', type: 'select', label: t('Gender'), value: profile.gender || '', options: ['', 'male', 'female', 'other'] },
+                                                    { name: 'phone_number', type: 'text', label: t('PhoneNumber'), value: profile.phone_number || '' },
+                                                    { name: 'email', type: 'email', label: 'E-mail', value: profile.email || '' },
                                                 ]}
                                                 onFormSubmit={reloadUserProfile}
                                             />
@@ -129,12 +129,12 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">{t("LocationInformation")}</h2>
+                                            <h2 className="card-title font-bold">{t("LocationInformation")}</h2>
                                             <SettingsForm
-                                                title="Edit Location Information"
+                                                title={t("LocationInformation")}
                                                 fields={[
-                                                    { name: 'city', type: 'text', label: 'City', value: profile.city || '' },
-                                                    { name: 'country', type: 'text', label: 'Country', value: profile.country || '' },
+                                                    { name: 'city', type: 'text', label: t('City'), value: profile.city || '' },
+                                                    { name: 'country', type: 'text', label: t('Country'), value: profile.country || '' },
                                                 ]}
                                                 onFormSubmit={reloadUserProfile}
                                             />
@@ -148,7 +148,7 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">{t("Status")}</h2>
+                                            <h2 className="card-title font-bold">{t("Status")}</h2>
                                         </div>
                                         <p className="flex items-center"><i className="fas fa-user-check mr-2"></i><strong className="mr-1">{t("Active")}</strong> {profile.is_active ? 'Yes' : 'No'}</p>
                                         <p className="flex items-center"><i className="fas fa-user-shield mr-2"></i><strong className="mr-1">{t("Staff")}</strong> {profile.is_staff ? 'Yes' : 'No'}</p>
@@ -159,11 +159,11 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">{t("Bio")}</h2>
+                                            <h2 className="card-title font-bold">{t("Bio")}</h2>
                                             <SettingsForm
-                                                title="Edit Bio"
+                                                title={t("Bio")}
                                                 fields={[
-                                                    { name: 'bio', type: 'textarea', label: 'Bio', value: profile.bio || '' },
+                                                    { name: 'bio', type: 'textarea', label: t('Bio'), value: profile.bio || '' },
                                                 ]}
                                                 onFormSubmit={reloadUserProfile}
                                             />
@@ -199,16 +199,16 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Basic Information</h2>
+                                            <h2 className="card-title font-bold">{t("BasicInformation")}</h2>
                                             <SettingsForm
-                                                title="Edit Basic Information"
+                                                title={t("BasicInformation")}
                                                 fields={[
-                                                    { name: 'first_name', type: 'text', label: 'First Name', value: staticUser?.first_name || '' },
-                                                    { name: 'last_name', type: 'text', label: 'Last Name', value: staticUser?.last_name || '' },
-                                                    { name: 'date_of_birth', type: 'date', label: 'Date of Birth', value: staticUser?.date_of_birth || '' },
-                                                    { name: 'gender', type: 'select', label: 'Gender', value: staticUser?.gender || '', options: ['', 'male', 'female', 'other'] },
-                                                    { name: 'phone_number', type: 'text', label: 'Phone Number', value: staticUser?.phone_number || '' },
-                                                    { name: 'email', type: 'email', label: 'Email Address', value: staticUser?.email || '' },
+                                                    { name: 'first_name', type: 'text', label: t('FirstName'), value: staticUser?.first_name || '' },
+                                                    { name: 'last_name', type: 'text', label: t('LastName'), value: staticUser?.last_name || '' },
+                                                    { name: 'date_of_birth', type: 'date', label: t('DateOfBirth'), value: staticUser?.date_of_birth || '' },
+                                                    { name: 'gender', type: 'select', label: t('Gender'), value: staticUser?.gender || '', options: ['', 'male', 'female', 'other'] },
+                                                    { name: 'phone_number', type: 'text', label: t('PhoneNumber'), value: staticUser?.phone_number || '' },
+                                                    { name: 'email', type: 'email', label: t('EmailAddress'), value: staticUser?.email || '' },
                                                 ]}
                                                 onFormSubmit={reloadUserProfile}
                                             />
@@ -224,12 +224,12 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Location Information</h2>
+                                            <h2 className="card-title font-bold">{t("LocationInformation")}</h2>
                                             <SettingsForm
-                                                title="Edit Location Information"
+                                                title={t("LocationInformation")}
                                                 fields={[
-                                                    { name: 'city', type: 'text', label: 'City', value: staticUser?.city || '' },
-                                                    { name: 'country', type: 'text', label: 'Country', value: staticUser?.country || '' },
+                                                    { name: 'city', type: 'text', label: t('City'), value: staticUser?.city || '' },
+                                                    { name: 'country', type: 'text', label: t('Country'), value: staticUser?.country || '' },
                                                 ]}
                                                 onFormSubmit={reloadUserProfile}
                                             />
@@ -243,7 +243,7 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">Status</h2>
+                                            <h2 className="card-title font-bold">{t("Status")}</h2>
                                         </div>
                                         <p className="flex items-center"><i className="fas fa-user-check mr-2"></i><strong className="mr-1">{t("Active")}</strong> {staticUser?.is_active ? 'Yes' : 'No'}</p>
                                         <p className="flex items-center"><i className="fas fa-user-shield mr-2"></i><strong className="mr-1">{t("Staff")}</strong> {staticUser?.is_staff ? 'Yes' : 'No'}</p>
@@ -254,11 +254,11 @@ const UserProfile: React.FC = () => {
                                 <div className="card bg-base-100 shadow-md rounded-lg mt-4">
                                     <div className="card-body">
                                         <div className="flex justify-between items-center">
-                                            <h2 className="card-title">{t("Bio")}</h2>
+                                            <h2 className="card-title font-bold">{t("Bio")}</h2>
                                             <SettingsForm
-                                                title="Edit Bio"
+                                                title={t("Bio")}
                                                 fields={[
-                                                    { name: 'bio', type: 'textarea', label: 'Bio', value: staticUser?.bio || '' },
+                                                    { name: 'bio', type: 'textarea', label: t('Bio'), value: staticUser?.bio || '' },
                                                 ]}
                                                 onFormSubmit={reloadUserProfile}
                                             />

@@ -48,10 +48,10 @@ const NavBar = () => {
 
   return (
     <div className="w-auto flex sticky top-0 z-50 nav-enter-anime">
-      <div className="navbar navbar-scroll-anime m-6 bg-white rounded-full shadow-lg w-full px-6">
+      <div className="navbar navbar-scroll-anime m-6 bg-white rounded-full shadow-lg w-full lg:px-6">
         <div className="navbar-start flex items-center">
           <div className="dropdown lg:hidden">
-            <div tabIndex={0} role="button" className="btn btn-ghost" onClick={handleDropdownClick}>
+            <div tabIndex={0} role="button" className="btn btn-ghost px-1" onClick={handleDropdownClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -143,14 +143,15 @@ const NavBar = () => {
                   </ul>
                 )}
               </div>
+              <TranslationDropdown isDrop bgColor="bg-gray-100" />
             </>
           ) : (
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 items-center">
               <NavLink to="/login" className="btn btn-ghost font-bold shadow rounded-full btn-sm">{t('navbar.login')}</NavLink>
               <NavLink to="/register" className="btn btn-accent font-bold shadow shadow-emerald-500/50 rounded-full btn-sm">{t('navbar.signup')}</NavLink>
+              <TranslationDropdown isDrop bgColor="bg-gray-100" />
             </div>
           )}
-          <TranslationDropdown isDrop bgColor="bg-gray-100" />
         </div>
       </div>
     </div>

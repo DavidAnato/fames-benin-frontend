@@ -16,86 +16,92 @@ const Hero: React.FC = () => {
   const [isErasing, setIsErasing] = useState(false);
   const [languageChanged, setLanguageChanged] = useState(false);
   const [hasFinishedTypingSecondText, setHasFinishedTypingSecondText] = useState(false);
+  const [hasCompletedCycle, setHasCompletedCycle] = useState(false); // Nouveau flag pour empêcher la boucle infinie
 
   // Détecte le changement de langue
   useEffect(() => {
     setLanguageChanged(true);
   }, [i18n.language]);
 
+  // Effet pour gérer la suppression du texte quand la langue change
   useEffect(() => {
     if (languageChanged) {
-      // Effacer le texte en cours avec une animation
       if (index > 0) {
         const timeout = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1));
-          setIndex(index - 1);
-        }, 20); // Vitesse d'effacement
-
+          setDisplayedText((prevText) => prevText.slice(0, -1));
+          setIndex((prevIndex) => prevIndex - 1);
+        }, 20);
         return () => clearTimeout(timeout);
       } else {
-        // Réinitialiser et recommencer le cycle
         const resetTimeout = setTimeout(() => {
           setLanguageChanged(false);
           setTextIndex(0);
           setDisplayedText('');
           setIndex(0);
           setHasFinishedTypingSecondText(false);
-        }, 500); // Pause après l'effacement
+          setHasCompletedCycle(false); // Réinitialiser le flag pour autoriser une nouvelle animation
+        }, 500);
         return () => clearTimeout(resetTimeout);
       }
-    } else if (isErasing) {
-      // Effacer le texte après affichage
-      if (index > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1));
-          setIndex(index - 1);
-        }, 20); // Vitesse d'effacement
+    }
+  }, [languageChanged, index]);
 
-        return () => clearTimeout(timeout);
-      } else {
-        // Si le texte actuel est le premier texte
-        if (textIndex === 0) {
-          // Passer au deuxième texte
+  // Effet pour gérer la saisie et la suppression de texte
+  useEffect(() => {
+    if (!languageChanged && !hasCompletedCycle) { // Empêche les boucles après la fin du cycle
+      if (isErasing) {
+        // Effacer le texte
+        if (index > 0) {
+          const timeout = setTimeout(() => {
+            setDisplayedText((prevText) => prevText.slice(0, -1));
+            setIndex((prevIndex) => prevIndex - 1);
+          }, 20);
+          return () => clearTimeout(timeout);
+        } else if (textIndex === 0) {
           const pauseTimeout = setTimeout(() => {
             setIsErasing(false);
             setTextIndex(1);
             setIndex(0);
             setDisplayedText('');
-          }, 750); // Pause après l'effacement avant d'écrire le nouveau texte
-
+          }, 750);
+          return () => clearTimeout(pauseTimeout);
+        }
+      } else {
+        // Taper le texte
+        if (index < texts[textIndex].length) {
+          const timeout = setTimeout(() => {
+            setDisplayedText((prevText) => prevText + texts[textIndex].charAt(index));
+            setIndex((prevIndex) => prevIndex + 1);
+          }, 75);
+          return () => clearTimeout(timeout);
+        } else if (textIndex === 1) {
+          setHasFinishedTypingSecondText(true);
+          const pauseTimeout = setTimeout(() => {
+            setIsErasing(true);
+          }, 5000);
+          return () => clearTimeout(pauseTimeout);
+        } else {
+          const pauseTimeout = setTimeout(() => {
+            setIsErasing(true);
+          }, 5000);
           return () => clearTimeout(pauseTimeout);
         }
       }
-    } else {
-      // Écrire le texte
-      if (index < texts[textIndex].length) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(displayedText + texts[textIndex].charAt(index));
-          setIndex(index + 1);
-        }, 75); // Vitesse de frappe
-
-        return () => clearTimeout(timeout);
-      } else if (textIndex === 1) {
-        // Pour le deuxième texte, il reste affiché et ne sera pas effacé
-        setHasFinishedTypingSecondText(true); // Marquer comme affichage terminé
-        const pauseTimeout = setTimeout(() => {
-          setIsErasing(true); // Commencer l'effacement uniquement si la langue change
-        }, 5000); // Pause avant d'effacer
-
-        return () => clearTimeout(pauseTimeout);
-      } else {
-        const pauseTimeout = setTimeout(() => {
-          setIsErasing(true);
-        }, 5000); // Pause avant d'effacer
-        return () => clearTimeout(pauseTimeout);
-      }
     }
-  }, [index, displayedText, textIndex, isErasing, languageChanged, texts, hasFinishedTypingSecondText]);
+  }, [index, isErasing, textIndex, texts, languageChanged, hasCompletedCycle]);
+
+  // Contrôle de fin du cycle d'animation
+  useEffect(() => {
+    if (hasFinishedTypingSecondText && !isErasing && !hasCompletedCycle) {
+      // Marquer la fin du cycle une fois la saisie du deuxième texte terminée
+      setHasCompletedCycle(true);
+    }
+  }, [hasFinishedTypingSecondText, isErasing, hasCompletedCycle]);
 
   const handleScroll = () => {
     window.scrollTo({
       top: window.innerHeight - 80,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -104,10 +110,10 @@ const Hero: React.FC = () => {
       className="hero"
       style={{
         backgroundImage: `url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        height: "102vh"
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        height: '102vh',
       }}
     >
       <div className="hero-overlay bg-opacity-70"></div>
@@ -115,7 +121,6 @@ const Hero: React.FC = () => {
         <div>
           <h1 className="mb-5 text-5xl font-bold">
             <span>{displayedText}</span>
-            
             {!hasFinishedTypingSecondText && <span className="cursor">|</span>}
           </h1>
           <p className="mb-5 text-lg">
@@ -123,17 +128,17 @@ const Hero: React.FC = () => {
             <br />
             {t('join')}
           </p>
-          
+
           {user ? (
-            <button 
+            <button
               className="btn md:btn-md lg:btn-lg btn-accent font-bold shadow-lg shadow-emerald-500/50 rounded-2xl"
               onClick={handleScroll}
             >
               <ArrowDown /> {t('getStarted')}
             </button>
           ) : (
-            <Link 
-              to="/login" 
+            <Link
+              to="/login"
               className="btn md:btn-md lg:btn-lg btn-accent font-bold shadow-lg shadow-emerald-500/50 rounded-2xl"
             >
               <LogIn /> {t('getStarted')}
@@ -143,6 +148,6 @@ const Hero: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Hero;

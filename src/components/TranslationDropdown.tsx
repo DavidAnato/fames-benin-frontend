@@ -30,6 +30,7 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
       localStorage.setItem('language', language);
     }
     setFlagSrc(language === 'en' ? englishLogo : language === 'fr' ? franceLogo : chineseLogo);
+    document.documentElement.lang = language; // Update the lang attribute of the html element
   }, [language, user]);
 
   const handleChangeLanguage = async (lng: string | undefined) => {
@@ -58,56 +59,56 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
         className="btn btn-ghost flex items-center px-1"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="hidden lg:inline">{language === 'en' ? 'EN' : language === 'fr' ? 'FR' : 'CN'}</span>
         <span className="inline-block w-5">
           <img src={flagSrc} alt={language === 'en' ? 'English' : language === 'fr' ? 'French' : 'Chinese'} className="w-6 h-4" />
         </span>
+        <span className="hidden lg:inline">{language === 'en' ? 'EN' : language === 'fr' ? 'FR' : '中文'}</span>
       </div>
       {isOpen && (
         <ul
           tabIndex={0}
-          className={`menu menu-sm dropdown-content ${bgColor} rounded-box z-[1] mt-3 w-20 p-2 shadow`}
+          className={`menu menu-sm dropdown-content ${bgColor} rounded-box z-[1] mt-3 w-28 p-2 shadow`}
         >
           <li>
             <button onClick={() => handleChangeLanguage('en')} className="w-full text-left flex items-center">
-              EN
               <img src={englishLogo} alt="English" className="w-6 h-4 mr-2" />
+              EN
             </button>
           </li>
           <li>
             <button onClick={() => handleChangeLanguage('fr')} className="w-full text-left flex items-center">
-              FR
               <img src={franceLogo} alt="French" className="w-6 h-4 mr-2" />
+              FR
             </button>
           </li>
           <li>
             <button onClick={() => handleChangeLanguage('ch')} className="w-full text-left flex items-center">
-              CN
               <img src={chineseLogo} alt="Chinese" className="w-6 h-4 mr-2" />
+              中文
             </button>
           </li>
         </ul>
       )}
     </div>
   ) : (
-    <div className="flex items-center ml-2">
-      <button onClick={() => handleChangeLanguage('en')} className="btn btn-ghost flex items-center px-1">
-        <span className="hidden lg:inline">EN</span>
+    <div className="flex flex-col items-start ml-2">
+      <button onClick={() => handleChangeLanguage('en')} className="btn btn-ghost flex items-center px-1 mb-2">
         <span className="inline-block w-5">
           <img src={englishLogo} alt="English" className="w-6 h-4" />
         </span>
+        <span className="hidden lg:inline">English</span>
       </button>
-      <button onClick={() => handleChangeLanguage('fr')} className="btn btn-ghost flex items-center px-1">
-        <span className="hidden lg:inline">FR</span>
+      <button onClick={() => handleChangeLanguage('fr')} className="btn btn-ghost flex items-center px-1 mb-2">
         <span className="inline-block w-5">
           <img src={franceLogo} alt="French" className="w-6 h-4" />
         </span>
+        <span className="hidden lg:inline">Français</span>
       </button>
-      <button onClick={() => handleChangeLanguage('ch')} className="btn btn-ghost flex items-center px-1">
-        <span className="hidden lg:inline">ch</span>
+      <button onClick={() => handleChangeLanguage('ch')} className="btn btn-ghost flex items-center px-1 mb-2">
         <span className="inline-block w-5">
           <img src={chineseLogo} alt="Chinese" className="w-6 h-4" />
         </span>
+        <span className="hidden lg:inline">中文</span>
       </button>
     </div>
   );

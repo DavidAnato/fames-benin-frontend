@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { register } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
 import GoogleConnection from './googleConnection';
+import WebPushMessage from './message';
 import { useTranslation } from 'react-i18next';
 
 const Register = () => {
@@ -16,9 +17,25 @@ const Register = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState<'success' | 'error' | 'info'>('info');
+  const countryCodes = ["+229", "+33", "+44", "+49", "+91"];
   const navigate = useNavigate();
 
-  const countryCodes = ["+229", "+33", "+44", "+49", "+91"];
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const elementId = hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        const yOffset = -70;
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   const filteredCountryCodes = countryCodes.filter(code =>
     code.includes(searchTerm)
   );
@@ -48,17 +65,30 @@ const Register = () => {
     try {
       const message = await register(payload);
       setMessage(message);
+      setMessageType('success');
       navigate('/active-email');
     } catch (error: any) {
       setMessage(error.message);
+      setMessageType('error');
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage('');
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
+
   const { t } = useTranslation(); // Hook pour gérer la traduction
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mt-24 md:mt-10">
+      {message && <WebPushMessage msg={message} type={messageType} />}
       <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
         <div className="card w-full max-w-2xl shadow-2xl mt-12">
           <div className="card-body md:px-16">
@@ -69,7 +99,6 @@ const Register = () => {
               className="w-24 md:w-32 md:mb-0 md:mr-4 mr-0 mx-auto"
             />
             <h2 className="card-title text-center md:text-left text-2xl font-bold">{t("Register")}</h2></div>
-            {message && <div className="alert alert-info">{message}</div>}
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="form-control flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <div className="w-full md:w-1/2">

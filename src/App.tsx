@@ -10,7 +10,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/fames-benin-frontend">
+    <Router>
       <Layout>
         <AppRoutes />
       </Layout>
