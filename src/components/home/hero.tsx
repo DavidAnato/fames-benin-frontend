@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { LogIn, ArrowDown } from 'lucide-react';
-import heroBg from '../../assets/images/hero-bg.png';
+import heroBg from '../../assets/images/hero-bg.webp';
 import useUserProfile from '../../hooks/user';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';

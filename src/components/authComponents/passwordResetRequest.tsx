@@ -59,12 +59,12 @@ const PasswordResetRequest: React.FC = () => {
   const { t } = useTranslation(); // Hook pour gérer la traduction
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen">
       {message && <WebPushMessage msg={message} type={messageType} />}
       <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
-        <div className="flex flex-col items-center mb-8">
-          <img src={famesLogo} alt="FAMES Logo" className="w-24 md:w-44 mb-4" />
-          <h2 className="text-2xl font-bold mb-6 text-center">{t("PasswordResetRequest")}</h2>
+        <div className="flex flex-col items-center mb-4">
+          <img src={famesLogo} alt="FAMES Logo" className="h-24 mx-auto" />
+          <h2 className="text-2xl font-bold text-center">{t("PasswordResetRequest")}</h2>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">
@@ -74,7 +74,7 @@ const PasswordResetRequest: React.FC = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="input input-bordered w-full pl-10 peer"
+              className="input input-bordered rounded-2xl w-full pl-10 peer"
               placeholder=" "
               required
             />

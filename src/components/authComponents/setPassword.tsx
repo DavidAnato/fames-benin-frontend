@@ -72,7 +72,7 @@ const SetPassword = () => {
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="input input-bordered w-full pl-3 pt-5 pb-2 placeholder-transparent"
+                                className="input input-bordered rounded-2xl w-full pl-3 pt-5 pb-2 placeholder-transparent"
                                 placeholder="Enter your password"
                                 required
                             />
@@ -86,7 +86,7 @@ const SetPassword = () => {
                                 type="password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="input input-bordered w-full pl-3 pt-5 pb-2 placeholder-transparent"
+                                className="input input-bordered rounded-2xl w-full pl-3 pt-5 pb-2 placeholder-transparent"
                                 placeholder="Confirm your password"
                                 required
                             />

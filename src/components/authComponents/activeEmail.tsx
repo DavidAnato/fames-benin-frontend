@@ -74,17 +74,17 @@ const ActiveEmail = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen">
       {message && <WebPushMessage msg={message} type={messageType} />}
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-        <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
-          <img src={famesLogo} alt="FAMES Logo" className="md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-          <h2 className="text-2xl font-bold text-center md:text-left">
+        <div className="flex flex-col items-center mb-4">
+          <img src={famesLogo} alt="FAMES Logo" className="h-24 mx-auto" />
+          <h2 className="text-2xl font-bold text-center">
             {t("ActivateEmail")}
           </h2>
         </div>
-          <p className="text-sm text-center mb-6">OTP</p>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <p className="text-sm text-center">OTP</p>
           <div className="flex justify-center mb-4">
             {otp.map((digit, index) => (
               <input

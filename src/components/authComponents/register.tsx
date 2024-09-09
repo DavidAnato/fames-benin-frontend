@@ -92,13 +92,14 @@ const Register = () => {
       <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-4xl">
         <div className="card w-full max-w-2xl shadow-2xl mt-12">
           <div className="card-body md:px-16">
-            <div className="flex">
+            <div className="flex items-center justify-center mb-4">
               <img
               src={famesLogo}
               alt="FAMES Logo"
-              className="w-24 md:w-32 md:mb-0 md:mr-4 mr-0 mx-auto"
-            />
-            <h2 className="card-title text-center md:text-left text-2xl font-bold">{t("Register")}</h2></div>
+              className="h-24"
+              />
+              <h2 className="text-2xl font-bold text-center ml-4">{t("Register")}</h2>
+            </div>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="form-control flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                 <div className="w-full md:w-1/2">
@@ -112,7 +113,7 @@ const Register = () => {
                       name="firstName"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="input input-bordered w-full pl-10"
+                      className="input input-bordered rounded-2xl w-full pl-10"
                       placeholder={t("YourFirstName")}
                       required
                     />
@@ -130,7 +131,7 @@ const Register = () => {
                       name="lastName"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="input input-bordered w-full pl-10"
+                      className="input input-bordered rounded-2xl w-full pl-10"
                       placeholder={t("YourName")}
                       required
                     />
@@ -150,7 +151,7 @@ const Register = () => {
                       name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="input input-bordered w-full pl-10"
+                      className="input input-bordered rounded-2xl w-full pl-10"
                       placeholder={t("YourEmailAddress")}
                     />
                     <i className="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2"></i>
@@ -160,7 +161,7 @@ const Register = () => {
                   <label htmlFor="phoneNumber" className="label">
                     <span className="label-text">{t("PhoneNumber")}</span>
                   </label>
-                  <div className="grid grid-cols-10 gap-2 input input-bordered items-center px-0">
+                  <div className="grid grid-cols-10 gap-2 input input-bordered rounded-2xl items-center px-0 ">
                     <div className="relative col-span-3">
                       <i className="fas fa-phone absolute left-3 top-1/2 transform -translate-y-1/2"></i>
                       <input
@@ -197,7 +198,7 @@ const Register = () => {
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
                         className="w-full focus:border-none"
-                        placeholder={t("YourPhoneNumber ")}
+                        placeholder={t("YourPhoneNumber")}
                         required
                       />
                     </div>
@@ -216,7 +217,7 @@ const Register = () => {
                       name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="input input-bordered w-full pl-10"
+                      className="input input-bordered rounded-2xl w-full pl-10"
                       placeholder={t("YourPassword")}
                       required
                     />
@@ -234,7 +235,7 @@ const Register = () => {
                       name="confirmPassword"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="input input-bordered w-full pl-10"
+                      className="input input-bordered rounded-2xl w-full pl-10"
                       placeholder={t("ConfirmNewPassword")}
                       required
                     />

@@ -84,9 +84,9 @@ const PasswordResetConfirm: React.FC = () => {
     <div className="flex items-center justify-center h-screen mt-5">
       {message && <WebPushMessage msg={message} type={messageType} />}
       <div className="bg-white p-8 rounded shadow-2xl w-full max-w-md">
-        <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center mb-8">
-          <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44" />
-          <h2 className="text-2xl font-bold text-center md:text-left">{t("PasswordResetConfirmation")}</h2>
+        <div className="flex flex-col items-center mb-4">
+          <img src={famesLogo} alt="FAMES Logo" className="h-24 mx-auto" />
+          <h2 className="text-2xl font-bold text-center">{t("PasswordResetConfirmation")}</h2>
         </div>
         <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6">
         <p className="text-sm text-center">OTP</p>
@@ -111,7 +111,7 @@ const PasswordResetConfirm: React.FC = () => {
               type={showNewPassword ? 'text' : 'password'}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="input input-bordered w-full pl-3 py-5 placeholder-transparent"
+              className="input input-bordered rounded-2xl w-full pl-3 py-5 placeholder-transparent"
               placeholder={t("EnterNewPassword")}
               required
             />
@@ -132,7 +132,7 @@ const PasswordResetConfirm: React.FC = () => {
               type={showConfirmPassword ? 'text' : 'password'}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="input input-bordered w-full pl-3 py-5 placeholder-transparent"
+              className="input input-bordered rounded-2xl w-full pl-3 py-5 placeholder-transparent"
               placeholder={t("ConfirmNewPassword")}
               required
             />

@@ -56,10 +56,10 @@ const EmailValidateRequest = () => {
         <div className="flex flex-col items-center justify-center h-screen mt-5">
             <div className="card w-full max-w-md shadow-2xl bg-base-100">
                 <div className="card-body">
-                <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
-                    <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-                    <h2 className="text-2xl font-bold mb-6 text-center md:text-left">{t("EmailValidateRequest")}</h2>
-                </div>
+                    <div className="flex flex-col items-center mb-4">
+                        <img src={famesLogo} alt="FAMES Logo" className="h-24 mx-auto" />
+                        <h2 className="text-2xl font-bold text-center">{t("EmailValidateRequest")}</h2>
+                    </div>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="form-control relative">
                             <input
@@ -67,7 +67,7 @@ const EmailValidateRequest = () => {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="input input-bordered w-full pl-3 pt-5 pb-2 placeholder-transparent"
+                                className="input input-bordered rounded-2xl w-full pl-3 pt-5 pb-2 placeholder-transparent"
                                 placeholder="Enter your email"
                                 required
                             />

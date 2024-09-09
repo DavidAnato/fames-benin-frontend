@@ -63,11 +63,9 @@ const ChangePassword = () => {
         <div className="flex flex-col items-center justify-center h-screen mt-5">
             <div className="card w-full max-w-md shadow-2xl bg-base-100">
                 <div className="card-body">
-                    <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
-                        <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-                        <div>
-                            <h2 className="text-2xl font-bold mb-6 text-center md:text-left">{t("ChangePassword")}</h2>
-                        </div>
+                    <div className="flex flex-col items-center mb-4">
+                        <img src={famesLogo} alt="FAMES Logo" className="h-24 mx-auto" />
+                        <h2 className="text-2xl font-bold text-center">{t("ChangePassword")}</h2>
                     </div>
                     <form onSubmit={handleSubmit} className="space-y-7">
                         <div className="form-control relative">
@@ -76,7 +74,7 @@ const ChangePassword = () => {
                                 type={showOldPassword ? 'text' : 'password'}
                                 value={oldPassword}
                                 onChange={(e) => setOldPassword(e.target.value)}
-                                className="input input-bordered w-full pl-3 py-5 placeholder-transparent"
+                                className="input input-bordered rounded-2xl w-full pl-3 py-5 placeholder-transparent"
                                 placeholder="Enter old password"
                                 required
                             />
@@ -97,7 +95,7 @@ const ChangePassword = () => {
                                 type={showNewPassword ? 'text' : 'password'}
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
-                                className="input input-bordered w-full pl-3 py-5 placeholder-transparent"
+                                className="input input-bordered rounded-2xl w-full pl-3 py-5 placeholder-transparent"
                                 placeholder="Enter new password"
                                 required
                             />
@@ -118,7 +116,7 @@ const ChangePassword = () => {
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="input input-bordered w-full pl-3 py-5 placeholder-transparent"
+                                className="input input-bordered rounded-2xl w-full pl-3 py-5 placeholder-transparent"
                                 placeholder="Confirm new password"
                                 required
                             />

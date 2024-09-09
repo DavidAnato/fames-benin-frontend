@@ -4,6 +4,7 @@ import ambassade from '../assets/images/logos/ambassade .png';
 import MiniHero from '../components/miniHero';
 import AnimatedElement from '../function/AnimatedElement';
 import { useTranslation } from 'react-i18next';
+import parse from 'html-react-parser';
 
 
 const ConsularCardRequest: React.FC = () => {
@@ -54,12 +55,7 @@ const ConsularCardRequest: React.FC = () => {
               <li>{t("consulatList4")}</li>
               <li>{t("consulatList5")}</li>
               <li>{t("consulatList6")}</li>
-              <div dangerouslySetInnerHTML={{ __html: t('consulatList7') }}></div>
-              {/* <li dangerouslySetInnerHTML={{ __html: t('consulatList7') }}
-              >{t("consulatList7")}
-                Une photo numérique format JPG fonds blanc à envoyer à
-                <a href="mailto:beninembassy.cn@yahoo.com" className="text-blue-500"> beninembassy.cn@yahoo.com</a> après avoir envoyé les dossiers. Mentionner son nom sous la photo.
-              </li> */}
+              <div>{parse(t('consulatList7'))}</div>
               <li>{t("consulatList8")}
               </li>
             </ul>
@@ -77,8 +73,7 @@ const ConsularCardRequest: React.FC = () => {
           <p className="mb-2">
           {t("consulatNB2")}
           </p>
-          <p className="mb-2" dangerouslySetInnerHTML={{ __html: t('consulatNB3') }}>
-          </p>
+          <p className="mb-2">{parse(t('consulatNB3'))}</p>
           <p className="font-semibold">
             {t("consulatNB4")}
           </p>
@@ -135,4 +130,3 @@ const ConsularCardRequest: React.FC = () => {
 }
 
 export default ConsularCardRequest;
-

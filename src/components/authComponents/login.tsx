@@ -64,9 +64,9 @@ const Login = () => {
     <div className="flex items-center justify-center h-screen mt-5">
       {error && <WebPushMessage msg={error} type='error' />}
       <div className="bg-white p-8 rounded shadow-2xl w-full max-w-md">
-        <div className="max-w-lg mx-auto md:mx-0 md:w-1/2 flex flex-col md:flex-row items-center">
-          <img src={famesLogo} alt="FAMES Logo" className="mb-8 md:mb-0 md:mr-4 w-24 md:w-44 mx-auto" />
-          <h2 className="text-2xl font-bold mb-6 text-center md:text-left">{t("Login")}</h2>
+        <div className="flex flex-col items-center mb-4">
+          <img src={famesLogo} alt="FAMES Logo" className="h-24 mx-auto" />
+          <h2 className="text-2xl font-bold text-center">{t("Login")}</h2>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="floating-label mb-4 relative">

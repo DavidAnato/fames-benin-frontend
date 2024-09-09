@@ -13,7 +13,7 @@ const AboutUs = () => {
         </div>
         <div className="max-w-lg mx-auto md:w-1/2 md:pl-8">
           <h2 className="text-3xl font-bold text-center md:text-left mb-8">{t('about_us')}</h2>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg text-justify leading-relaxed">
             {t('about_us_description')}
           </p>
           <div className="mt-8 text-center md:text-left">

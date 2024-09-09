@@ -24,6 +24,7 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
     initialLanguage === 'en' ? englishLogo : initialLanguage === 'fr' ? franceLogo : chineseLogo
   );
   const [isOpen, setIsOpen] = useState(false);
+  const [loadingLanguage, setLoadingLanguage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) {
@@ -35,21 +36,38 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
 
   const handleChangeLanguage = async (lng: string | undefined) => {
     if (lng) {
-      i18n.changeLanguage(lng);
-      setLanguage(lng);
-      if (user) {
-        try {
-          const updatedUser = await updateUserLanguage(lng);
-          setUser(updatedUser);
-        } catch (error) {
-          console.error('Failed to update language preference:', error);
+      setLoadingLanguage(lng);
+      setTimeout(async () => {
+        i18n.changeLanguage(lng);
+        setLanguage(lng);
+        if (user) {
+          try {
+            const updatedUser = await updateUserLanguage(lng);
+            setUser(updatedUser);
+          } catch (error) {
+            console.error('Failed to update language preference:', error);
+          }
+        } else {
+          localStorage.setItem('language', lng);
         }
-      } else {
-        localStorage.setItem('language', lng);
-      }
-      setIsOpen(false); // Close the dropdown menu
+        setIsOpen(false); // Close the dropdown menu
+        setLoadingLanguage(null);
+      }, 1000);
     }
   };
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(i18n.language);
+      setFlagSrc(i18n.language === 'en' ? englishLogo : i18n.language === 'fr' ? franceLogo : chineseLogo);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   return isDrop ? (
     <div className="dropdown dropdown-end ml-2">
@@ -72,19 +90,22 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
           <li>
             <button onClick={() => handleChangeLanguage('en')} className="w-full text-left flex items-center">
               <img src={englishLogo} alt="English" className="w-6 h-4 mr-2" />
-              EN
+              <span className={language === 'en' ? 'font-bold' : ''}>EN</span>
+              {loadingLanguage === 'en' && <span className="loading loading-spinner ml-2"></span>}
             </button>
           </li>
           <li>
             <button onClick={() => handleChangeLanguage('fr')} className="w-full text-left flex items-center">
               <img src={franceLogo} alt="French" className="w-6 h-4 mr-2" />
-              FR
+              <span className={language === 'fr' ? 'font-bold' : ''}>FR</span>
+              {loadingLanguage === 'fr' && <span className="loading loading-spinner ml-2"></span>}
             </button>
           </li>
           <li>
             <button onClick={() => handleChangeLanguage('ch')} className="w-full text-left flex items-center">
               <img src={chineseLogo} alt="Chinese" className="w-6 h-4 mr-2" />
-              中文
+              <span className={language === 'ch' ? 'font-bold' : ''}>中文</span>
+              {loadingLanguage === 'ch' && <span className="loading loading-spinner ml-2"></span>}
             </button>
           </li>
         </ul>
@@ -96,19 +117,22 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
         <span className="inline-block w-5">
           <img src={englishLogo} alt="English" className="w-6 h-4" />
         </span>
-        <span className="hidden lg:inline">English</span>
+        <span className={`${language === 'en' ? 'font-bold' : 'font-normal'}`}>English</span>
+        {loadingLanguage === 'en' && <span className="loading loading-spinner ml-2"></span>}
       </button>
       <button onClick={() => handleChangeLanguage('fr')} className="btn btn-ghost flex items-center px-1 mb-2">
         <span className="inline-block w-5">
           <img src={franceLogo} alt="French" className="w-6 h-4" />
         </span>
-        <span className="hidden lg:inline">Français</span>
+        <span className={`${language === 'fr' ? 'font-bold' : 'font-normal'}`}>Français</span>
+        {loadingLanguage === 'fr' && <span className="loading loading-spinner ml-2"></span>}
       </button>
       <button onClick={() => handleChangeLanguage('ch')} className="btn btn-ghost flex items-center px-1 mb-2">
         <span className="inline-block w-5">
           <img src={chineseLogo} alt="Chinese" className="w-6 h-4" />
         </span>
-        <span className="hidden lg:inline">中文</span>
+        <span className={`${language === 'ch' ? 'font-bold' : 'font-normal'}`}>中文</span>
+        {loadingLanguage === 'ch' && <span className="loading loading-spinner ml-2"></span>}
       </button>
     </div>
   );

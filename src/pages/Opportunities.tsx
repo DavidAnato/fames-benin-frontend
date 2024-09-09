@@ -8,6 +8,7 @@ import fneb from '../assets/images/partner/partner4.png';
 import confuciusInstitute from '../assets/images/partner/partenaire5.png';
 import MiniHero from '../components/miniHero';
 import { useTranslation } from 'react-i18next';
+import parse from 'html-react-parser';
 
 // Définir l'interface pour une opportunité
 interface Opportunity {
@@ -223,7 +224,7 @@ const OpportunityPage: React.FC = () => {
           {/* Miniature chaîne YouTube */}
           <div className="flex justify-center mt-4">
             <div className="w-full max-w-md px-5">
-              <a href="https://www.youtube.com/channel/UCXXXXXXX" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/channel/UCR0dhSbalyJ5iAhSz8oPPbA" target="_blank" rel="noopener noreferrer">
                 <img
                   src="https://cdn.pixabay.com/photo/2020/03/19/14/03/youtube-4947565_1280.jpg"
                   alt="Chaîne YouTube"
@@ -251,7 +252,7 @@ const OpportunityPage: React.FC = () => {
               src={selectedOpportunity.image}
               alt={selectedOpportunity.title}
             />
-            <p className="text-gray-700 mb-4 text-justify" dangerouslySetInnerHTML={{ __html: selectedOpportunity.description }}></p>
+            <p className="text-gray-700 mb-4 text-justify">{parse(selectedOpportunity.description)}</p>
             <p className="text-gray-500 mb-4">{selectedOpportunity.location}</p>
           </div>
           <form method="dialog" className="modal-backdrop">

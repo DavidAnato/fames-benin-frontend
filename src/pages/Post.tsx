@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { fetchNewsPostDetail, fetchNewsPosts, fetchCommentsByPostId, createCommentForPost, deleteComment, likePost, userLikedPost, NewsPost, Comment } from '../fetch/newsFetch';
 import useAuthStore from '../store/authStore';
 import WebPushMessage from '../components/authComponents/message';
 import AnimatedElement from '../function/AnimatedElement';
+import parse from 'html-react-parser';
 
 const BASE_URL = process.env.API_URL;
 const Post: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const [post, setPost] = useState<NewsPost | null>(null);
   const [recentArticles, setRecentArticles] = useState<NewsPost[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -82,7 +84,7 @@ const Post: React.FC = () => {
 
   useEffect(() => {
     const checkIfUserLikedPost = async () => {
-      if (post) {
+      if (post && user) {
         try {
           const liked = await userLikedPost(user.id, post.id);
           setHasLiked(liked);
@@ -94,10 +96,14 @@ const Post: React.FC = () => {
     };
 
     checkIfUserLikedPost();
-  }, [post, user.id]);
+  }, [post, user]);
 
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     if (!newComment.trim()) return;
 
     try {
@@ -132,6 +138,10 @@ const Post: React.FC = () => {
   };
 
   const handleLikePost = async () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     if (hasLiked) return;
 
     try {
@@ -160,159 +170,156 @@ const Post: React.FC = () => {
   }
 
   return (
-    <div className="px-8 py-10 pt-[9rem] lg:flex grid gap-32">
-      <AnimatedElement>
-      <aside className="hidden lg:block w-1/4 pr-10 sticky self-start top-[8em]">
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">Articles Récents</h2>
-        <div className="space-y-4 overflow-y-auto h-[70vh]">
-          {recentArticles.map((article, index) => (
-            <Link to={`/news/${article.slug}`} key={article.id || `article-${index}`} className="card hover:bg-base-200 border transition-colors pt-4">
-              <figure className="w-full overflow-hidden">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover"
-                  />
-              </figure>
-              <div className="card-body p-4">
-                <h3 className="card-title text-lg ">{article.title}</h3>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </aside>
-      </AnimatedElement>
-      <AnimatedElement>
-      <div className="w-full lg:w-2/4">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-2">{post.title}</h1>
-        <span className="inline-block bg-success text-white text-sm font-medium px-3 py-1 rounded-full items-center gap-1">
-          <i className="fas fa-tag mr-2"></i>
-          {post.category.name}
-        </span>
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-auto rounded-lg shadow-lg my-4"
-        />
-
-        {/* Post Meta Information */}
-        <div className="flex items-center justify-between text-sm text-gray-600 mb-6">
-          <div className="flex items-center">
-            {post.author.profile_picture ? (
-              <img
-                src={`${BASE_URL}${post.author.profile_picture}`}
-                alt={post.author.first_name}
-                className="w-10 h-10 rounded-full mr-2"
-              />
-            ) : post.author.picture_url ? (
-              <img
-                src={post.author.picture_url}
-                alt={post.author.first_name}
-                className="w-10 h-10 rounded-full mr-2"
-              />
-            ) : (
-              <div className="w-10 h-10 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
-                <i className="fas fa-user text-gray-400"></i>
-              </div>
-            )}
-            <span>{post.author.first_name} {post.author.last_name}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <i className="fas fa-calendar-alt text-gray-400"></i>
-            <span>{new Date(post.created_at).toLocaleDateString()}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <button onClick={handleLikePost} className={`btn rounded-xl bg-transparent hover:bg-transparent border-none shadow-none ${hasLiked ? 'text-accent' : 'text-info hover:scale-150 hover:rotate-12'}`}>
-              <i className="fas fa-thumbs-up text-2xl"></i>
-            </button>
-            <span>{post.likes_count === 0 ? 'No Likes' : post.likes_count === 1 ? '1 Like' : `${post.likes_count} Likes`}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <i className="fas fa-comments text-gray-400"></i>
-            <span>{post.comments_count === 0 ? 'No Comments' : post.comments_count === 1 ? '1 Comment' : `${post.comments_count} Comments`}</span>
-          </div>
-        </div>
-
-        <div
-          className="prose lg:prose-xl text-gray-800"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Tags</h2>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag.id}
-                className="inline-block bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full flex items-center gap-1"
-              >
-                <i className="fas fa-hashtag text-gray-600"></i>
-                {tag.name}
-              </span>
+    <AnimatedElement>
+      <div className="px-8 py-10 pt-[9rem] lg:flex grid gap-32">
+        <aside className="hidden lg:block w-1/4 pr-10 sticky self-start top-[8em]">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Articles Récents</h2>
+          <div className="space-y-4 overflow-y-auto h-[70vh]">
+            {recentArticles.map((article, index) => (
+              <Link to={`/news/${article.slug}`} key={article.id || `article-${index}`} className="card hover:bg-base-200 border transition-colors pt-4">
+                <figure className="w-full overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover"
+                    />
+                </figure>
+                <div className="card-body p-4">
+                  <h3 className="card-title text-lg ">{article.title}</h3>
+                </div>
+              </Link>
             ))}
           </div>
-        </div>
-      </div>
-      </AnimatedElement>
-      <AnimatedElement>
-      <aside className="lg:w-1/4 w-full pl-4 lg:sticky self-start top-[8em] ">
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">Commentaires</h2>
-        <form onSubmit={handleCommentSubmit} className="my-4 text-end">
-          <textarea
-            className="textarea textarea-bordered w-full"
-            rows={2}
-            placeholder="Ajouter un commentaire..."
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
+        </aside>
+        <div className="w-full lg:w-2/4">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-2">{post.title}</h1>
+          <span className="inline-block bg-success text-white text-sm font-medium px-3 py-1 rounded-full items-center gap-1">
+            <i className="fas fa-tag mr-2"></i>
+            {post.category.name}
+          </span>
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-auto rounded-lg shadow-lg my-4"
           />
-          <button
-            type="submit"
-            className="btn btn-accent px-4 py-2  rounded-lg"
-          >
-            Ajouter un commentaire
-          </button>
-        </form>
-        <div className="space-y-4 lg:overflow-y-auto lg:h-[70vh]">
-          {comments.map((comment, index) => (
-            <div key={comment.id || `comment-${index}`} className="p-4 bg-gray-100 rounded-xl shadow">
-              <div className="flex items-center mb-2">
+
+          {/* Post Meta Information */}
+          <div className="flex items-center justify-between text-sm text-gray-600 mb-6">
+            <div className="flex items-center">
+              {post.author.profile_picture ? (
+                <img
+                  src={`${BASE_URL}${post.author.profile_picture}`}
+                  alt={post.author.first_name}
+                  className="w-10 h-10 rounded-full mr-2"
+                />
+              ) : post.author.picture_url ? (
+                <img
+                  src={post.author.picture_url}
+                  alt={post.author.first_name}
+                  className="w-10 h-10 rounded-full mr-2"
+                />
+              ) : (
                 <div className="w-10 h-10 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
-                  {comment.author.profile_picture ? (
-                    <img
-                      src={`${BASE_URL}${comment.author.profile_picture}`}
-                      alt="Profile"
-                      className="w-full h-full rounded-full object-cover"
-                    />
-                  ) : comment.author.picture_url ? (
-                    <img
-                      src={comment.author.picture_url}
-                      alt="Profile"
-                      className="w-full h-full rounded-full object-cover"
-                    />
-                  ) : (
-                    <i className="fas fa-user text-gray-400"></i>
+                  <i className="fas fa-user text-gray-400"></i>
+                </div>
+              )}
+              <span>{post.author.first_name} {post.author.last_name}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fas fa-calendar-alt text-gray-400"></i>
+              <span>{new Date(post.created_at).toLocaleDateString()}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <button onClick={handleLikePost} className={`btn rounded-xl bg-transparent hover:bg-transparent border-none shadow-none ${hasLiked ? 'text-accent' : 'text-info hover:scale-150 hover:rotate-12'}`}>
+                <i className="fas fa-thumbs-up text-2xl"></i>
+              </button>
+              <span>{post.likes_count === 0 ? 'No Likes' : post.likes_count === 1 ? '1 Like' : `${post.likes_count} Likes`}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fas fa-comments text-gray-400"></i>
+              <span>{post.comments_count === 0 ? 'No Comments' : post.comments_count === 1 ? '1 Comment' : `${post.comments_count} Comments`}</span>
+            </div>
+          </div>
+
+          <p
+            className="text-gray-800 text-justify"
+          >
+            {parse(post.content)}
+          </p>
+
+          <div className="mt-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Tags</h2>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag.id}
+                  className="inline-block bg-gray-200 text-gray-800 text-sm font-medium px-3 py-1 rounded-full flex items-center gap-1"
+                >
+                  <i className="fas fa-hashtag text-gray-600"></i>
+                  {tag.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <aside className="lg:w-1/4 w-full pl-4 lg:sticky self-start top-[8em] ">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Commentaires</h2>
+          <form onSubmit={handleCommentSubmit} className="my-4 text-end">
+            <textarea
+              className="textarea textarea-bordered w-full"
+              rows={2}
+              placeholder="Ajouter un commentaire..."
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+            />
+            <button
+              type="submit"
+              className="btn btn-accent px-4 py-2  rounded-lg"
+            >
+              Ajouter un commentaire
+            </button>
+          </form>
+          <div className="space-y-4 lg:overflow-y-auto lg:h-[70vh]">
+            {comments.map((comment, index) => (
+              <div key={comment.id || `comment-${index}`} className="p-4 bg-gray-100 rounded-xl shadow">
+                <div className="flex items-center mb-2">
+                  <div className="w-10 h-10 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
+                    {comment.author.profile_picture ? (
+                      <img
+                        src={`${BASE_URL}${comment.author.profile_picture}`}
+                        alt="Profile"
+                        className="w-full h-full rounded-full object-cover"
+                      />
+                    ) : comment.author.picture_url ? (
+                      <img
+                        src={comment.author.picture_url}
+                        alt="Profile"
+                        className="w-full h-full rounded-full object-cover"
+                      />
+                    ) : (
+                      <i className="fas fa-user text-gray-400"></i>
+                    )}
+                  </div>
+                  <span className="font-semibold">{comment.author.first_name} {comment.author.last_name ? comment.author.last_name : ''}</span>
+                  {user && user.id === comment.author.id && (
+                    <button
+                      className="ml-auto text-red-500 text-sm"
+                      onClick={() => handleCommentDelete(comment.id)}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </button>
                   )}
                 </div>
-                <span className="font-semibold">{comment.author.first_name} {comment.author.last_name ? comment.author.last_name : ''}</span>
-                {user.id === comment.author.id && (
-                  <button
-                    className="ml-auto text-red-500 text-sm"
-                    onClick={() => handleCommentDelete(comment.id)}
-                  >
-                    <i className="fas fa-trash"></i>
-                  </button>
-                )}
+                <p className="text-gray-800 p-2 rounded-lg border shadow">{comment.content}</p>
+                <p className="text-xs text-gray-500 text-end">{new Date(comment.created_at).toLocaleDateString()}</p>
               </div>
-              <p className="text-gray-800 p-2 rounded-lg border shadow">{comment.content}</p>
-              <p className="text-xs text-gray-500 text-end">{new Date(comment.created_at).toLocaleDateString()}</p>
-            </div>
-          ))}
-          {commentsLoading && <div className="text-center py-4">Loading comments...</div>}
-          {commentsError && <div className="text-center py-4 text-red-500">{commentsError}</div>}
-        </div>
-      </aside>
-      </AnimatedElement>
-    </div>
+            ))}
+            {commentsLoading && <span className='loading loading-spinner' ></span>}
+            {commentsError && <div className="text-center py-4 text-red-500">{commentsError}</div>}
+          </div>
+        </aside>
+      </div>
+    </AnimatedElement>
   );
 };
 

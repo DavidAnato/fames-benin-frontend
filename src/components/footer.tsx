@@ -46,11 +46,11 @@ const Footer: React.FC = () => {
             <TranslationDropdown isDrop={false} bgColor="bg-gray-500 bg-opacity-20" />            </div>
           </div>
           <hr className="border-gray-700 mt-6" />
-          <div className="flex justify-between items-center mt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6">
             <NavLink to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img src={famesLogo} alt="FAMES Logo" className="h-20" />
             </NavLink>
-            <div className="text-sm">
+            <div className="text-sm mb-4 sm:mt-0">
               <p>FAMES BENIN <span className="text-lg">©</span>  Copyright 2024</p>
             </div>
             <div>
