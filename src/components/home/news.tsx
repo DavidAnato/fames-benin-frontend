@@ -31,7 +31,7 @@ const News = () => {
   if (recentArticles.length === 0) return null;
 
   return (
-    <section className="py-10 bg-gray-100 min-h-screen flex items-center">
+    <section className="py-10 min-h-screen flex items-center">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-5">{t('news.title')}</h2>
         <div className="flex flex-col md:flex-row items-center justify-center mb-8">
@@ -39,18 +39,25 @@ const News = () => {
             {t('news.description')}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+        <div className={`grid grid-cols-1 ${recentArticles.length === 1 ? 'md:grid-cols-1' : recentArticles.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-4 mt-8 max-w-4xl mx-auto`}>
           {recentArticles.map((article, index) => (
             <AnimatedElement key={article.id || `article-${index}`}>
               <div className="card bg-base-100 shadow-xl">
-                <figure>
-                  <img src={article.image} alt={article.title} className="h-48 w-full object-cover" />
-                </figure>
+                <Link to={`/news/${article.slug}`}>
+                  <figure>
+                    <img src={article.image} alt={article.title} className="h-60 w-full object-cover" />
+                  </figure>
+                </Link>
                 <div className="card-body">
-                  <h2 className="card-title">
-                    {article.title}
-                  </h2>
-                  <p>{article.content}</p>
+                  <Link to={`/news/${article.slug}`}>
+                    <h2 className="card-title text-justify">
+                      {article.title}
+                    </h2>
+                  </Link>
+                  <p className='text-justify' >{article.content.replace(/<\/?[^>]+(>|$)/g, "").length > 200 
+                    ? `${article.content.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300)}…` 
+                    : article.content.replace(/<\/?[^>]+(>|$)/g, "")}
+                  </p>
                   <div className="card-actions justify-end">
                     <Link to={`/news/${article.slug}`} className="btn btn-success">
                       <i className="fas fa-book-open mr-2"></i>
