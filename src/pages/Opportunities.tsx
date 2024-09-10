@@ -35,6 +35,7 @@ const OpportunityPage: React.FC = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [lang , setLang] = useState(i18n.language);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   useEffect(() => {
     setLang(i18n.language);
@@ -56,25 +57,35 @@ const OpportunityPage: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const loadOpportunities = async (page: number) => {
-      setLoading(true);
-      try {
-        const response = await fetchOpportunities(`opportunities/opportunities/?page=${page}`);
-        setOpportunities(response.results.map(opportunity => ({
-          ...opportunity,
-          location: 'Unknown' // Default location as the fetched data does not have location
-        })));
-        setTotalPages(Math.ceil(response.count / 10)); // Assuming 10 items per page
-      } catch (error) {
-        console.error('Failed to load opportunities:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadOpportunities = async (page: number, query: string = '') => {
+    setLoading(true);
+    try {
+      const response = await fetchOpportunities(`opportunities/opportunities/?page=${page}&search=${query}`);
+      setOpportunities(response.results.map(opportunity => ({
+        ...opportunity,
+        location: 'Unknown' // Default location as the fetched data does not have location
+      })));
+      setTotalPages(Math.ceil(response.count / 10)); // Assuming 10 items per page
+    } catch (error) {
+      console.error('Failed to load opportunities:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    loadOpportunities(currentPage);
-  }, [currentPage]);
+  useEffect(() => {
+    loadOpportunities(currentPage, searchQuery);
+  }, [currentPage, searchQuery]);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setCurrentPage(1);
+    await loadOpportunities(1, searchQuery);
+  };
 
   // Exemple de données de partenaires
   const partners: Partner[] = [
@@ -109,11 +120,13 @@ const OpportunityPage: React.FC = () => {
           {/* Barre de recherche */}
         <AnimatedElement>
           <div className="flex justify-center mb-6">
-            <form className="w-full relative lg:mr-3 lg:pr-2">
+            <form className="w-full relative lg:mr-3 lg:pr-2" onSubmit={handleSearchSubmit}>
               <input
                 type="text"
                 placeholder={t('Opportunitiés.placeholder')}
                 className="w-full p-3 px-5 rounded-2xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
+                value={searchQuery}
+                onChange={handleSearchChange}
               />
               {/* Icône de recherche */}
               <button type='submit' className="absolute inset-y-0 right-5 flex items-center pr-5">

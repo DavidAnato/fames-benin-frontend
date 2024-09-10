@@ -204,40 +204,44 @@ const Post: React.FC = () => {
           />
 
           {/* Post Meta Information */}
-          <div className="flex items-center justify-between text-sm text-gray-600 mb-6">
-            <div className="flex items-center">
-              {post.author.profile_picture ? (
-                <img
-                  src={`${BASE_URL}${post.author.profile_picture}`}
-                  alt={post.author.first_name}
-                  className="w-10 h-10 rounded-full mr-2"
-                />
-              ) : post.author.picture_url ? (
-                <img
-                  src={post.author.picture_url}
-                  alt={post.author.first_name}
-                  className="w-10 h-10 rounded-full mr-2"
-                />
-              ) : (
-                <div className="w-10 h-10 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
-                  <i className="fas fa-user text-gray-400"></i>
-                </div>
-              )}
-              <span>{post.author.first_name} {post.author.last_name}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                {post.author.profile_picture ? (
+                  <img
+                    src={`${BASE_URL}${post.author.profile_picture}`}
+                    alt={post.author.first_name}
+                    className="w-10 h-10 rounded-full mr-2"
+                  />
+                ) : post.author.picture_url ? (
+                  <img
+                    src={post.author.picture_url}
+                    alt={post.author.first_name}
+                    className="w-10 h-10 rounded-full mr-2"
+                  />
+                ) : (
+                  <div className="w-10 h-10 bg-gray-200 rounded-full mr-2 flex items-center justify-center">
+                    <i className="fas fa-user text-gray-400"></i>
+                  </div>
+                )}
+                <span>{post.author.first_name} {post.author.last_name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="fas fa-calendar-alt text-gray-400"></i>
+                <span>{new Date(post.created_at).toLocaleDateString()}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <i className="fas fa-calendar-alt text-gray-400"></i>
-              <span>{new Date(post.created_at).toLocaleDateString()}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <button onClick={handleLikePost} className={`btn rounded-xl bg-transparent hover:bg-transparent border-none shadow-none ${hasLiked ? 'text-accent' : 'text-info hover:scale-150 hover:rotate-12'}`}>
-                <i className="fas fa-thumbs-up text-2xl"></i>
-              </button>
-              <span>{post.likes_count === 0 ? 'No Likes' : post.likes_count === 1 ? '1 Like' : `${post.likes_count} Likes`}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <i className="fas fa-comments text-gray-400"></i>
-              <span>{post.comments_count === 0 ? 'No Comments' : post.comments_count === 1 ? '1 Comment' : `${post.comments_count} Comments`}</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <button onClick={handleLikePost} className={`btn rounded-xl bg-transparent hover:bg-transparent border-none shadow-none ${hasLiked ? 'text-accent' : 'text-info hover:scale-150 hover:rotate-12'}`}>
+                  <i className="fas fa-thumbs-up text-2xl"></i>
+                </button>
+                <span>{post.likes_count === 0 ? 'No Likes' : post.likes_count === 1 ? '1 Like' : `${post.likes_count} Likes`}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="fas fa-comments text-gray-400"></i>
+                <span>{post.comments_count === 0 ? 'No Comments' : post.comments_count === 1 ? '1 Comment' : `${post.comments_count} Comments`}</span>
+              </div>
             </div>
           </div>
 
