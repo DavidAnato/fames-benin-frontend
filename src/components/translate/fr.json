@@ -248,6 +248,18 @@
               "DateJoined":"Date d'adhésion :",
               "LastLogin":"Dernière connexion :",
               "Bio":"Biographie",
-              "Logout":"Déconnexion"
-            }
+              "Logout":"Déconnexion",
+              "Partenaires":"Nos Partenaires",
+
+              "RecentArticles": "Articles Récents",
+              "Comments":"Commentaires",
+              "Tags":"Mots clés",
+              "Likes":"J'aimes",
+              "OneLike" :"1 J'aime",
+              "NoLikes":"Pas de J'aime",
+              "NoComments": "Pas de commentaires",
+              "OneComment": "1 commentaire",
+              "addComment": "Ajouter un commentaire...",
+              "addCommentButton": "Ajouter un commentaire"
+          }
   

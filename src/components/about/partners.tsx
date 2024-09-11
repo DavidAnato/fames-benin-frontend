@@ -77,7 +77,7 @@ const Partners = () => {
   
   return (
     <section className="">
-      <h2 className="text-3xl font-bold text-center my-5">{t('Nos Partenaires')}</h2>
+      <h2 className="text-3xl font-bold text-center my-5">{t('Partenaires')}</h2>
       <div className="mx-auto">
         {partners.map((partner, index) => (
           <AnimatedElement key={index}>

@@ -249,6 +249,18 @@
             "DateJoined": "Date Joined:",
             "LastLogin": "Last Login:",
             "Bio": "Biography",
-            "Logout": "Logout"
+            "Logout": "Logout",
+            "Partenaires":"Partners",
+            
+            "RecentArticles": "Recent Articles",
+            "Comments": "Comments",
+            "Tags": "Tags",
+            "Likes": "Likes",
+            "OneLike": "1 Like",
+            "NoLikes": "No Likes",
+            "NoComments": "No Comments",
+            "OneComment": "1 Comment",
+            "addComment": "Add a comment...",
+            "addCommentButton": "Add Comment"
   }
   
