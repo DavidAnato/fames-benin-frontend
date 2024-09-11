@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchImageList, GalleryImage as GalleryImageType } from '../../fetch/galleryFetch';
 import AnimatedElement from '../../function/AnimatedElement';
+import { useTranslation } from 'react-i18next';
+
 
 interface ImagesProps {
   albumId?: string;
@@ -143,12 +145,13 @@ const Images: React.FC<ImagesProps> = ({ albumId }) => {
     // Ajouter l'image à la colonne avec le moins d'images
     columnImages[minColumnIndex].push(image);
   });
+  const { t } = useTranslation(); // Utiliser le hook pour accéder aux fonctions de traduction
 
   return (
     <div className="mx-auto px-5">
       {images.length === 0 && !isLoading && (
         <div className="flex justify-center mt-4">
-          <span>No images available.</span>
+          <span>{t('NoImagesAvailable')}</span>
         </div>
       )}
       <div className="flex gap-4">

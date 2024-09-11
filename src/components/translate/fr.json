@@ -260,6 +260,8 @@
               "NoComments": "Pas de commentaires",
               "OneComment": "1 commentaire",
               "addComment": "Ajouter un commentaire...",
-              "addCommentButton": "Ajouter un commentaire"
+              "addCommentButton": "Ajouter un commentaire",
+              
+              "NoImagesAvailable": "Aucune image disponible"
           }
   

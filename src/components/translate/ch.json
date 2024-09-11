@@ -259,5 +259,7 @@
       "NoComments": "没有评论",
       "OneComment": "1条评论",
       "addComment": "添加评论...",
-      "addCommentButton": "添加评论"
+      "addCommentButton": "添加评论",
+
+      "NoImagesAvailable": "没有可用的图片"
 }

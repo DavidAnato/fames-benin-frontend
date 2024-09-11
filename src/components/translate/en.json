@@ -251,7 +251,7 @@
             "Bio": "Biography",
             "Logout": "Logout",
             "Partenaires":"Partners",
-            
+
             "RecentArticles": "Recent Articles",
             "Comments": "Comments",
             "Tags": "Tags",
@@ -261,6 +261,8 @@
             "NoComments": "No Comments",
             "OneComment": "1 Comment",
             "addComment": "Add a comment...",
-            "addCommentButton": "Add Comment"
+            "addCommentButton": "Add Comment",
+
+            "NoImagesAvailable": "No images available"
   }
   
