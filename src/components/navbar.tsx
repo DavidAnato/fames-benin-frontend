@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import useUserProfile from '../hooks/user';
 import useAuthStore from '../store/authStore';
 import { useTranslation } from 'react-i18next';
-import TranslationDropdown from './TranslationDropdown'; // Import the new component
+import TranslationDropdown from './TranslationDropdown';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
@@ -32,6 +32,20 @@ const NavBar = () => {
       document.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (user?.picture_url) {
+      const imageUrl = user.picture_url;
+      const img = new Image();
+      img.src = imageUrl;
+      img.onload = () => {
+        const imgElement = document.getElementById("user-photo") as HTMLImageElement;
+        if (imgElement) {
+          imgElement.src = imageUrl;
+        }
+      };
+    }
+  }, [user]);
 
   const handleLogout = () => {
     clearAuth();
@@ -114,7 +128,7 @@ const NavBar = () => {
                   <div className="w-10 rounded-full flex items-center justify-center">
                     {user.profile_picture || user.picture_url ? (
                       <img
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="w-10 h-10 rounded-full object-cover user-photo"
                         alt={t('navbar.userAvatarAlt')}
                         src={user.profile_picture || user.picture_url}
                       />
