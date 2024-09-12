@@ -247,5 +247,19 @@
       "DateJoined": "加入日期",
       "LastLogin": "最后登录",
       "Bio": "简介",
-      "Logout": "登出"
+      "Logout": "登出",
+      "Partenaires":"合作伙伴",
+
+      "RecentArticles": "最新文章",
+      "Comments": "评论",
+      "Tags": "标签",
+      "Likes": "点赞",
+      "OneLike": "1个点赞",
+      "NoLikes": "没有点赞",
+      "NoComments": "没有评论",
+      "OneComment": "1条评论",
+      "addComment": "添加评论...",
+      "addCommentButton": "添加评论",
+
+      "NoImagesAvailable": "没有可用的图片"
 }

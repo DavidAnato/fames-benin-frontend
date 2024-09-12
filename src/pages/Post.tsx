@@ -5,6 +5,7 @@ import useAuthStore from '../store/authStore';
 import WebPushMessage from '../components/authComponents/message';
 import AnimatedElement from '../function/AnimatedElement';
 import parse from 'html-react-parser';
+import { useTranslation } from 'react-i18next';
 
 const BASE_URL = process.env.API_URL;
 const Post: React.FC = () => {
@@ -20,6 +21,7 @@ const Post: React.FC = () => {
   const [newComment, setNewComment] = useState<string>('');
   const { user } = useAuthStore();
   const [hasLiked, setHasLiked] = useState<boolean>(false);
+  const { t } = useTranslation(); // Utiliser le hook pour accéder aux fonctions de traduction
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -168,12 +170,13 @@ const Post: React.FC = () => {
       </div>
     );
   }
+  // const { t } = useTranslation(); // Utiliser le hook pour accéder aux fonctions de traduction
 
   return (
     <AnimatedElement>
       <div className="px-8 py-10 pt-[9rem] lg:flex grid gap-32">
         <aside className="hidden lg:block w-1/4 pr-10 sticky self-start top-[8em]">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Articles Récents</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">{t("RecentArticles")}</h2>
           <div className="space-y-4 overflow-y-auto h-[70vh]">
             {recentArticles.map((article, index) => (
               <Link to={`/news/${article.slug}`} key={article.id || `article-${index}`} className="card hover:bg-base-200 border transition-colors pt-4">
@@ -236,11 +239,18 @@ const Post: React.FC = () => {
                 <button onClick={handleLikePost} className={`btn rounded-xl bg-transparent hover:bg-transparent border-none shadow-none ${hasLiked ? 'text-accent' : 'text-info hover:scale-150 hover:rotate-12'}`}>
                   <i className="fas fa-thumbs-up text-2xl"></i>
                 </button>
-                <span>{post.likes_count === 0 ? 'No Likes' : post.likes_count === 1 ? '1 Like' : `${post.likes_count} Likes`}</span>
+                <span>
+                  {post.likes_count === 0 ? t('NoLikes') : post.likes_count === 1 ? t('OneLike') : `${post.likes_count} ${t('Likes')}`}</span>
               </div>
               <div className="flex items-center gap-2">
                 <i className="fas fa-comments text-gray-400"></i>
-                <span>{post.comments_count === 0 ? 'No Comments' : post.comments_count === 1 ? '1 Comment' : `${post.comments_count} Comments`}</span>
+                <span>
+  {post.comments_count === 0 
+    ? t('NoComments') 
+    : post.comments_count === 1 
+      ? t('OneComment') 
+      : `${post.comments_count} ${t('Comments')}`}
+</span>
               </div>
             </div>
           </div>
@@ -252,7 +262,7 @@ const Post: React.FC = () => {
           </p>
 
           <div className="mt-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">Tags</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">{t("Tags")}</h2>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span
@@ -267,12 +277,12 @@ const Post: React.FC = () => {
           </div>
         </div>
         <aside className="lg:w-1/4 w-full pl-4 lg:sticky self-start top-[8em] ">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Commentaires</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">{t("Comments")}</h2>
           <form onSubmit={handleCommentSubmit} className="my-4 text-end">
             <textarea
               className="textarea textarea-bordered w-full"
               rows={2}
-              placeholder="Ajouter un commentaire..."
+              placeholder={t('addComment')}
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
             />
@@ -280,8 +290,8 @@ const Post: React.FC = () => {
               type="submit"
               className="btn btn-accent px-4 py-2  rounded-lg"
             >
-              Ajouter un commentaire
-            </button>
+        {t('addCommentButton')} {/* Utilisez aussi la traduction ici */}
+        </button>
           </form>
           <div className="space-y-4 lg:overflow-y-auto lg:h-[70vh]">
             {comments.map((comment, index) => (
