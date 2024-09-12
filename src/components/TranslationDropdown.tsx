@@ -50,9 +50,9 @@ const TranslationDropdown: React.FC<TranslationDropdownProps> = ({ bgColor, isDr
         } else {
           localStorage.setItem('language', lng);
         }
-        setIsOpen(false); // Close the dropdown menu
+        setIsOpen(false);
         setLoadingLanguage(null);
-      }, 1000);
+      }, 500);
     }
   };
 
