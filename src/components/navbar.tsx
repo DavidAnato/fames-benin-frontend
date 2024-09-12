@@ -128,7 +128,8 @@ const NavBar = () => {
                   <div className="w-10 rounded-full flex items-center justify-center">
                     {user.profile_picture || user.picture_url ? (
                       <img
-                        className="w-10 h-10 rounded-full object-cover user-photo"
+                        id='user-photo'
+                        className="w-10 h-10 rounded-full object-cover"
                         alt={t('navbar.userAvatarAlt')}
                         src={user.profile_picture || user.picture_url}
                       />
