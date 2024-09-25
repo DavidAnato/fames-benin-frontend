@@ -9,11 +9,11 @@ export default defineConfig({
   },
   define: {
     'process.env': {
-      API_URL: 'https://fames-backend.connect-me-app.com/',
+      API_URL: 'https://api.famesbenin.org/',
       // API_URL: 'http://localhost:8000/',
-      GOOGLE_CLIENT_ID: '435871596858-5tvfi6mhvdr1i60ktgsjl67d6brclkl4.apps.googleusercontent.com',
+      GOOGLE_CLIENT_ID: '490203159437-jdpgvk4mrkpmqfr8rvp9ud35170okoib.apps.googleusercontent.com',
       // redirectURI: 'https://davidanato.github.io/fames-benin-frontend/',
-      redirectURI: 'http://localhost:3000/'
+      redirectURI: 'https://www.famesbenin.org/'
     }
   }
 })

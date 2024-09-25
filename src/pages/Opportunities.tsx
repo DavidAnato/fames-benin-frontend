@@ -77,12 +77,36 @@ const OpportunityPage: React.FC = () => {
     loadOpportunities(currentPage, searchQuery);
   }, [currentPage, searchQuery]);
 
+  useEffect(() => {
+    const fetchSearchResults = async () => {
+      if (searchQuery.length >= 3) {
+        try {
+          setLoading(true);
+          const response = await fetchOpportunities(`opportunities/opportunities/?search=${searchQuery}`);
+          setOpportunities(response.results.map(opportunity => ({
+            ...opportunity,
+            location: 'Unknown' // Default location as the fetched data does not have location
+          })));
+          setTotalPages(Math.ceil(response.count / 10)); // Assuming 10 items per page
+          setLoading(false);
+        } catch (error) {
+          console.error('Failed to fetch search results:', error);
+          setLoading(false);
+        }
+      } else if (searchQuery.length === 0) {
+        loadOpportunities(currentPage);
+      }
+    };
+
+    fetchSearchResults();
+  }, [searchQuery]);
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
   const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault(); 
     setCurrentPage(1);
     await loadOpportunities(1, searchQuery);
   };
