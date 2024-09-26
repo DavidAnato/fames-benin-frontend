@@ -1,4 +1,7 @@
 {
+  "OtpSentToEmail": "Un OTP a été envoyé à votre adresse e-mail.",
+  "NewPasswordAndConfirmPasswordDoNotMatch": "Le nouveau mot de passe et la confirmation du mot de passe ne correspondent pas.",
+  "PasswordResetSuccessfully": "Réinitialisation du mot de passe réussie.",
     "welcome1": "Bienvenue à FAMES BENIN",
     "welcome2": "La Fédération des Étudiants et Stagiaires Béninois en Chine",
     "mission": "Notre mission est d'agir comme un centre dédié à la recherche continue de solutions de développement dans le cadre de la coopération sino-béninoise.",
@@ -263,5 +266,5 @@
               "addCommentButton": "Ajouter un commentaire",
               
               "NoImagesAvailable": "Aucune image disponible"
-          }
+    }
   

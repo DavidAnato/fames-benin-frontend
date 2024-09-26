@@ -66,6 +66,7 @@ const Register = () => {
       const message = await register(payload);
       setMessage(message);
       setMessageType('success');
+      localStorage.setItem('email', email);
       navigate('/active-email');
     } catch (error: any) {
       setMessage(error.message);

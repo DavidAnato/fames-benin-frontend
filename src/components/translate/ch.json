@@ -1,4 +1,7 @@
 {
+  "OtpSentToEmail": "一个OTP已发送到您的电子邮件地址。",
+  "NewPasswordAndConfirmPasswordDoNotMatch": "新密码和确认密码不匹配。",
+  "PasswordResetSuccessfully": "密码重置成功。",
     "welcome1": "欢迎来到FAMES BENIN",
     "welcome2": "中国贝南学生和实习生联合会",
     "mission": "我们的使命是作为一个致力于持续研究和发展中贝合作解决方案的中心。",
