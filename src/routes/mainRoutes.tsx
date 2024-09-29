@@ -7,6 +7,7 @@ import Post from '../pages/Post';
 import Gallery from '../pages/Gallery';
 import AboutPage from '../pages/About';
 import OpportunityPage from '../pages/Opportunities';
+import ConsularCardRequest from '../pages/consularCard';
 
 const MainRoutes = [
   <Route key="home" path="/" Component={Home} />,
@@ -17,6 +18,7 @@ const MainRoutes = [
   <Route key="gallery" path="/gallery" Component={Gallery} />,
   <Route key="about" path="/about-us" Component={AboutPage} />,
   <Route key="opportunities" path="/opportunities" Component={OpportunityPage} />,
+  <Route key="consular-card" path="/consular-card" element={<ConsularCardRequest />} />,
 ];
 
 export default MainRoutes;
