@@ -146,12 +146,13 @@ const Post: React.FC = () => {
     }
     if (hasLiked) return;
 
+    setHasLiked(true);
     try {
       await likePost({ user: user.id, post: post!.id.toString() });
-      setHasLiked(true);
       setPost(prevPost => prevPost ? { ...prevPost, likes_count: prevPost.likes_count + 1 } : prevPost);
     } catch (error) {
       console.error('Failed to like post:', error);
+      setHasLiked(false);
     }
   };
 

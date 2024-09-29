@@ -28,6 +28,9 @@ const ActiveEmail = () => {
     } else {
       window.scrollTo(0, 0);
     }
+  });
+  
+  useEffect(() => {
     setMessage(t('OtpSentToEmail'));
     setMessageType('info');
   }, [t]);

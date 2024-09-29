@@ -2,6 +2,7 @@
   "OtpSentToEmail": "Un OTP a été envoyé à votre adresse e-mail.",
   "NewPasswordAndConfirmPasswordDoNotMatch": "Le nouveau mot de passe et la confirmation du mot de passe ne correspondent pas.",
   "PasswordResetSuccessfully": "Réinitialisation du mot de passe réussie.",
+  "EmailSentMessage": "Le code OTP a été envoyé dans votre boit mail",
     "welcome1": "Bienvenue à FAMES BENIN",
     "welcome2": "La Fédération des Étudiants et Stagiaires Béninois en Chine",
     "mission": "Notre mission est d'agir comme un centre dédié à la recherche continue de solutions de développement dans le cadre de la coopération sino-béninoise.",
@@ -201,7 +202,7 @@
               "consulatNB4" :"Traitement de dossier : 72h",
               "consulatI?nfo": "Exemplaire de fiche de renseignements",
 
-              "ActivateEmail": "Activer le courrier électronique",
+              "ActivateEmail": "Activer votre E-mail",
               "Submit":"Soumettre",
 
               "ChangePassword":"Changer le mot de passe",

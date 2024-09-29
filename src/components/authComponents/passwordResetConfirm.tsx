@@ -35,6 +35,11 @@ const PasswordResetConfirm: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setMessage(t('EmailSentMessage'));
+    setMessageType('info');
+  }, [t]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const value = e.target.value;
     if (/^\d$/.test(value) || value === '') {

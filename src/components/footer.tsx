@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               <ul>
                 <li><MapPin size={20} className="inline-block mr-2" /><span className="link hover:text-gray-300">Chongqing - CHINA</span></li>
                 <li><Building size={20} className="inline-block mr-2" /><span className="link hover:text-gray-300">FAMES BENIN China</span></li>
-                <li><Mail size={20} className="inline-block mr-2" /><a href="mailto:contact@famesbenin.com" className="link hover:text-gray-300">contact@famesbenin.com</a></li>
+                <li><Mail size={20} className="inline-block mr-2" /><a href="mailto:contact@famesbenin.org" className="link hover:text-gray-300">contact@famesbenin.org</a></li>
                 <li><Phone size={20} className="inline-block mr-2" /><a href="tel:+8613841480424" className="link hover:text-gray-300">+86 1384 1480 424</a></li>
               </ul>
             </div>
