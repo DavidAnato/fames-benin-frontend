@@ -174,6 +174,14 @@ const UserProfile: React.FC = () => {
                             </div>
                         </div>
                         <div className="flex justify-center mt-6 space-x-4">
+                            {!user.verified_email && (
+                                <Link
+                                    to="/email-verification"
+                                    className="btn btn-warning btn-outline btn-sm px-6 py-2 sm:rounded-xl rounded-lg w-full sm:w-auto"
+                                >
+                                    <i className="fas fa-envelope mr-2"></i>{t("VerifyEmail")}
+                                </Link>
+                            )}
                             <Link
                                 to="/change-password"
                                 className="btn btn-info btn-outline btn-sm px-6 rounded-xl"
@@ -269,6 +277,14 @@ const UserProfile: React.FC = () => {
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row justify-center items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
+                            {!staticUser.verified_email && (
+                                <Link
+                                    to="/email-verification"
+                                    className="btn btn-warning btn-outline btn-sm px-6 py-2 sm:rounded-xl rounded-lg w-full sm:w-auto"
+                                >
+                                    <i className="fas fa-envelope mr-2"></i>{t("VerifyEmail")}
+                                </Link>
+                            )}
                             <Link
                                 to="/change-password"
                                 className="btn btn-info btn-outline btn-sm px-6 py-2 sm:rounded-xl rounded-lg w-full sm:w-auto"

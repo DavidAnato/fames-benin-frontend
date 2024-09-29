@@ -43,7 +43,7 @@ const EmailValidateRequest = () => {
             setMessage(error.message);
             setMessageType('error');
             setTimeout(() => {
-                navigate(user ? '/' : '/login');
+                navigate(user ? '/profile' : '/login');
                 setMessage('');
             }, 10000); // Reset error message after 10 seconds
         } finally {

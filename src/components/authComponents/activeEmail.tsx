@@ -4,6 +4,7 @@ import { activateEmail } from '../../fetch/authFetch';
 import famesLogo from '../../assets/images/logos/fames-logo.png';
 import WebPushMessage from './message';
 import { useTranslation } from 'react-i18next';
+import { emailValidateRequest } from '../../fetch/authFetch';
 
 const ActiveEmail = () => {
   const [otp, setOtp] = useState(['', '', '', '', '']);
@@ -76,6 +77,23 @@ const ActiveEmail = () => {
     }
   };
 
+  const handleResendOtp = async () => {
+    try {
+      const email = localStorage.getItem('email');
+      if (email) {
+        await emailValidateRequest(email);
+        setMessage(t('OtpResentToEmail'));
+        setMessageType('info');
+      } else {
+        setMessage(t('EmailNotFound'));
+        setMessageType('error');
+      }
+    } catch (error: any) {
+      setMessage(error.message || t('ErrorOccurred'));
+      setMessageType('error');
+    }
+  };
+  
   return (
     <div className="flex items-center justify-center min-h-screen">
       {message && <WebPushMessage msg={message} type={messageType} />}
@@ -107,6 +125,15 @@ const ActiveEmail = () => {
             <button type="submit" className="btn btn-accent w-full rounded-full shadow shadow-emerald-500/50" disabled={loading}>
               {loading ? <span className="loading loading-spinner"></span> : t("Submit")}
             </button>
+          <button 
+            type="button" 
+            className="link rounded-full mt-4 flex items-center" 
+            onClick={handleResendOtp}
+            disabled={loading}
+          >
+            <i className="fas fa-redo mr-2"></i>
+            {t("ResendOTP")}
+          </button>
           </div>
         </form>
       </div>

@@ -2,6 +2,8 @@
   "OtpSentToEmail": "一个OTP已发送到您的电子邮件地址。",
   "NewPasswordAndConfirmPasswordDoNotMatch": "新密码和确认密码不匹配。",
   "PasswordResetSuccessfully": "密码重置成功。",
+  "ResendOTP": "重新发送OTP",
+  "OtpResentToEmail": "OTP已重新发送到您的电子邮件地址。如果电子邮件不在收件箱中，请检查您的垃圾邮件。",
     "EmailSentMessage": "OTP代码已发送到您的电子邮件。",
     "welcome1": "欢迎来到FAMES BENIN",
     "welcome2": "中国贝南学生和实习生联合会",

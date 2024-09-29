@@ -3,6 +3,8 @@
   "NewPasswordAndConfirmPasswordDoNotMatch": "The new password and confirmation password do not match.",
   "PasswordResetSuccessfully": "Password reset successfully.",
   "EmailSentMessage": "The OTP code has been sent to your email.",
+  "ResendOTP": "Resend OTP",
+  "OtpResentToEmail": "The OTP has been resent to your email address. Please check your spam folder if the email is not in your inbox.",
     "welcome1": "Welcome to FAMES BENIN",
     "welcome2": "The Federation of Beninese Students and Interns in China",
     "mission": "Our mission is to act as a center dedicated to the ongoing quest for development solutions within the framework of Sino-Beninese cooperation.",

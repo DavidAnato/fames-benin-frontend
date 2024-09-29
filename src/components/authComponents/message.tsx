@@ -29,7 +29,7 @@ const WebPushMessage: React.FC<WebPushMessageProps> = ({ msg, type }) => {
 
   return (
     <div className=''>
-      <div className={`message-anime fixed bottom-4 left-4 p-4 rounded-full shadow-lg text-white ${bgColor} flex items-center z-[1000]`}>
+      <div className={`message-anime fixed bottom-4 left-4 p-4 rounded-full shadow-lg text-white ${bgColor} flex items-center mr-4 z-[1000]`}>
         <span className="flex-grow">{msg}</span>
         <button onClick={() => {
           setVisible(false);
