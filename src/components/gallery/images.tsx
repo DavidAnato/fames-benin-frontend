@@ -3,7 +3,6 @@ import { fetchImageList, GalleryImage as GalleryImageType } from '../../fetch/ga
 import AnimatedElement from '../../function/AnimatedElement';
 import { useTranslation } from 'react-i18next';
 
-
 interface ImagesProps {
   albumId?: string;
 }
@@ -14,6 +13,9 @@ const Images: React.FC<ImagesProps> = ({ albumId }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [columns, setColumns] = useState<number>(0);
+  const [loadingImages, setLoadingImages] = useState<{ [key: number]: boolean }>({});
+  const [imageDimensions, setImageDimensions] = useState<{ [key: number]: { width: number; height: number } }>({});
+  const [skeletonVisible, setSkeletonVisible] = useState<{ [key: number]: boolean }>({}); // État pour le skeleton
 
   useEffect(() => {
     setColumns(getColumns());
@@ -25,6 +27,8 @@ const Images: React.FC<ImagesProps> = ({ albumId }) => {
       const { results, next } = await fetchImageList(null, albumId);
       setImages(shuffleArray(results));
       setNextPageUrl(next);
+      setLoadingImages({}); // Réinitialiser l'état de chargement
+      setSkeletonVisible(results.reduce((acc, _, index) => ({ ...acc, [index]: true }), {})); // Afficher le skeleton pour chaque image
       setIsLoading(false);
     } catch (error) {
       console.error('Failed to fetch data:', error);
@@ -127,6 +131,15 @@ const Images: React.FC<ImagesProps> = ({ albumId }) => {
     };
   }, []);
 
+  const handleImageLoad = (index: number, img: HTMLImageElement) => {
+    setLoadingImages(prev => ({ ...prev, [index]: false }));
+    setSkeletonVisible(prev => ({ ...prev, [index]: false })); // Cacher le skeleton
+    setImageDimensions(prev => ({
+      ...prev,
+      [index]: { width: img.width, height: img.height },
+    }));
+  };
+
   // Initialiser les colonnes avec des tableaux vides
   const columnImages: GalleryImageType[][] = Array.from({ length: columns }, () => []);
 
@@ -160,12 +173,30 @@ const Images: React.FC<ImagesProps> = ({ albumId }) => {
             {col.map((image, _index) => (
               <AnimatedElement key={image.id}>
                 <div className="break-inside-avoid mb-4">
+                  {skeletonVisible[_index] && (
+                    <div
+                      className="bg-gray-200 animate-pulse" // Ajout d'une animation pour le skeleton
+                      style={{
+                        width: '100%',
+                        height: '200px', // Hauteur par défaut, peut être ajustée
+                      }}
+                    />
+                  )}
                   <img
                     loading="lazy"
                     className="w-full h-auto block border-base-content bg-base-300 rounded-btn border border-opacity-5 object-cover cursor-pointer"
                     alt={image.title}
                     src={image.image || ''}
+                    onLoad={(e) => handleImageLoad(_index, e.currentTarget)}
+                    onError={() => {
+                      setLoadingImages(prev => ({ ...prev, [_index]: false }));
+                      setSkeletonVisible(prev => ({ ...prev, [_index]: false })); // Cacher le skeleton en cas d'erreur
+                    }}
                     onClick={() => openModal(images.indexOf(image))}
+                    onLoadStart={() => {
+                      setLoadingImages(prev => ({ ...prev, [_index]: true }));
+                      setSkeletonVisible(prev => ({ ...prev, [_index]: false })); // Cacher le skeleton au début du chargement
+                    }}
                   />
                 </div>
               </AnimatedElement>
